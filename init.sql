@@ -117,7 +117,7 @@ CREATE TABLE `events` (
   `event_end_time` time NOT NULL,
   `event_webpage` varchar(100) NOT NULL,
   `event_vote_app` tinyint(4) NOT NULL DEFAULT '0',
-  `event_vote_valid` tinyint(4) DEFAULT NULL,
+  `event_vote_valid` tinyint(4) DEFAULT '0',
   `unique_str` varchar(8) NOT NULL,
   `set_floormap` tinyint(1) DEFAULT '0',
   `set_topimage` tinyint(1) NOT NULL DEFAULT '0',
