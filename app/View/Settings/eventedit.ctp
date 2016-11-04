@@ -23,6 +23,35 @@ if(! $this->requestAction('/settings/checkPermission/'.$login_user_id.'/'.$event
 ?>
 <script type="text/javascript">
  $(function(){
+	$(document).ready(function(){
+        //RadioボタンのUIの調節
+        //Labelのdisplay:inline-blockを無効にされてたので、上書きして整形
+        $('label[for="EventEventVoteApp0"]').attr('style','display:inline-block !important');
+        $('label[for="EventEventVoteApp1"]').attr('style','display:inline-block !important');
+        $('label[for="EventEventVoteValid0"]').attr('style', 'display:inline-block !important');
+        $('label[for="EventEventVoteValid1"]').attr('style', 'display:inline-block !important');
+
+        //投票するかのRadioボタンの<legend>タグを他のinputと同様である<label>に変更
+        $('input.vote').parent().children('legend').replaceWith('<label>Is Used Vote App</label>');
+        $('input.vaildVote').parent().children('legend').replaceWith('<label>Valid Oldest or Latest Vote</label>');
+
+		//投票アプリを無効していた場合は、有効投票の設定は disabled にする。
+		if($('input[name="data[Event][event_vote_app]"]:checked').val() === '1'){
+            $('input[name="data[Event][event_vote_valid]"]').prop('disabled', true);
+		}
+	});
+
+	//投票アプリを使用する場合のみ、最新 or 最古のどちらを有効投票とするのかを選択できるようにした。
+    $('input[name="data[Event][event_vote_app]"]').change(function(){
+        //投票アプリ有効の場合は、最新 or 最古のradioボタンをabled
+        if($(this).val() === '0'){
+            $('input[name="data[Event][event_vote_valid]"]').prop('disabled', false);
+        //投票アプリ無効の場合は、最新 or 最古のradioボタンをdisabled
+        } else if($(this).val() === '1'){
+            $('input[name="data[Event][event_vote_valid]"]').prop('disabled', true);
+        }
+    });
+
 	$('#EventEventeditForm').submit(function(){
 		// イベント名
 		var eventName = $('#EventEventName').val();
@@ -36,32 +65,32 @@ if(! $this->requestAction('/settings/checkPermission/'.$login_user_id.'/'.$event
 		var endMonth = $('#EventEventEndDateMonth').val();
 		var endDay = $('#EventEventEndDateDay').val();
 		var enddate = new Date( endYear + "/" + endMonth + "/" + endDay );
-		
+
 		var daysDiff = getDiff(startdate, enddate);
-		
+
 		var starttime = parseInt($('#EventEventBeginTimeHour').val()*60) + parseInt($('#EventEventBeginTimeMin').val());
 		var endtime = parseInt($('#EventEventEndTimeHour').val()*60) + parseInt($('#EventEventEndTimeMin').val());
-		
+
 		if($('#EventEventBeginTimeMeridian').val() == 'pm'){
 			starttime=starttime+720;
 		}
 		if($('#EventEventEndTimeMeridian').val() == 'pm'){
 			endtime=endtime+720;
 		}
-		
+
 		// エラーフラグ
 		var errFlg = false;
 		// エラーメッセージを空に
 		err_box = $('.error-messages');
 		err_box.empty();
-		
+
 		if(eventName == '' || eventName == undefined || eventName == null){
 			// イベント名が空の場合
 			err_elm = $('<p>').text("Event Name is required.");
 			err_box.append(err_elm);
 			errFlg = true;
 		}
-		
+
 		if(!dateValidate(startYear, startMonth, startDay)){
 			// 開始日が存在しない日付の場合
 			err_elm = $('<p>').text("Event Start Date ("+startYear+"/"+startMonth+"/"+startDay+") is not exist.");
@@ -74,7 +103,7 @@ if(! $this->requestAction('/settings/checkPermission/'.$login_user_id.'/'.$event
 			err_box.append(err_elm);
 			errFlg = true;
 		}
-		
+
 		if(daysDiff == 1){
 			if(endtime<=starttime){
 			//イベントが一日の時、開始日時が終了日時より遅い場合
@@ -94,26 +123,26 @@ if(! $this->requestAction('/settings/checkPermission/'.$login_user_id.'/'.$event
 			err_box.append(err_elm);
 			errFlg = true;
 		}
-		
+
 		// エラーが１つでもあればエラーメッセージを表示する
 		if(errFlg){
 			slideDown(err_box);
 			return false;
 		}
 	})
-	
+
 	// 開始日と終了日の差の日数を算出する処理
 	function getDiff(startdate, enddate){
 		var msDiff = enddate.getTime() - startdate.getTime();
 		var daysDiff = Math.floor(msDiff / (1000 * 60 * 60 * 24));
 		return ++daysDiff;
 	}
-	
+
 	// エラーメッセージをスライドで表示させる
 	function slideDown(slideEle){
 		slideEle.slideDown(300).removeClass('disno');
 	}
-	
+
 	// 存在する日かどうかチェック
 	function dateValidate(y, m, d){
 		var date = new Date(y, (m-1), d);
@@ -135,6 +164,8 @@ echo $this->Form->input('event_begin_time', array('class'=>'form-control','defau
 echo $this->Form->input('event_end_date', array('class'=>'form-control','default' => $datas["Event"]["event_end_date"],'required' => false));
 echo $this->Form->input('event_end_time', array('class'=>'form-control','default' => $datas["Event"]["event_end_time"],'required' => false));
 echo $this->Form->input('event_webpage', array('class'=>'form-control','default' => $datas["Event"]["event_webpage"],'required' => false));
+echo $this->Form->radio('event_vote_app', array('0' => 'On', '1' => 'Off'), array('value'=>$datas["Event"]["event_vote_app"], 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vote'));
+echo $this->Form->radio('event_vote_valid', array('0' => 'Oldest', '1' => 'Latest'), array('value'=>$datas["Event"]["event_vote_valid"], 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
 echo $this->Form->input('event_top_image', array('type'=>'file','required' => false));
 echo $this->Form->submit('Update', array('class'=>'btn btn-custom'));
 // 既にトップページ用画像がアップロードされている場合、トップページのイメージを表示
