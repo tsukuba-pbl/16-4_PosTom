@@ -4,7 +4,7 @@ class EventsController extends AppController {
 
 	public $helpers = array('Html', 'Form');
 	public $uses = array('Event','Poster','Editor');
-	
+
 
 	public function index() {
 		// ログイン中ユーザID取得
@@ -31,7 +31,7 @@ class EventsController extends AppController {
 				'event_begin_date'=>'DESC','event_begin_time'=>'DESC'
 			)
 		)));
-		
+
 		$this->set('title_for_layout', 'イベント一覧');
 	}
 
@@ -144,7 +144,7 @@ class EventsController extends AppController {
 		$diff = ($timeDiff / (60 * 60 * 24)) + 1;
 		return $diff;
 	}
-	
+
 	/* イベントのポスター背景図がセットされたときの処理 */
 	public function setPosterBackground() {
 		$this->autoRender = FALSE;
@@ -159,14 +159,14 @@ class EventsController extends AppController {
 		}
 		//$this->Event->save($data);
 	}
-	
+
 	/* イベントのポスター背景図がセットされているかどうか */
 	public function isSetPosterBackground($str, $date) {
 		// ファイルパス
 		$path_jpg = "img/bg/".$str."_".$date.".jpg";
 		$path_png = "img/bg/".$str."_".$date.".png";
 		$path_gif = "img/bg/".$str."_".$date.".gif";
-		
+
 		// 指定のイベントと、指定の日数のポスター背景画像がアップロードされているかどうか
 		$isUploaded = false;
 		if (file_exists($path_jpg) || file_exists($path_png) || file_exists($path_gif)){
@@ -174,7 +174,7 @@ class EventsController extends AppController {
 		}
 		return $isUploaded;
 	}
-	
+
 	public function edit($id = null){
 		$this->Event->id = $id;
 		if($this->request->is('get')){
