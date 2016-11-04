@@ -110,7 +110,9 @@ class PosMappsController extends AppController {
             "start_date" : "' . $event['Event']['event_begin_date'] . '",
             "end_date" : "' .$event['Event']['event_end_date'] . '",
             "venue" : "'. $event['Event']['event_location'] .'",
-            "event_webpage" : "' . $event['Event']['event_webpage'] . '"
+            "event_webpage" : "' . $event['Event']['event_webpage'] . '",
+            "event_vote_app" : "' . $event['Event']['event_vote_app'] . '",
+            "event_vote_valid" : "' . $event['Event']['event_vote_valid'] . '"
         },
         "toppage_img":"'. str_replace('/','\/',$this->webroot).$topImg.'",
         "posmapp_bg":['.$posmapp_bg.'],'.$url.'
