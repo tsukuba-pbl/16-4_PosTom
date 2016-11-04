@@ -11,7 +11,7 @@ class AreasController extends AppController {
 			'conditions' => array('event_id' => $event_id)
 		));
 	}
-	
+
 	// エリア更新処理
 	public function update(){
 		$this->autoRender = FALSE;
@@ -23,7 +23,7 @@ class AreasController extends AppController {
 		}
 		return false;
 	}
-	
+
 	// エリア削除処理
 	public function delete(){
 		$this->autoRender = FALSE;
@@ -33,12 +33,12 @@ class AreasController extends AppController {
 		}
 		return false;
 	}
-	
+
 	// 裏コマンド：全件削除
 	public function deleteAreaAll(){
 		// 選択中のイベントのすべてのポスターを削除する
 		$this->Area->deleteAll(array('event_id' => $_SESSION['event_id']), false);
-		
+
 		// ポスター配置画面へ戻る
 		$this->redirect(array('controller' => 'posters', 'action'=>'index'));
 	}

@@ -51,6 +51,7 @@ class EventsController extends AppController {
 
 	public function add(){
 		if($this->request->is('post')){
+			var_dump($this->request->data);
 			// イベントを一意に示すユニークな文字列を生成する
 			$unique_str = self::createUniqueStr();
 			// イベントを一意に示すユニークな文字列を登録するデータに追加する

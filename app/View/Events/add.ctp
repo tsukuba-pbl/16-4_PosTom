@@ -10,10 +10,10 @@
 		$('#EventEventEndTimeMeridian').remove();
         //RadioボタンのUIの調節
         //Labelのdisplay:inline-blockを無効にされてたので、上書きして整形
-        $('label[for="EventIsusedVoteFunction0"]').attr('style','display:inline-block !important');
-        $('label[for="EventIsusedVoteFunction1"]').attr('style','display:inline-block !important');
-        $('label[for="EventValidOlddestOrLastestVote0"]').attr('style', 'display:inline-block !important');
-        $('label[for="EventValidOlddestOrLastestVote1"]').attr('style', 'display:inline-block !important');
+        $('label[for="EventEventVoteApp0"]').attr('style','display:inline-block !important');
+        $('label[for="EventEventVoteApp1"]').attr('style','display:inline-block !important');
+        $('label[for="EventEventVoteValid0"]').attr('style', 'display:inline-block !important');
+        $('label[for="EventEventVoteValid1"]').attr('style', 'display:inline-block !important');
 
         //投票するかのRadioボタンの<legend>タグを他のinputと同様である<label>に変更
         $('input.vote').parent().children('legend').replaceWith('<label>Is Used Vote App</label>');
@@ -21,13 +21,13 @@
     });
 
     //投票アプリを使用する場合のみ、最新 or 最古のどちらを有効投票とするのかを選択できるようにした。
-    $('input[name="data[Event][isused_vote_function]"]').change(function(){
+    $('input[name="data[Event][event_vote_app]"]').change(function(){
         //投票アプリ有効の場合は、最新 or 最古のradioボタンをabled
         if($(this).val() === '0'){
-            $('input[name="data[Event][valid_olddest_or_lastest_vote]"]').prop('disabled', false);
+            $('input[name="data[Event][event_vote_valid]"]').prop('disabled', false);
         //投票アプリ無効の場合は、最新 or 最古のradioボタンをdisabled
         } else if($(this).val() === '1'){
-            $('input[name="data[Event][valid_olddest_or_lastest_vote]"]').prop('disabled', true);
+            $('input[name="data[Event][event_vote_valid]"]').prop('disabled', true);
         }
     });
 	$('#EventAddForm').submit(function(){
@@ -141,7 +141,7 @@ echo $this->Form->input('event_begin_date', array('class'=>'form-control', 'onCh
 echo $this->Form->input('event_begin_time', array('class'=>'form-control', 'value' => '00:00:00', 'interval' => 10));
 echo $this->Form->input('event_end_date', array('class'=>'form-control'));
 echo $this->Form->input('event_end_time', array('class'=>'form-control', 'value' => '00:00:00', 'interval' => 10));
-echo $this->Form->radio('isused_vote_function', array('0' => 'On', '1' => 'Off'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vote'));
-echo $this->Form->radio('valid_olddest_or_lastest_vote', array('0' => 'Oldest', '1' => 'Latest'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
+echo $this->Form->radio('event_vote_app', array('0' => 'On', '1' => 'Off'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vote'));
+echo $this->Form->radio('event_vote_valid', array('0' => 'Oldest', '1' => 'Latest'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
 echo $this->Form->submit('Create', array('class'=>'btn btn-custom'));
 ?>
