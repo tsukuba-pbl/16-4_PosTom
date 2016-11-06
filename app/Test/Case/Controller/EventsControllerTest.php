@@ -3,7 +3,7 @@ App::uses('AppController', 'Controller');
 
 class EventsControllerTest extends ControllerTestCase {
 	public $fixtures = array('app.event');
-	
+
 	// viewテスト
 	public function testView(){
 		$expected = array(
@@ -16,6 +16,8 @@ class EventsControllerTest extends ControllerTestCase {
 					'event_begin_time' => '12:00:00',
 					'event_end_date' => '2015-01-02',
 					'event_end_time' => '12:00:00',
+					'event_vote_app' => 0,
+					'event_vote_valid' => 0,
 					'unique_str' => 'abcdefgh'
 				)
 			),
@@ -29,6 +31,6 @@ class EventsControllerTest extends ControllerTestCase {
 		);
 		$this->assertEquals($expected, $this->vars);
 	}
-	
+
 }
 ?>
