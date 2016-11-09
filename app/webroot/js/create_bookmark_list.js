@@ -6,11 +6,11 @@ function create_bookmark_list(json_file) {
         var ID, NAME, TITLE;
 
         checkboxContents += "<div data-role='controlgroup' style='overflow-y:scroll;height:70vh'>";
-;
+
         var bookmark_list = localStorage.getItem("bookmarks");
         var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
-        if (bookmark_list != null) {
+        if (bookmark_list != null) { console.log(bookmark_list);//bookmarksがあったら 
             if (bookmark_list.length > 1) {
                 bookmark_list = bookmark_list.split(",");
             }
@@ -19,7 +19,7 @@ function create_bookmark_list(json_file) {
                 NAME = item1.name;
 
                 $.each (data.presen, function(j, item2) {
-                  if ( item1.first === 1 && item1.presenid === item2.presenid) {
+                  if ( item1.first === "1" && item1.presenid === item2.presenid) {
                       //console.log("item2.presenid="+item2.presenid);
                       $.each (bookmark_list, function(k, item3){
                           if(item2.presenid === bookmark_list[k]) {
@@ -40,23 +40,6 @@ function create_bookmark_list(json_file) {
 
             checkboxContents += "</div>";
             $("#my_checkbox").empty().append(checkboxContents).trigger("create");
-
-            $(document).ready(function() {
-
-                var count;
-
-                $("input[type='checkbox']").change(function () {
-                    if ($(this).is(":checked")) {
-                        count = $(this).attr('name');
-                        CandidateID[count] = $(this).val();
-                    }
-                    else {
-                        count = $(this).attr('name');
-                        delete CandidateID[count];
-                    }
-                    localStorage.setItem('Candidate_ID',JSON.stringify(CandidateID));
-                });
-            });
         }
         else {
             console.log("empty_bookmarks");
@@ -64,6 +47,6 @@ function create_bookmark_list(json_file) {
         }
     }).fail(function() {
       console.log("failed_read_json");
-      $("#my_checkbox").append("<a>読み込みError</a>");
+      $("#my_checkbox").empty().append("<a>読み込みError</a>");
     });
   }

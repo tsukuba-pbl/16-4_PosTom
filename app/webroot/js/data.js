@@ -36,7 +36,7 @@ var event_str = url.substring(url.lastIndexOf('/')+1, url.length);
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 var event_vote_app = null;
-console.log("jfksjafjksjkfjs");
+
 function ViewModel(){
 	this.forum = forum;
 }
@@ -85,14 +85,13 @@ function makeSessionMap(){
 }
 
 function makeVoteApplication() {
-  //event_vote_app = basic_info['event_vote_app'];
-event_vote_app = "1";
+  event_vote_app = basic_info['event_vote_app']; console.log(event_vote_app);
 
-  if (event_vote_app === '1') {
+  if (event_vote_app === '0') {
     document.getElementById("vote_application").style.display="block";
   }
 
-  else if (event_vote_app === '0') {
+  else if (event_vote_app === '1') {
     document.getElementById("vote_application").style.display="none";
   }
 }
