@@ -20,16 +20,19 @@ class SettingsController extends AppController {
 				unset($save["Event"]["event_top_image"]);
 			}
 			if($this->Event->save($save)){
-				$path = IMAGES;
-				$image = $this->request->data["Event"]["event_top_image"];
-				$name = $_SESSION['event_str'].".".explode("/",$image['type'])[1];
-				$this->Session->setFlash('画像を登録しました');
-				move_uploaded_file($image['tmp_name'], $path .'thumb'. DS . $name);
+				// 画像が入力されていた場合、保存及びセッションに保存
+				if(isset($this->request->data["Event"]["event_top_image"])){
+					$path = IMAGES;
+					$image = $this->request->data["Event"]["event_top_image"];
+					$name = $_SESSION['event_str'].".".explode("/",$image['type'])[1];
+					$this->Session->setFlash('画像を登録しました');
+					move_uploaded_file($image['tmp_name'], $path .'thumb'. DS . $name);
+				}
 			}
 			$this->redirect(array('action'=>'eventedit', $_SESSION['event_id']));
 		}
 	}
-	
+
 	// ログイン中のユーザが、そのイベントの編集権限を持っているかどうか
 	public function checkPermission($account_id, $event_id) {
 		$editors = $this->Editor->find('all', array(
