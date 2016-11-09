@@ -1,0 +1,4 @@
+room,session_order,presentation_order,date,title,abstract,keyword,authors_name,authors_belongs
+A,1,1,1,title2,abstract2,keyword2,"name3,name4,name5","belongs3,belongs4,belongs5"
+B,2,2,1,title3,abstract3,keyword3,"name6,name7,name8,name9","belongs6,belongs7,belongs8,belongs9"
+C,3,3,2,title4,abstract4,keyword4,name10,belongs10
