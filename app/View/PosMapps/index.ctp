@@ -54,9 +54,39 @@
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/index.js"></script>
 
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
 </head>
 
 <body>
+	<!-- Vote Application -->
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/qrcode.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/set_item.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/qrcodereader.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/encoding.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/jquery.searcher.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/checked_checkbox.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/create_list.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/go_back.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/create_bookmark_list.js"></script>
+	<script type="text/javascript"> var json_file = "<?php echo $this->Html->webroot;?>/json/webdb2015.json"</script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/version.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/detector.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/formatinf.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/errorlevel.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/bitmat.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/datablock.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/qrcode.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/bmparser.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/datamask.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/rsdecoder.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/gf256poly.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/gf256.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/decoder.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/findpat.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/alignpat.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/databr.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_application.js"></script>
 
 <!-- ローディング画面 -->
 <div id="loading">
@@ -98,7 +128,7 @@
 					<img id="goToVenue" class="topmenuicon" src="<?php echo $this->Html->webroot;?>img/topmenu/venue.png"/>
 					<div class="topMenuIconLabel">Floor Map</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 		<div class="ui-grid-a">
 			<div class="ui-block-a">
@@ -123,6 +153,7 @@
 				</div>
 			</div>
 		</div>
+		<button id="vote_application" class="ui-btn" onclick="vote_application()">Vote Application</button>
 	</div>
 </div>
 
@@ -234,7 +265,7 @@
 			<span id="detail-abstract"></span>
 		</p>
 		<p>キーワード：<br /><span id="detail-keywords"></span></p>
-		
+
 	</div>
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
@@ -362,6 +393,133 @@
 		</div>
 	</div>
 </div>
+
+<!-- Vote Application -->
+<div data-role="page" id="votePage">
+		<div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
+				<h2>Ts_Quartetto</h2>
+				<br>
+				<p>Du Yan</p>
+				<p>Suzuki Kentaro</p>
+				<p>Tsuruda Tomohiro</p>
+				<p>Zhong Yuran</p>
+				<br>
+				<a href="#votePage" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close</a>
+		</div>
+		<div data-role="header">
+				<a data-iconpos="notext" data-role="button" data-icon="home" title="Home">Home</a>
+				<h1>Vote Appication</h1>
+				<a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+		</div>
+		<!-- カメラで投票者ID入力 -->
+		<div data-role="content" class="ui-content">
+				<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile">
+				<input type="hidden" name="voterid" id="voterid" value="">
+				<input type="hidden" name="checkvote" id="checkvote" value="0">
+
+				<!--ID表示 -->
+				<div id="YourID">
+				</div>
+
+				<!-- 検索 -->
+				<input id="listsearchinput" type="text" placeholder="検索"/>
+				<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
+				<div data-role="controlgroup" data-type="horizontal">
+						<button class="ui-btn" onclick="create_list(json_file)">ALL</button>
+						<button class="ui-btn" onclick="create_bookmark_list(json_file)">☆</button>
+				</div>
+				<ul data-role="listview" data-inset="true" id="listdata" >
+						<!-- JSONファイルの候補者をリスト表示 -->
+
+								<fieldset data-role="content" id="my_controlgroup">
+										<div id="my_checkbox"></div>
+								</fieldset>
+				</ul>
+		</div>
+
+		<fieldset class="ui-grid-a">
+				<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">Save</button>
+		</fieldset>
+		<canvas id="qr-canvas" width="640" height="480"></canvas>
+
+		<!-- タブバー -->
+		<!-- <div class="tabbar"></div> -->
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
+			<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
+				<ul>
+					<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+					<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+					<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+					<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+					<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				</ul>
+			</div>
+		</div>
+</div>
+
+<!-- QRCodeを表示するページ -->
+<div data-role="page" id="QRPage">
+
+		<div data-role="header">
+			<h1>QR Code</h1>
+		</div>
+
+		<div data-role="content" class="ui-content">
+				<div class="example" align="center">
+						<div id="qrcode" align="center">
+						</div>
+						<!-- 候補者を選択しなおす -->
+						<div class="ui-block-b"><button data-icon="back" data-theme="d" onclick="go_back()">選択しなおす</button></div>
+				</div>
+		</div>
+
+		<div data-role="footer">
+				<h1>Ts_Quartetto</h1>
+		</div>
+</div>
+
+<script>
+		$('#upfile').change(function(){
+
+				if (this.files.length > 0) {
+						// 選択されたファイル情報を取得
+						var file = this.files[0];
+
+						// readerのresultプロパティに、データURLとしてエンコードされたファイルデータを格納
+						var reader = new FileReader();
+						reader.readAsDataURL(file);
+
+						reader.onload = function(){
+								load(reader.result);
+								console.log(reader.result);
+						}
+				}
+		});
+</script>
+
+<script>
+$(document).on('pagecreate', '#votePage', function(e, d) {
+		localStorage.removeItem("Candidate_ID");
+		localStorage.removeItem("Vote_Info");
+		CandidateID = {};       //注意：：：：：グローバル変数：：：CandidateID
+		create_list(json_file);
+});
+</script>
+
+<script>
+$(document).on('pageshow', '#votePage',  function(e, d) {
+		localStorage.setItem('bookmarks',"AIT-02");
+		checked_checkbox();
+});
+</script>
+
+<script>
+$("#listdata").searcher({
+		itemSelector: "li",
+		textSelector: "",
+		inputSelector: "#listsearchinput"
+});
+</script>
 
 <!-- 利用ログデータ回収許諾ダイアログ  -->
 <div data-role="dialog" data-close-btn="none" id="checkCollectLogDialog">

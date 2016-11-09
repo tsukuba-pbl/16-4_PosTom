@@ -35,13 +35,13 @@ var url= window.location.href;
 var event_str = url.substring(url.lastIndexOf('/')+1, url.length);
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
-
+var event_vote_app = null;
+console.log("jfksjafjksjkfjs");
 function ViewModel(){
 	this.forum = forum;
 }
 
 function initData() {
-
 	if(localStorage.getItem("downloadSuccess")){
 		poster 			= JSON.parse(localStorage.getItem("poster"));
 		author 			= JSON.parse(localStorage.getItem("author"));
@@ -61,9 +61,10 @@ function initData() {
 		poster_days		= posmapp_bg.length;
 		timetable 		= JSON.parse(localStorage.getItem("timetable"));
 		venuemap		= JSON.parse(localStorage.getItem("venuemap"));
-	    basic_info      = JSON.parse(localStorage.getItem("basic_info"));
+	  basic_info      = JSON.parse(localStorage.getItem("basic_info"));
 
 		makeSessionMap();
+    makeVoteApplication();
 
 	}
 
@@ -81,6 +82,19 @@ function makeSessionMap(){
 	for(var s in session){
 		session_map[session[s].sessionid] = session[s];
 	}
+}
+
+function makeVoteApplication() {
+  //event_vote_app = basic_info['event_vote_app'];
+event_vote_app = "1";
+
+  if (event_vote_app === '1') {
+    document.getElementById("vote_application").style.display="block";
+  }
+
+  else if (event_vote_app === '0') {
+    document.getElementById("vote_application").style.display="none";
+  }
 }
 
 // ポスターマップの大きさに関するデータを計算して格納
