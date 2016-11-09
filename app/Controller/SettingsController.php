@@ -21,7 +21,7 @@ class SettingsController extends AppController {
 			}
 			if($this->Event->save($save)){
 				// 画像が入力されていた場合、保存及びセッションに保存
-				if(isset($this->request->data["Event"]["event_top_image"])){
+				if(isset($save["Event"]["event_top_image"])){
 					$path = IMAGES;
 					$image = $this->request->data["Event"]["event_top_image"];
 					$name = $_SESSION['event_str'].".".explode("/",$image['type'])[1];
