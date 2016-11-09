@@ -5,7 +5,9 @@
             "start_date" : "2016-11-05",
             "end_date" : "2016-11-10",
             "venue" : "f",
-            "event_webpage" : ""
+            "event_webpage" : "",
+            "event_vote_app" : "0",
+            "event_vote_valid" : "0"
         },
         "toppage_img":"\/16-4_PosTom\/img\/thumb\/toppage_pbla.png",
         "posmapp_bg":["\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png"],"venuemap":"",
