@@ -136,7 +136,7 @@ function init() {
 
 	// ---------- 詳細情報画面 ----------
 	setDetails();
-	
+
 	// $("#bookmarkList").showBookmarkList();
 
 
@@ -171,7 +171,7 @@ function init() {
 	// popstate : history記録を取得する時呼び出される事件
 	// 使用者がブラウザの「戻る」と「進む」ボタンを使う時タブバーの強調表示バグを修正するため、追加した
 	// firefox対応できない
-	window.addEventListener('popstate', function(event) {  
+	window.addEventListener('popstate', function(event) {
 		// クリックで、画面遷移する時、新history記録が生成する前に、event.stateはnull
 		// ブラウザの「戻る」と「進む」ボタンを使う時historyの中に、歴史もう存在しているので、event.stateはnullではない
 		// ここで、ブラウザの「戻る」と「進む」ボタンを監視するので、event.stateの中身でクリック遷移と「戻る」と「進む」ボタンを区別する
