@@ -85,14 +85,13 @@ function makeSessionMap(){
 }
 
 function makeVoteApplication() {
-  //event_vote_app = basic_info['event_vote_app'];
-event_vote_app = "1";
+  event_vote_app = basic_info['event_vote_app'];
 
-  if (event_vote_app === '1') {
+  if (event_vote_app === '0') {
     document.getElementById("vote_application").style.display="block";
   }
 
-  else if (event_vote_app === '0') {
+  else if (event_vote_app === '1') {
     document.getElementById("vote_application").style.display="none";
   }
 }
