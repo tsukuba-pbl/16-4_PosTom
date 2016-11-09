@@ -85,11 +85,7 @@ function makeSessionMap(){
 }
 
 function makeVoteApplication() {
-<<<<<<< HEAD
   event_vote_app = basic_info['event_vote_app'];
-=======
-  event_vote_app = basic_info['event_vote_app']; console.log(event_vote_app);
->>>>>>> 5878535... refactoringとjson読み込めるように
 
   if (event_vote_app === '0') {
     document.getElementById("vote_application").style.display="block";
