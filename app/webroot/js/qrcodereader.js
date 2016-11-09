@@ -80,8 +80,8 @@ function read(a)
 		var stringid = obj.voter_id.toString();
 		var stringname = obj.voter_name.toString();
 
-		stringid = stringid.replace( /<\/?[^>]*>/g, "" );
-		stringname = stringname.replace( /<\/?[^>]*>/g, "" );
+		stringid = stringid.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+		stringname = stringname.replace(/</g,"&lt;").replace(/>/g,"&gt;");
 
 
 		alert("ID:"+stringid+", Name"+stringname+"を読み込みました。");
