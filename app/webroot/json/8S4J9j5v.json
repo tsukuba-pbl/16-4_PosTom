@@ -1,0 +1,18 @@
+{
+        "basic_info" : {
+            "event_name_full" : "ho",
+            "event_name_short" : "",
+            "start_date" : "2016-11-04",
+            "end_date" : "2016-11-05",
+            "venue" : "ho",
+            "event_webpage" : "",
+            "event_vote_app" : "0",
+            "event_vote_valid" : "0"
+        },
+        "toppage_img":"\/16-4_PosTom\/img\/thumb\/8S4J9j5v.jpeg",
+        "posmapp_bg":["\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png"],"venuemap":"",
+
+        "STATIC_WIDTH":"720",
+        "STATIC_HEIGHT":"960","taparea" : [],"commentator":[],"position":[],"author":[],"presen":[],"poster":[],"keyword":[],"session":[],
+        "timetable":[
+        ]}
