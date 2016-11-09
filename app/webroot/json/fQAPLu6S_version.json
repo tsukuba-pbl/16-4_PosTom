@@ -1,3 +1,7 @@
 {
+<<<<<<< HEAD
   "version" : 1.08
+=======
+  "version" : 1.53
+>>>>>>> 5878535... refactoringとjson読み込めるように
 }

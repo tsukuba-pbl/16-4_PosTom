@@ -10,7 +10,6 @@ function create_list(json_file) {
             bookmark_list = bookmark_list.split(",");
         }
         var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
-
         checkboxContents += "<div data-role='controlgroup' style='overflow-y:scroll;height:45vh'>";
 
         $.each(data.author, function(i, item1) {
@@ -18,7 +17,7 @@ function create_list(json_file) {
             NAME = item1.name;
 
             $.each (data.presen, function(j, item2) {
-              if ( item1.first === 1 && item1.presenid === item2.presenid) {
+              if ( item1.first === "1" && item1.presenid === item2.presenid) {
                   TITLE = item2.title;
                   checkboxContents += '<li><input type="checkbox" ';
                   for (key in CandidateId) {
@@ -42,25 +41,9 @@ function create_list(json_file) {
 
         checkboxContents += "</div>";
         $("#my_checkbox").empty().append(checkboxContents).trigger("create");
-
-        $(document).ready(function() {
-            var count;
-
-            $("input[type='checkbox']").change(function () {
-                if ($(this).is(":checked")) {
-                    count = $(this).attr('name');
-                    CandidateID[count] = $(this).val();
-                }
-                else {
-                    count = $(this).attr('name');
-                    delete CandidateID[count];
-                }
-                localStorage.setItem('Candidate_ID',JSON.stringify(CandidateID));
-            });
-        });
     })
     .fail(function() {
-      $("#my_checkbox").append("<a>読み込みError</a>");
+      $("#my_checkbox").empty().append("<a>読み込みError</a>");
       return false;
     });
 }
