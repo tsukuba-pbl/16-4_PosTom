@@ -32,8 +32,8 @@ if(! $this->requestAction('/settings/checkPermission/'.$login_user_id.'/'.$event
         $('label[for="EventEventVoteValid1"]').attr('style', 'display:inline-block !important');
 
         //投票するかのRadioボタンの<legend>タグを他のinputと同様である<label>に変更
-        $('input.vote').parent().children('legend').replaceWith('<label>Is Used Vote App</label>');
-        $('input.vaildVote').parent().children('legend').replaceWith('<label>Valid Oldest or Latest Vote</label>');
+        $('input.vote').parent().children('legend').replaceWith('<label>Enable Vote</label>');
+        $('input.vaildVote').parent().children('legend').replaceWith('<label>Valid Old or New</label>');
 
 		//投票アプリを無効していた場合は、有効投票の設定は disabled にする。
 		if($('input[name="data[Event][event_vote_app]"]:checked').val() === '1'){
@@ -164,8 +164,8 @@ echo $this->Form->input('event_begin_time', array('class'=>'form-control','defau
 echo $this->Form->input('event_end_date', array('class'=>'form-control','default' => $datas["Event"]["event_end_date"],'required' => false));
 echo $this->Form->input('event_end_time', array('class'=>'form-control','default' => $datas["Event"]["event_end_time"],'required' => false));
 echo $this->Form->input('event_webpage', array('class'=>'form-control','default' => $datas["Event"]["event_webpage"],'required' => false));
-echo $this->Form->radio('event_vote_app', array('0' => 'On', '1' => 'Off'), array('value'=>$datas["Event"]["event_vote_app"], 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vote'));
-echo $this->Form->radio('event_vote_valid', array('0' => 'Oldest', '1' => 'Latest'), array('value'=>$datas["Event"]["event_vote_valid"], 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
+echo $this->Form->radio('event_vote_app', array('0' => 'Yes', '1' => 'No'), array('value'=>$datas["Event"]["event_vote_app"], 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vote'));
+echo $this->Form->radio('event_vote_valid', array('0' => 'Old', '1' => 'New'), array('value'=>$datas["Event"]["event_vote_valid"], 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
 echo $this->Form->input('event_top_image', array('type'=>'file','required' => false));
 echo $this->Form->submit('Update', array('class'=>'btn btn-custom'));
 // 既にトップページ用画像がアップロードされている場合、トップページのイメージを表示
