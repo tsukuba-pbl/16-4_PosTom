@@ -18,8 +18,10 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/list.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/taparea.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/sessiontable.css" />
-
+<!--
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/jquery.mobile.flatui.css" />
+-->
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/modify_navbar.css" />
 
 	<script>
 		var webroot="<?php echo $this->Html->webroot;?>";
@@ -242,12 +244,13 @@
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
 		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul>
+			<ul class="footbar">
 				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
 				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
 				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
 				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
 				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
 			</ul>
 		</div>
 	</div>
@@ -256,7 +259,7 @@
 <!-- 詳細情報画面 -->
 <div data-role="page" id="detailPage">
 	<div data-role="header">
-		<h1 style="text-align:center"　>Information</h1>
+		<h1 style="text-align:center"　></h1>
 		<a href="#" class="ui-btn-left"  data-icon="carat-l" id="detailBackButton" >Back</a>
 	</div>
 	<div data-role="content">
@@ -275,12 +278,13 @@
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
 		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul>
+			<ul class="footbar">
 				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
 				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
 				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
 				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
 				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
 			</ul>
 		</div>
 	</div>
@@ -320,12 +324,13 @@
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
 		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul>
+			<ul class="footbar">
 				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
 				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
 				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
 				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
 				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
 			</ul>
 		</div>
 	</div>
@@ -345,12 +350,13 @@
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
 		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul>
+			<ul class="footbar">
 				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
 				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
 				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
 				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
 				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
 			</ul>
 		</div>
 	</div>
@@ -387,12 +393,13 @@
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
 		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul>
+			<ul class="footbar">
 				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
 				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
 				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
 				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
 				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
 			</ul>
 		</div>
 	</div>
@@ -450,12 +457,13 @@
 		<!-- <div class="tabbar"></div> -->
 		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
 			<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-				<ul>
+				<ul class="footbar">
 					<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
 					<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
 					<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
 					<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
 					<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+					<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
 				</ul>
 			</div>
 		</div>

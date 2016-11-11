@@ -1,0 +1,4 @@
+.footbar li {
+    width: 16.666% !important;  /* 12.5% for 8 tabs wide */
+    clear: none !important;  /* Prevent line break caused by ui-block-a */
+}
