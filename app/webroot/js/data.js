@@ -32,11 +32,14 @@ var poster 			= [],
 
 
 var url= window.location.href;
+// http://localhost/hogehoge#nekoからhogehoge#nekoを取得
 var event_str = url.substring(url.lastIndexOf('/')+1, url.length);
+// hogehoge#nekoからhogehogeを取得
+event_str = event_str.split("#")[0];
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 var event_vote_app = null;
-console.log("jfksjafjksjkfjs");
+
 function ViewModel(){
 	this.forum = forum;
 }
