@@ -4,12 +4,17 @@
 
 ![トップイメージ](app/webroot/img/manual/i_top.png)
 
+## PosVote
+　平成28年度では、PosTom にはなかったオフライン投票システムを追加しました。
+
+### 関連するGitHubのレポジトリ
+ - [投票先の集計機のプロジェクト](https://github.com/tsukuba-pbl/16_4_Android)
 
 ## 概要
 　展示会などを含む学会のためのスマートフォン向けWebアプリ「PosMApp」はDEIM2015をはじめとする様々な学会で利用されたきました。
 　実際の利用を経て、多くの方々から「他の学会で利用したい」との要望があったが、現在のPosMAppを他の学会で利用しようとする際には、コード変更などの専門的な作業が必須でした。
 　そこで、我々はPosMAppを各イベントごとに簡単に作成できるようなWebアプリ「PosTom」を開発しました。
-　PosTomを利用することにより、ポスターセッション・タイムテーブル・プレゼンテーション一覧のコンテンツを簡単に作成することができ、CSVファイルの一括登録やドラッグアンドドロップによる直感的な操作により、学会向けWebアプリ作成の労力を大幅に削減が可能となりました。
+　PosTomを利用することにより、ポスターセッション・タイムテーブル・プレゼンテーション一覧のコンテンツを簡単に作成することができ、CSVファイルの一括登録やドラッグアンドドロップによる直感的な操作により、学会向けWebアプリ作成の労力を大幅に削減が可能となりました。また、PosMAppとPosTomに投票機能を追加することにより、学会で紙投票していたところを簡単に投票可能となりました。
 　
 
 ## システム要件
@@ -166,8 +171,8 @@ PosMAppを生成するには以下の手順をおこないます。
 
 アカウント作成が完了すると、ページが遷移し以下のようなメッセージが表示されます
 
-> Email was sent.  
-Registration is not yet complete.  
+> Email was sent.
+Registration is not yet complete.
 Please check your email, and please finish registration.
 
 フォームに入力したメールアドレス宛に**本登録用アドレス**を記載したメールを送ったことを示しています。
@@ -484,24 +489,32 @@ PCで確認する場合は、PCのアイコンを押します。
 
 
 ## 開発チーム
-筑波大学 大学院 システム情報工学研究科 コンピュータサイエンス専攻  
+筑波大学 大学院 システム情報工学研究科 コンピュータサイエンス専攻
 高度IT人材育成のための実践的ソフトウェア開発専修プログラム（高度ITコース）
 
-University of Tsukuba  
-Graduate School of Systems and Information Engineering  
-Department of Computer Science  
-Practical Software Development Specialization Program  
+University of Tsukuba
+Graduate School of Systems and Information Engineering
+Department of Computer Science
+Practical Software Development Specialization Program
 for Advanced IT Personnel Training (AIT, SIT)
 
-[小串 光和(Mitsukazu Ogushi)](https://github.com/tsss-g)  
-[小幡 潤(Jun Obata)](https://github.com/tsss-j)  
-[小寺 暁久(Akihisa Kodera)](https://github.com/tsss-a)  
-[杜 天行(Du Tianhang)](https://github.com/tsss-t)
+### 平成28年度
 
+[鶴田 智大(Tomohiro Tsuruda)](https://github.com/ferretdayo)
+[鈴木 健太郎(Kentarou Suzuki)](https://github.com/Ikuzus-k)
+[杜 炎(Du Yan)](https://github.com/we333)
+[钟 雨然(Zhong Yuran)](https://github.com/YRZhong)
+
+### 平成27年度
+
+[小串 光和(Mitsukazu Ogushi)](https://github.com/tsss-g)
+[小幡 潤(Jun Obata)](https://github.com/tsss-j)
+[小寺 暁久(Akihisa Kodera)](https://github.com/tsss-a)
+[杜 天行(Du Tianhang)](https://github.com/tsss-t)
 
 =======
 
 Copyright &copy; [筑波大学CS専攻 高度ITコース](http://www.cs.tsukuba.ac.jp/ITsoft/)
 
+Team TS_カルテット
 Team TSSS
-
