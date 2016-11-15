@@ -2,7 +2,7 @@
 App::uses('AppController', 'Controller');
 
 class EventsControllerTest extends ControllerTestCase {
-	public $fixtures = array('app.user', 'app.editor', 'app.event');
+	public $fixtures = array('app.user', 'app.editor', 'app.event', 'app.poster');
 
 	public function setUp(){
 		// parent::setUp();
