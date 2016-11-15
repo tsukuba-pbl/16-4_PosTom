@@ -40,7 +40,7 @@ PosTomはCakePHP 2.xを使用して開発されております。
 ### Step.1 GitHubからソースを取得
 事前にgitをインストールしておくこと。
 ```
-git clone https://github.com/tsss-a/PosTom.git
+git clone https://github.com/tsukuba-pbl/16-4_PosTom.git
 ```
 
 ### Step.2 プロジェクトフォルダの権限を設定
