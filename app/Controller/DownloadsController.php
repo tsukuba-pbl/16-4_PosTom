@@ -102,7 +102,6 @@ class DownloadsController extends AppController {
  	 * 		["date"]=> string(19) "2016/01/01 13:00:00"
  	 *	}
 	 */
-	 //まだできてないいいいいいいいいいいいいいいいい重なってる
 	private function processFiledata($fileData, $firstOrOld){
 		$usersData = [];
 		foreach ($fileData as $k => $value) {
@@ -120,12 +119,6 @@ class DownloadsController extends AppController {
 			}
 		}
 		return $usersData;
-	}
-
-	private function hoge(){}
-
-	public function getfilelist(){
-
 	}
 }
 ?>
