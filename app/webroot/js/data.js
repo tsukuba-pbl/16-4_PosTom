@@ -68,6 +68,7 @@ function initData() {
 
 		makeSessionMap();
     makeVoteApplication();
+    create_navbar();
 
 	}
 
@@ -89,7 +90,7 @@ function makeSessionMap(){
 
 function makeVoteApplication() {
   event_vote_app = basic_info['event_vote_app'];
-
+  localStorage.setItem("vote", event_vote_app);
   if (event_vote_app === '0') {
     document.getElementById("vote_application").style.display="block";
   }
@@ -113,4 +114,28 @@ function setMapSize() {
 	    INIT_SCALE = MAP_AREA_HEIGHT / STATIC_HEIGHT;
 	    SCALE_BY = "height";
 	}
+}
+
+function create_navbar() {
+  var list = "";
+  if (event_vote_app === '0') { //voteON
+    list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
+    list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';
+    list += '<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>';
+    list += '<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>';
+    list += '<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>';
+    list += '<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>'
+    $('[data-role="footer"]').append('<div data-role="navbar" height="100%" class="nav-tabicon footbar" data-grid="d"><ul>'+list+'</ul></div>');
+    $('[data-role="navbar"]').navbar();
+  }
+
+  else if (event_vote_app === '1') {  //voteOFF
+    list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
+    list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';
+    list += '<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>';
+    list += '<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>';
+    list += '<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>';
+    $('[data-role="footer"]').append('<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d"><ul>'+list+'</ul></div>');
+    $('[data-role="navbar"]').navbar();
+  }
 }
