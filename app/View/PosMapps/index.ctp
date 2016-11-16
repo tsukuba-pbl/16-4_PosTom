@@ -405,7 +405,7 @@
 
 		<!-- タブバー -->
 		<!-- <div class="tabbar"></div> -->
-		<div data-role="" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
+		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
 		</div>
 </div>
 
