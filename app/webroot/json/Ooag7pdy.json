@@ -1,0 +1,16 @@
+{
+        "basic_info" : {
+            "event_name_full" : "hohofe",
+            "event_name_short" : "",
+            "start_date" : "2016-11-03",
+            "end_date" : "2016-11-08",
+            "venue" : "hofheove",
+            "event_webpage" : ""
+        },
+        "toppage_img":"\/16-4_PosTom\/img\/thumb\/toppage_pbla.png",
+        "posmapp_bg":["\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png","\/16-4_PosTom\/img\/thumb\/toppage_pbla.png"],"venuemap":"",
+
+        "STATIC_WIDTH":"720",
+        "STATIC_HEIGHT":"960","taparea" : [],"commentator":[],"position":[],"author":[],"presen":[],"poster":[],"keyword":[],"session":[],
+        "timetable":[
+        ]}
