@@ -432,10 +432,6 @@
 
 <script>
     $(document).on('pageshow', '#votePage', function(e, d) {
-        localStorage.removeItem("Candidate_ID");
-        localStorage.removeItem("Vote_Info");
-        //localStorage.setItem('bookmarks',"AIT-02");
-        CandidateID = {};       //注意：：：：：グローバル変数：：：CandidateID
         create_list(json_file);
     });
 

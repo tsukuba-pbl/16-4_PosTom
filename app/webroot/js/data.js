@@ -21,7 +21,8 @@ var poster 			= [],
 	MAP_AREA_WIDTH 	= null,
 	MAP_AREA_HEIGHT = null,
 	INIT_SCALE 		= null,
-	SCALE_BY 		= null;
+	SCALE_BY 		= null,
+  CandidateID = {};
 
 
 // json ファイルの置き場所（URL, 仮）
