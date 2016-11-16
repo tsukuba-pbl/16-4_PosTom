@@ -436,8 +436,8 @@
 				<input id="listsearchinput" type="text" placeholder="検索"/>
 				<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
 				<div data-role="controlgroup" data-type="horizontal">
-						<button class="ui-btn" onclick="create_list(json_file)">ALL</button>
-						<button class="ui-btn" onclick="create_bookmark_list(json_file)">☆</button>
+						<button class="ui-btn" onclick="create_list(json_file)">全件表示</button>
+						<button class="ui-btn" onclick="create_bookmark_list(json_file)">ブックマークリスト</button>
 				</div>
 				<ul data-role="listview" data-inset="true" id="listdata" >
 						<!-- JSONファイルの候補者をリスト表示 -->
