@@ -24,6 +24,9 @@ class DownloadsController extends AppController {
 		$this->set('files', $files);
 	}
 
+	/**
+	 * Androidからの投票結果のファイルを保存するメソッド
+	 */
 	public function upload(){
 		//保存先のディレクトリ
 	    $target_dir = WWW_ROOT."csv/";
