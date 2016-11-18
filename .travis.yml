@@ -122,6 +122,7 @@ before_script:
     }" > app/Config/database.php
 script:
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Controller/EventsController --stderr; fi"
+  - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Controller/DownloadsController --stderr; fi"
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Model/Event --stderr; fi"
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Model/Poster --stderr; fi"
   #- sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Model/User --stderr; fi"
