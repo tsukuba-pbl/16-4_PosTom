@@ -10,6 +10,13 @@ class DownloadsController extends AppController {
 	public $helpers = array('Html', 'Form', 'Text');
 	public $uses = array('Event', 'Poster', 'Editor');
 
+	//初期値の読み込み
+	function beforeFilter(){
+		// uploadメソッドだけ認証を不要にした。
+		// 複数のAndroidからデータを受け取るため
+	    $this->Auth->allow('upload');
+	}
+
 	// 基本的なページの表示
 	public function index(){
 		$dir = new Folder(WWW_ROOT.'csv/');
@@ -17,6 +24,22 @@ class DownloadsController extends AppController {
 		$this->set('files', $files);
 	}
 
+	public function upload(){
+		//保存先のディレクトリ
+	    $target_dir = WWW_ROOT."csv/";
+	    //保存先のパス(ファイル名含む)
+	    $target_path = $target_dir.basename($_FILES['file']['name']);
+	    //保存する際に日本語であると文字化けするのでその対処
+	    $target_path = mb_convert_encoding($target_path, "SJIS", "AUTO");
+	    //tmp_nameの場所から保存先のパスにファイルを移動(アップロード)
+	    if(move_uploaded_file($_FILES['file']['tmp_name'], $target_path)){
+	        echo "The file ". basename($_FILES['file']['name']). " has been uploaded";
+	    }else{
+	        echo "error";
+	    }
+	}
+
+	// ファイルのDL
 	public function fileDownload(){
 		// 最新or最古のユーザの投票データを保持する
         $usersData = [];
@@ -51,6 +74,7 @@ class DownloadsController extends AppController {
 		$this->response->download('投票結果.csv');
 		$this->response->body($this->makeFileContent($usersData));
 	}
+
 	/**
 	 * ファイルの内容を配列で取得する関数
 	 */
