@@ -1,11 +1,16 @@
 language: php
-language: node-js
 
 php:
   - 5.3
   - 5.4
   - 5.5
   - 5.6
+
+node_js:
+  - "6"
+
+install:
+    "npm install"
 
 env:
   - DB=mysql
@@ -125,6 +130,7 @@ before_script:
 script:
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core AllTests --stderr; fi"
   - sh -c "if [ '$PHPCS' = '1' ]; then ~/.composer/vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./lib/Cake; fi;"
+　"npm test"
 
 notifications:
   email: false
