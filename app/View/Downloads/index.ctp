@@ -1,6 +1,7 @@
 <h2>Download Vote Data</h2>
 <?php
 echo $this->Form->create('Download', array('action' => 'fileDownload'));
+echo $this->Form->hidden('voteinfo', array('value' => 0));
 foreach($files as $file){
     echo $this->Form->input(
         ' ', array(

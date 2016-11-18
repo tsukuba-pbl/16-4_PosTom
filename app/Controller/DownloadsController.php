@@ -20,8 +20,9 @@ class DownloadsController extends AppController {
 	// 基本的なページの表示
 	public function index(){
 		$dir = new Folder(WWW_ROOT.'csv/');
-		$files = $dir->find('.*\.csv', true);
+		$files = $dir->find('.*_.*_.*_.*\.csv', true);
 		$this->set('files', $files);
+		//TODO 最新の投票を有効にするかそうではないかの情報をViewに渡す
 	}
 
 	/**
@@ -60,7 +61,7 @@ class DownloadsController extends AppController {
 			}
 		}
 		// 取得したファイルの内容から最新のユーザの情報を反映している
-		$usersData = $this->processFiledata($fileData, 0);
+		$usersData = $this->processFiledata($fileData, (int)$this->request->data["Download"]["voteinfo"]);
 		// ファイルの作成
 		// $targetFile = new File(WWW_ROOT.'csv/target.csv', true);
 		// $targetFile->write($this->makeFileContent($usersData));
