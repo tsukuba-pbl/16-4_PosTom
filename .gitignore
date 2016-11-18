@@ -9,6 +9,7 @@
 /dist
 /tags
 *.mo
+/app/webroot/csv/
 /app/webroot/json
 
 # IDE and editor specific files #
