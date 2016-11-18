@@ -26,12 +26,9 @@ matrix:
 
 
 before_script:
-<<<<<<< HEAD
   - npm install -g grunt-cli
   - npm install
-=======
   - chmod +x ./lib/Cake/Console/cake
->>>>>>> master
   - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
   - sudo locale-gen de_DE
   - sh -c "if [ '$DB' = 'mysql' ]; then mysql -e 'CREATE DATABASE cakephp_test;'; fi"
@@ -126,16 +123,12 @@ before_script:
     }
     }" > app/Config/database.php
 script:
-<<<<<<< HEAD
   - npm test
-  - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core AllTests --stderr; fi"
-=======
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Controller/EventsController --stderr; fi"
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Model/Event --stderr; fi"
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Model/Poster --stderr; fi"
   #- sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Model/User --stderr; fi"
   #- sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core AllTests --stderr; fi"
->>>>>>> master
   - sh -c "if [ '$PHPCS' = '1' ]; then ~/.composer/vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./lib/Cake; fi;"
 
 notifications:
