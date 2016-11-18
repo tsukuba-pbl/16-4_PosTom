@@ -10,6 +10,7 @@
 /tags
 *.mo
 /app\webroot\json
+/app/webroot/csv/
 
 # IDE and editor specific files #
 #################################
