@@ -10,7 +10,7 @@ $(document).on('change', '#upfile',function () {
 
         reader.onload = function(){
             load(reader.result);
-            console.log(reader.result);
+            //console.log(reader.result);
         }
     }
 });
