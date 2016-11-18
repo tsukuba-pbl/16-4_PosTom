@@ -1,0 +1,26 @@
+{
+  "name": "postom",
+  "version": "1.0.0",
+  "description": "PosTomは、展示会向けwebアプリ作成支援ツールです。 ポスター発表を含む学会を対象とし、ポスター配置をwebブラウザ上で配置することができます。",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsukuba-pbl/16-4_PosTom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsukuba-pbl/16-4_PosTom/issues"
+  },
+  "homepage": "https://github.com/tsukuba-pbl/16-4_PosTom#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.5.2",
+    "karma": "^1.3.0",
+    "karma-jasmine": "^1.0.2",
+    "karma-phantomjs-launcher": "^1.0.2",
+    "phantomjs-prebuilt": "^2.1.13"
+  }
+}

@@ -9,7 +9,7 @@
 /dist
 /tags
 *.mo
-/app\webroot\json
+/app/webroot\json
 
 # IDE and editor specific files #
 #################################
@@ -36,3 +36,7 @@ _notes/
 dwsync.xml
 *.xml
 
+# TS_quartetto custom ignore files #
+####################################
+# js test files
+/node_module
