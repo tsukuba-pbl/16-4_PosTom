@@ -28,6 +28,7 @@ matrix:
 before_script:
   - npm install -g grunt-cli
   - npm install
+  - npm test
   - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
   - sh -c "ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ./vendors/PHPUnit"
   - sudo locale-gen de_DE
