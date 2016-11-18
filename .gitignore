@@ -9,7 +9,8 @@
 /dist
 /tags
 *.mo
-/app\webroot\json
+/app/webroot/csv/
+/app/webroot/json
 
 # IDE and editor specific files #
 #################################
@@ -35,4 +36,3 @@ app/_notes/dwsync.xml
 _notes/
 dwsync.xml
 *.xml
-

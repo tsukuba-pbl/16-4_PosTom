@@ -23,6 +23,8 @@
 -->
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/modify_navbar.css" />
 
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/jquery.mobile.flatui.css" />
+
 	<script>
 		var webroot="<?php echo $this->Html->webroot;?>";
 	</script>
@@ -74,6 +76,7 @@
 	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/read_candidateid_QR.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_application.js"></script>
 	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
@@ -374,7 +377,10 @@
 		</div>
 		<!-- カメラで投票者ID入力 -->
 		<div data-role="content" class="ui-content">
-				<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile">
+			<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile" style="display:none">
+			<label for="upfile">
+				<div class="up_qr ui-btn ui-btn-f ui-btn ui-icon-action ui-btn-icon-left ui-shadow ui-corner-all">投票者 ： 未登録</div>
+			<label>
 				<input type="hidden" name="voterid" id="voterid" value="">
 				<input type="hidden" name="checkvote" id="checkvote" value="0">
 
