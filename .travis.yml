@@ -26,7 +26,6 @@ matrix:
 
 
 before_script:
-  - npm install -g grunt-cli
   - npm install
   - chmod +x ./lib/Cake/Console/cake
   - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
