@@ -14,7 +14,11 @@ foreach($files as $file){
         )
     );
 }
-echo $this->Form->submit('Create', array('class'=>'btn btn-custom'));
+if(count($files) > 0){
+    echo $this->Form->submit('Download', array('class'=>'btn btn-custom'));
+} else {
+    echo "<h4>ダウンロードするファイルがありません</h4>";
+}
 ?>
 <style>
 .input.checkbox{
