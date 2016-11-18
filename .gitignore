@@ -10,7 +10,7 @@
 /tags
 *.mo
 /app/webroot/csv/*_*_*_*.csv
-/app/webroot/json
+/app/webroot/json/
 
 # IDE and editor specific files #
 #################################
