@@ -28,7 +28,6 @@ matrix:
 before_script:
   - npm install -g grunt-cli
   - npm install
-  - npm test
   - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
   - sh -c "ln -s ~/.composer/vendor/phpunit/phpunit/PHPUnit ./vendors/PHPUnit"
   - sudo locale-gen de_DE
@@ -125,6 +124,7 @@ before_script:
     }
     }" > app/Config/database.php
 script:
+  - npm test
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test core AllTests --stderr; fi"
   - sh -c "if [ '$PHPCS' = '1' ]; then ~/.composer/vendor/bin/phpcs -p --extensions=php --standard=CakePHP ./lib/Cake; fi;"
 
