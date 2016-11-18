@@ -46,9 +46,9 @@ class DownloadsController extends AppController {
 	// ファイルのDL
 	public function fileDownload(){
 		// 最新or最古のユーザの投票データを保持する
-        $usersData = [];
+        $usersData = array();
 		// ファイルの中身が追加されていく(1次元配列)
-        $fileData = [];
+        $fileData = array();
 		$dir = new Folder(WWW_ROOT.'csv/');
 		// 選択されたファイルの中身をそれぞれ取得
 		foreach($this->request->data["Download"] as $file){
@@ -83,7 +83,7 @@ class DownloadsController extends AppController {
 	 * ファイルの内容を配列で取得する関数
 	 */
 	private function readline($filepath){
-        $fileData = []; //ファイルのデータを1行ごとに保持する配列
+        $fileData = array(); //ファイルのデータを1行ごとに保持する配列
 		try{
 			$this->filehandler = fopen($filepath, "r");
 		} catch (Exception $e) {
@@ -131,7 +131,7 @@ class DownloadsController extends AppController {
  	 *	}
 	 */
 	private function processFiledata($fileData, $firstOrOld){
-		$usersData = [];
+		$usersData = array();
 		foreach ($fileData as $k => $value) {
 			list($user, $vote1, $vote2, $vote3, $date) = explode(",", $value);
 			if($firstOrOld === 0){
