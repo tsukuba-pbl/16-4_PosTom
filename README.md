@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tsukuba-pbl/16-4_PosTom.svg?branch=master)](https://travis-ci.org/tsukuba-pbl/16-4_PosTom)
+
 # PosTom
 　PosTomは、展示会向けwebアプリ作成支援ツールです。
 ポスター発表を含む学会を対象とし、ポスター配置をwebブラウザ上で配置することができます。

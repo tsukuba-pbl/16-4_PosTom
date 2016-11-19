@@ -20,8 +20,9 @@ class DownloadsController extends AppController {
 	// 基本的なページの表示
 	public function index(){
 		$dir = new Folder(WWW_ROOT.'csv/');
-		$files = $dir->find('.*\.csv', true);
+		$files = $dir->find('.*_.*_.*_.*\.csv', true);
 		$this->set('files', $files);
+		//TODO 最新の投票を有効にするかそうではないかの情報をViewに渡す
 	}
 
 	/**
@@ -45,9 +46,9 @@ class DownloadsController extends AppController {
 	// ファイルのDL
 	public function fileDownload(){
 		// 最新or最古のユーザの投票データを保持する
-        $usersData = [];
+        $usersData = array();
 		// ファイルの中身が追加されていく(1次元配列)
-        $fileData = [];
+        $fileData = array();
 		$dir = new Folder(WWW_ROOT.'csv/');
 		// 選択されたファイルの中身をそれぞれ取得
 		foreach($this->request->data["Download"] as $file){
@@ -60,7 +61,7 @@ class DownloadsController extends AppController {
 			}
 		}
 		// 取得したファイルの内容から最新のユーザの情報を反映している
-		$usersData = $this->processFiledata($fileData, 0);
+		$usersData = $this->processFiledata($fileData, (int)$this->request->data["Download"]["voteinfo"]);
 		// ファイルの作成
 		// $targetFile = new File(WWW_ROOT.'csv/target.csv', true);
 		// $targetFile->write($this->makeFileContent($usersData));
@@ -82,7 +83,7 @@ class DownloadsController extends AppController {
 	 * ファイルの内容を配列で取得する関数
 	 */
 	private function readline($filepath){
-        $fileData = []; //ファイルのデータを1行ごとに保持する配列
+        $fileData = array(); //ファイルのデータを1行ごとに保持する配列
 		try{
 			$this->filehandler = fopen($filepath, "r");
 		} catch (Exception $e) {
@@ -130,7 +131,7 @@ class DownloadsController extends AppController {
  	 *	}
 	 */
 	private function processFiledata($fileData, $firstOrOld){
-		$usersData = [];
+		$usersData = array();
 		foreach ($fileData as $k => $value) {
 			list($user, $vote1, $vote2, $vote3, $date) = explode(",", $value);
 			if($firstOrOld === 0){

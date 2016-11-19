@@ -10,7 +10,7 @@ function create_bookmark_list(json_file) {
         var bookmark_list = localStorage.getItem("bookmarks");
         var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
-        if (bookmark_list != null) { console.log(bookmark_list);//bookmarksがあったら 
+        if (bookmark_list) {  //bookmarksがあったら
             if (bookmark_list.length > 1) {
                 bookmark_list = bookmark_list.split(",");
             }
