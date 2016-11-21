@@ -26,6 +26,11 @@ matrix:
 
 
 before_script:
+  - npm install
+  - npm install -D jasmine-core
+  - npm install -D phantomjs-prebuilt
+  - npm install -D karma-jasmine
+  - npm install -D karma-phantomjs-launcher
   - chmod +x ./lib/Cake/Console/cake
   - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
   - sudo locale-gen de_DE
@@ -121,6 +126,7 @@ before_script:
     }
     }" > app/Config/database.php
 script:
+  - npm test
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Controller/EventsController --stderr; fi"
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Controller/DownloadsController --stderr; fi"
   - sh -c "if [ '$PHPCS' != '1' ]; then ./lib/Cake/Console/cake test app Model/Event --stderr; fi"

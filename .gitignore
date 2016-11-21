@@ -36,3 +36,8 @@ app/_notes/dwsync.xml
 _notes/
 dwsync.xml
 *.xml
+
+# TS_quartetto custom ignore files #
+####################################
+# js test files
+/node_module
