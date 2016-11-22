@@ -40,5 +40,5 @@ dwsync.xml
 # TS_quartetto custom ignore files #
 ####################################
 # js test files
-/node_module
+/node_modules
 .npm-debug.log
