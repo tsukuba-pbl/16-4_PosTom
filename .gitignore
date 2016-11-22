@@ -41,3 +41,4 @@ dwsync.xml
 ####################################
 # js test files
 /node_module
+.npm-debug.log
