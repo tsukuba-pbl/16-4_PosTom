@@ -21,7 +21,7 @@
 
 ## システム要件
 PosTomはCakePHP 2.xを使用して開発されております。
-そのためシステム要件には[CakePHP 2.x のシステム要件](http://book.cakephp.org/2.0/ja/installation.html#id2)に準拠することが求められます
+そのためシステム要件には[CakePHP 2.x のシステム要件](http://book.cakephp.org/2.0/ja/installation.html#id2)に準拠することが求められます。
 
 * HTTP サーバー (Apache推奨)
 * PHP 5.3.0 以上
@@ -217,7 +217,7 @@ Please check your email, and please finish registration.
 
 ![イベント作成](app/webroot/img/manual/i_add_event.png)
 
-※イベント開催日数は10日間以内です
+※イベント開催日数は10日間以内です。
 
 イベントの作成が完了すると、イベントリストにさきほど作成したイベントが表示されます。
 
