@@ -469,6 +469,22 @@
 		</div>
 </div>
 
+
+<div data-role="page" id="ConfirmPage">
+	<div data-role="header">
+	  <h1>投票確認</h1>
+	</div>
+	<div id="confirm">
+	</div>
+	<div data-role="header" data-theme="b"><h4>選択した候補者</h4></div>
+	<div id="confirm_candidates">
+	</div>
+	<fieldset class="ui-grid-a">
+		<button data-icon="flat-checkround" data-theme="g" onclick="go_back()">投票する</button>
+		<button data-icon="flat-cross" data-theme="d" onclick="vote_application()">選択し直す</button>
+	</fieldset>
+</div>
+
 <!-- QRCodeを表示するページ -->
 <div data-role="page" id="QRPage">
 
