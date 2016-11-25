@@ -22,9 +22,9 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/jquery.mobile.flatui.css" />
 -->
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/modify_navbar.css" />
-
+<!--
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/jquery.mobile.flatui.css" />
-
+-->
 	<script>
 		var webroot="<?php echo $this->Html->webroot;?>";
 	</script>
