@@ -73,6 +73,8 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcodereader.js"></script>
 	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/read_candidateid_QR.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
+
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_application.js"></script>
 	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
@@ -427,7 +429,7 @@
 	<div id="confirm_candidates">
 	</div>
 	<fieldset class="ui-grid-a">
-		<button data-icon="flat-checkround" data-theme="g" onclick="go_back()">投票する</button>
+		<button data-icon="flat-checkround" data-theme="g" onclick="confirm()">投票する</button>
 		<button data-icon="flat-cross" data-theme="d" onclick="vote_application()">選択しなおす</button>
 	</fieldset>
 </div>
