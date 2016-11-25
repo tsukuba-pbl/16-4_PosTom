@@ -469,7 +469,7 @@
 		</div>
 </div>
 
-
+<!-- 投票確認ページ -->
 <div data-role="page" id="ConfirmPage">
 	<div data-role="header">
 	  <h1>投票確認</h1>
@@ -481,7 +481,7 @@
 	</div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-checkround" data-theme="g" onclick="go_back()">投票する</button>
-		<button data-icon="flat-cross" data-theme="d" onclick="vote_application()">選択し直す</button>
+		<button data-icon="flat-cross" data-theme="d" onclick="vote_application()">選択しなおす</button>
 	</fieldset>
 </div>
 
