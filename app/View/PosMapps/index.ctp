@@ -73,6 +73,8 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcodereader.js"></script>
 	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/read_candidateid_QR.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
+
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_application.js"></script>
 	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
@@ -414,6 +416,22 @@
 		<!-- <div class="tabbar"></div> -->
 		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
 		</div>
+</div>
+
+<!-- 投票確認ページ -->
+<div data-role="page" id="ConfirmPage">
+	<div data-role="header">
+	  <h1>投票確認</h1>
+	</div>
+	<div id="confirm">
+	</div>
+	<div data-role="header" data-theme="b"><h4>選択した候補者</h4></div>
+	<div id="confirm_candidates">
+	</div>
+	<fieldset class="ui-grid-a">
+		<button data-icon="flat-checkround" data-theme="g" onclick="confirm()">投票する</button>
+		<button data-icon="flat-cross" data-theme="d" onclick="vote_application()">選択しなおす</button>
+	</fieldset>
 </div>
 
 <!-- QRCodeを表示するページ -->

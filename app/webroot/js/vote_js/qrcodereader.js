@@ -82,6 +82,8 @@ function read(a)
 
 		stringid = stringid.replace(/</g,"&lt;").replace(/>/g,"&gt;");
 		stringname = stringname.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+		$("#confirm").append("<h4>ID:"+stringid+"</h4>");
+		$("#confirm").append("<h4>Name:"+stringname+"</h4>"+"</br>");
 
 
 		alert("ID:"+stringid+", Name"+stringname+"を読み込みました。");

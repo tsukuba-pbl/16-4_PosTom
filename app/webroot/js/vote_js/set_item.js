@@ -54,7 +54,7 @@ function set_item(){
     var VoteInfo = JSON.parse(localStorage.getItem('Vote_Info'));
 
     //QRコード表示ページに遷移
-    $.mobile.changePage("#QRPage", {
+    $.mobile.changePage("#ConfirmPage", {
         changeHash: true
     });
 
