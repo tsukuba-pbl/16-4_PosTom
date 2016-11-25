@@ -90,14 +90,12 @@ function read(a)
 
 		$('#checkvote').val(1);	//正しいQRコードがセットされたときに"1"を送る
 		$('#voterid').val(txt);	//QRコードの内容をinputタグのhiddenに入力する
-		$('#YourID').empty();
-		$('#YourID').append("<p>ID:"+stringid+"</p>");
-		$('#YourID').append("<p>Name:"+stringname+"</p>");
+
+		$('.up_qr').empty().text("投票者名 ： "+stringname);
 	}
 	else {
 		alert("読み込みError");
-		$('#YourID').empty();
-		$('#YourID').append("<p>読み込みError</p>");
+		$('.up_qr').text("再登録");
 	}
 
 

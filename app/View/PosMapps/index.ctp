@@ -63,19 +63,20 @@
 
 <body>
 	<!-- Vote Application -->
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/qrcode.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/set_item.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/qrcodereader.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/encoding.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/jquery.searcher.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/create_list.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/count_checked.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/go_back.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/create_bookmark_list.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/count_checked.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_bookmark_list.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_list.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_back.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.searcher.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcodereader.js"></script>
+	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/read_candidateid_QR.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_application.js"></script>
-	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/read_candidateid_QR.js"></script>
-
 	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
+
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/version.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/detector.js"></script>
@@ -121,7 +122,11 @@
 		-->
 
 		<div id="event-webpage" align="center"></div>
-
+		<div class="ui-grid-solo">
+			<div class ="ui-block-a">
+				<button id="vote_application" class="ui-btn" onclick="vote_application()">Vote Application</button>
+			</div>
+		</div>
 		<div class="ui-grid-a">
 			<div class="ui-block-a">
 				<div align="center">
@@ -159,7 +164,6 @@
 				</div>
 			</div>
 		</div>
-		<button id="vote_application" class="ui-btn" onclick="vote_application()">Vote Application</button>
 	</div>
 </div>
 
@@ -243,16 +247,6 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
-		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul class="footbar">
-				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
-				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
-				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
-				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
-				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
-				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
-			</ul>
-		</div>
 	</div>
 </div>
 
@@ -277,16 +271,6 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
-		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul class="footbar">
-				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
-				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
-				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
-				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
-				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
-				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
-			</ul>
-		</div>
 	</div>
 </div>
 
@@ -323,16 +307,6 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
-		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul class="footbar">
-				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
-				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
-				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
-				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
-				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
-				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
-			</ul>
-		</div>
 	</div>
 </div>
 
@@ -349,16 +323,6 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
-		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul class="footbar">
-				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
-				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
-				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
-				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
-				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
-				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
-			</ul>
-		</div>
 	</div>
 </div>
 
@@ -392,16 +356,6 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
-		<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-			<ul class="footbar">
-				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
-				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
-				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
-				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
-				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
-				<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
-			</ul>
-		</div>
 	</div>
 </div>
 
@@ -424,7 +378,10 @@
 		</div>
 		<!-- カメラで投票者ID入力 -->
 		<div data-role="content" class="ui-content">
-				<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile">
+			<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile" style="display:none">
+			<label for="upfile">
+				<div class="up_qr ui-btn ui-btn-f ui-btn ui-icon-action ui-btn-icon-left ui-shadow ui-corner-all">投票者 ： 未登録</div>
+			<label>
 				<input type="hidden" name="voterid" id="voterid" value="">
 				<input type="hidden" name="checkvote" id="checkvote" value="0">
 
@@ -436,10 +393,10 @@
 				<input id="listsearchinput" type="text" placeholder="検索"/>
 				<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
 				<div data-role="controlgroup" data-type="horizontal">
-						<button class="ui-btn" onclick="create_list(json_file)">ALL</button>
-						<button class="ui-btn" onclick="create_bookmark_list(json_file)">☆</button>
+						<button class="ui-btn" onclick="create_list(json_file)">全件表示</button>
+						<button class="ui-btn" onclick="create_bookmark_list(json_file)">ブックマークリスト</button>
 				</div>
-				<ul data-role="listview" data-inset="true" id="listdata" >
+				<ul id="onVote" data-role="listview" data-inset="true" id="listdata" >
 						<!-- JSONファイルの候補者をリスト表示 -->
 
 								<fieldset data-role="content" id="my_controlgroup">
@@ -456,16 +413,6 @@
 		<!-- タブバー -->
 		<!-- <div class="tabbar"></div> -->
 		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
-			<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d">
-				<ul class="footbar">
-					<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
-					<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
-					<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
-					<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
-					<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
-					<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>
-				</ul>
-			</div>
 		</div>
 </div>
 
@@ -508,10 +455,6 @@
 
 <script>
     $(document).on('pageshow', '#votePage', function(e, d) {
-        localStorage.removeItem("Candidate_ID");
-        localStorage.removeItem("Vote_Info");
-        //localStorage.setItem('bookmarks',"AIT-02");
-        CandidateID = {};       //注意：：：：：グローバル変数：：：CandidateID
         create_list(json_file);
     });
 
@@ -522,6 +465,9 @@
             inputSelector: "#listsearchinput"
         });
         $('input[type="file"]').parent('div.ui-input-text').hide();
+
+
+
     });
 </script>
 

@@ -44,7 +44,7 @@ class Event extends AppModel {
 		'event_vote_app' =>	array(
 			'rule' => 'notBlank'
 		),
-		'event_vote_valid' => array(
+		'event_vote_valid' =>array(
 			'rule' => 'notBlank'
 		),
 		'event_top_image' => array(
