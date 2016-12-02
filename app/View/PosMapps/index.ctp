@@ -406,7 +406,7 @@
 		</div>
 
 		<fieldset class="ui-grid-a">
-				<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">Save</button>
+				<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">投票する</button>
 		</fieldset>
 		<canvas id="qr-canvas" width="640" height="480"></canvas>
 
