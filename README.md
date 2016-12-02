@@ -74,7 +74,6 @@ cp core.php.default core.php
 
 ### Step.7 databaseファイルの複製
 ```
-cd ../Config/
 cp database.php.default database.php
 ```
 
