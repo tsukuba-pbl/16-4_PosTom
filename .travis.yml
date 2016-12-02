@@ -42,7 +42,7 @@ before_script:
   - echo "extension = memcached.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - phpenv rehash
   - set +H
-  - cat app/Config.php.default > app/Config/core.php
+  - cat app/Config/core.php.default > app/Config/core.php
   - echo "<?php
     class DATABASE_CONFIG {
     private \$identities = array(
