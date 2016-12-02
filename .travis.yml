@@ -43,6 +43,7 @@ before_script:
   - phpenv rehash
   - set +H
   - cat app/Config/core.php.default > app/Config/core.php
+  - chmod 777 app/Config/core.php
   - echo "<?php
     class DATABASE_CONFIG {
     private \$identities = array(
