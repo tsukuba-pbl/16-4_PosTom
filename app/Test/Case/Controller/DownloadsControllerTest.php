@@ -77,5 +77,10 @@ class EventsControllerTest extends ControllerTestCase {
         );
     }
 
+	// public function testGetFileList(){
+	// 	$this->testAction('/downloads');
+	//     $this->assertInternalType('array', $this->vars['files']);
+	// 	var_dump($this->vars['files']);
+	// }
 }
 ?>
