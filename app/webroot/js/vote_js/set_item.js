@@ -45,6 +45,12 @@ function set_item(){
     data['voter_id'] = obj.voter_id.toString();
     data['voter_name'] = obj.voter_name.toString();
 
+    /*
+    ** dataにevent_strを保存する。これによってevent毎に投票結果を仕分けすることが可能。
+    ** event_strはグローバル変数で、data.jsで定義されている。
+    */
+    data['event_id'] = event_str;
+
     //voterのデータと投票のデータのマージ
     var newdata = $.extend(data,selected_id_json);
 

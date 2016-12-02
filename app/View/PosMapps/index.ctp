@@ -410,7 +410,7 @@
 		<fieldset class="ui-grid-a">
 				<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">Save</button>
 		</fieldset>
-		<canvas id="qr-canvas" width="640" height="480"></canvas>
+		<canvas id="qr-canvas" width="640" height="480" hidden></canvas>
 
 		<!-- タブバー -->
 		<!-- <div class="tabbar"></div> -->
