@@ -20,8 +20,21 @@ class DownloadsController extends AppController {
 	// 基本的なページの表示
 	public function index(){
 		$dir = new Folder(WWW_ROOT.'csv/');
-		$files = $dir->find('.*_.*_.*_.*\.csv', true);
-		$this->set('files', $files);
+		// イベントのUniqueIDの取得
+		$event_id = $_SESSION['event_str'];
+		// イベントに対応するファイルの検索
+		$files = $dir->find($event_id.'_[0-9a-zA-Z]*_[0-9]*\.csv', true);
+		// ファイル名からファイル名、イベントID、Macアドレス、日時、UNIXタイムを取得し、配列に入れ直す
+		$data = $this->analyzeFileName($files);
+
+		// unixタイムで降順ソート
+		$sort = array();
+		foreach ($data as $key => $value) {
+			$sort[$key] = $value[unixtime];
+		}
+		array_multisort($sort, SORT_DESC, $data);
+		
+		$this->set('files', $data);
 		//TODO 最新の投票を有効にするかそうではないかの情報をViewに渡す
 	}
 
@@ -77,6 +90,52 @@ class DownloadsController extends AppController {
 		$this->response->type('csv');
 		$this->response->download('投票結果.csv');
 		$this->response->body($this->makeFileContent($usersData));
+	}
+
+	/*
+	 * ファイル名からイベントID、MACアドレス、日時の取得
+	 */
+	private function analyzeFileName($files){
+		$result = array();
+		foreach($files as $file){
+			// ファイルごとのデータを作成
+			$result[] = array(
+				'filename' => $file,
+				'event_id' => $this->getEventID($file),
+				'mac_addr' => $this->getMacAddr($file),
+				'datetime' => $this->getDateTime($file),
+				'unixtime' => $this->getUnixTime($file)
+			);
+		}
+		return $result;
+	}
+
+  	/*
+  	 * ファイル名からイベントID取得
+  	 */
+ 	private function getEventID($filename){
+ 		return explode("_", $filename)[0];
+ 	}
+
+ 	/*
+ 	 * ファイル名からMACアドレス取得
+ 	 */
+	private function getMacAddr($filename){
+		return explode("_", $filename)[1];
+	}
+
+ 	/*
+ 	 * ファイル名から日時取得
+ 	 */
+	private function getDateTime($filename){
+		return date('Y/m/d H:i:s', (int)explode("_", $filename)[2]);
+	}
+
+ 	/*
+ 	 * ファイル名からUNIXタイム取得
+ 	 */
+	private function getUnixTime($filename){
+		return (int)explode("_", $filename)[2];
 	}
 
 	/**

@@ -29,7 +29,7 @@ class PosMappsController extends AppController {
                 'conditions' => array('event_id' => $_SESSION['event_id'])
             ));
         $where=array(
-            'conditions' => array('event_id' => $_SESSION['event_id']), //ŒŸõğŒ‚Ì”z—ñ
+            'conditions' => array('event_id' => $_SESSION['event_id']), //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì”zï¿½ï¿½
             "order" => array("room" => "ASC","order" => "ASC")
         );
         $schedules = $this->Schedule->find('all',$where);
@@ -189,7 +189,7 @@ class PosMappsController extends AppController {
                 $JsonPresent.='}';
 
 
-                // TODO: Author‚ğ‚³‚ç‚ÉƒRƒ“ƒ}‚Å•ªŠ„‚µ‚ÄJSON‚É‹Lq‚·‚é•K—v‚ª‚ ‚é
+                // TODO: Authorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉƒRï¿½ï¿½ï¿½}ï¿½Å•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JSONï¿½É‹Lï¿½qï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 $JsonAuthor.='{';
                 $JsonAuthor.='"presenid":"No Presen'.$pointerPresen.'",';
                 $JsonAuthor.='"name":"No data",';
@@ -198,7 +198,7 @@ class PosMappsController extends AppController {
                 $JsonAuthor.='}';
 
 
-                // TODO: Keyword?¿½?¿½?¿½?¿½?¿½?¿½ÉƒR?¿½?¿½?¿½}?¿½Å•ï¿½?¿½?¿½?¿½?¿½?¿½?¿½JSON?¿½É‹L?¿½q?¿½?¿½?¿½?¿½K?¿½v?¿½?¿½?¿½?¿½?¿½?¿½
+                // TODO: Keyword?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ÉƒR?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½}?ï¿½ï¿½Å•ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½JSON?ï¿½ï¿½É‹L?ï¿½ï¿½q?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½K?ï¿½ï¿½v?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½
                 $JsonKeyword .= '{';
                 $JsonKeyword .= '"presenid":"No Presen'.$pointerPresen.'",';
                 $JsonKeyword .= '"keyword":"No data"';
@@ -251,7 +251,7 @@ class PosMappsController extends AppController {
             $JsonPresent.='"bookmark":"0"';
             $JsonPresent.='}';
 
-            // TODO: Author‚ğ‚³‚ç‚ÉƒRƒ“ƒ}‚Å•ªŠ„‚µ‚ÄJSON‚É‹Lq‚·‚é•K—v‚ª‚ ‚é
+            // TODO: Authorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉƒRï¿½ï¿½ï¿½}ï¿½Å•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JSONï¿½É‹Lï¿½qï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
             $arr = explode(",",$presentation['Presentation']['authors_name']);
             $brr = explode(",",$presentation['Presentation']['authors_affiliation']);
@@ -283,7 +283,7 @@ class PosMappsController extends AppController {
 
                 }
             }
-            // TODO: Keyword‚ğ‚³‚ç‚ÉƒRƒ“ƒ}‚Å•ªŠ„‚µ‚ÄJSON‚É‹Lq‚·‚é•K—v‚ª‚ ‚é
+            // TODO: Keywordï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÉƒRï¿½ï¿½ï¿½}ï¿½Å•ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JSONï¿½É‹Lï¿½qï¿½ï¿½ï¿½ï¿½ï¿½Kï¿½vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             $JsonKeyword .= '{';
             $JsonKeyword .= '"presenid":"'.$presentation['Presentation']['room'].$presentation['Presentation']['session_order'].'-'.$presentation['Presentation']['presentation_order'].'",';
             $JsonKeyword .= '"keyword":"' .$presentation['Presentation']['keyword']. '"';
@@ -332,7 +332,7 @@ class PosMappsController extends AppController {
         //---------------------------------------------------------------------------------------------------timetable--------------------------------------------------------------------------------------------------
 
         $where=array(
-            'conditions' => array('event_id' => $_SESSION['event_id']), //ŒŸõğŒ‚Ì”z—ñ
+            'conditions' => array('event_id' => $_SESSION['event_id']), //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì”zï¿½ï¿½
             'group' => array('date')
         );
 
@@ -346,7 +346,7 @@ class PosMappsController extends AppController {
             $date=$event['Event']['event_begin_date'];
             $monthday=explode("-",date('Y-m-d',strtotime('+'.$dateplus++.' day',strtotime($date))));
             $monthdayStr=$monthday[1]."/".(string)(((int)$monthday[2]));
-            //TODO:ŠÔŠm”F
+            //TODO:ï¿½ï¿½ï¿½ÔŠmï¿½F
 
             $JsonDay .= '{';
             $JsonDay .= '"day_id":"' . $schedules[$i]['Schedule']['date'] . '",';
@@ -355,7 +355,7 @@ class PosMappsController extends AppController {
 
             //------------------------------------------------------------------------------------------------schedule--------------------------------------------------------------------------------------------------
             $where=array(
-                'conditions' => array('event_id' => $_SESSION['event_id'],'date'=>(string)$schedules[$i]['Schedule']['date']), //ŒŸõğŒ‚Ì”z—ñ
+                'conditions' => array('event_id' => $_SESSION['event_id'],'date'=>(string)$schedules[$i]['Schedule']['date']), //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì”zï¿½ï¿½
                 "order" => array("start_time"=>"ASC")
             );
             $sessions = $this->Schedule->find('all',$where);
@@ -496,7 +496,7 @@ class PosMappsController extends AppController {
 
 
         //-----------------------------------------------------------------------------------------------------------Save Json------------------------------------------------------------------------------------------------------------------------------
-        // JSON‚Ö•ÏŠ·‚µ‚Ä‘‚«‚İ
+        // JSONï¿½Ö•ÏŠï¿½ï¿½ï¿½ï¿½Äï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         $filename ='../webroot/json/'.$_SESSION['event_str'].'.json';
 
         $handle = fopen($filename, 'w');
