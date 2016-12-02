@@ -68,6 +68,7 @@ cd tmp && mkdir cache && mkdir logs && mkdir sessions && mkdir tests && cd cache
 
 ### Step.6 databaseファイルの複製
 ```
+cd ../Config/
 cp database.php.default database.php
 ```
 
