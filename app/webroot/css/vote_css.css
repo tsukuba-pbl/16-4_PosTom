@@ -1,0 +1,12 @@
+.up_qr {
+    display:table-cell;
+    text-align: center;
+    font-size: 120%;
+    width:80%;
+}
+
+.regist-vote {
+    display: table-cell;
+    width:20%;
+
+}
