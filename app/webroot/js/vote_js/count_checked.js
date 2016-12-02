@@ -6,13 +6,16 @@
 $(document).on('change', 'input[type="checkbox"]',function () {
   var count;
 
+
   if ($(this).is(":checked")) {
       count = $(this).attr('name');
       CandidateID[count] = $(this).val();
+      $("#confirm_candidates").append('<div id="div' + count + '"><p>'+$(this).parent().text()+'</p></div>');
   }
   else {
       count = $(this).attr('name');
       delete CandidateID[count];
+      $("#div"+count).remove();
   }
   localStorage.setItem('Candidate_ID',JSON.stringify(CandidateID));
 });
