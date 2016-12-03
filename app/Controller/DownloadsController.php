@@ -33,7 +33,7 @@ class DownloadsController extends AppController {
 			$sort[$key] = $value[unixtime];
 		}
 		array_multisort($sort, SORT_DESC, $data);
-		
+
 		$this->set('files', $data);
 		//TODO 最新の投票を有効にするかそうではないかの情報をViewに渡す
 	}
@@ -128,7 +128,8 @@ class DownloadsController extends AppController {
  	 * ファイル名から日時取得
  	 */
 	private function getDateTime($filename){
-		return date('Y/m/d H:i:s', (int)explode("_", $filename)[2]);
+		$tmp = explode("_", $filename);
+		return date('Y/m/d H:i:s', (int)$tmp[2]);
 	}
 
  	/*
