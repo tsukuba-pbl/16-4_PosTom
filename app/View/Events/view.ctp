@@ -112,3 +112,14 @@
 <p>by SmartPhone</p>
 </li>
 </ul>
+
+<h3>Add QRCodeReader</h3>
+<p>please scan QR code to QRCodeReader for vote</p>
+<?php
+	$urlToEncode = '{"event_id": "'.$_SESSION['event_str']. '", "event_name": "' .$_SESSION['event_name']. '"}';
+	generateQRfromGoogle($urlToEncode);
+	function generateQRfromGoogle($chl,$widhtHeight ='150',$EC_level='L',$margin='0'){
+		$chl = urlencode($chl);
+		echo '<img src="http://chart.apis.google.com/chart?chs='.$widhtHeight.'x'.$widhtHeight.'&cht=qr&chld='.$EC_level.'|'.$margin.'&chl='.$chl.' " alt="QR code" style="width:120px;height:120px;border-width:1px;"/>';
+	}
+?>
