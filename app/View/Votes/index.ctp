@@ -1,6 +1,6 @@
 <h2>Download Vote Data</h2>
 <?php
-    echo $this->Form->create('Download', array('action' => 'fileDownload'));
+    echo $this->Form->create('Vote', array('action' => 'fileDownload'));
     echo $this->Form->hidden('voteinfo', array('value' => 0));
     if(count($files) > 0){
 ?>
@@ -37,7 +37,7 @@
     </tbody>
 </table>
 <?php
-    echo $this->Form->submit('Download', array('class'=>'btn btn-custom'));
+    echo $this->Form->submit('Vote', array('class'=>'btn btn-custom'));
 } else {
     echo "<h4>ダウンロードするファイルがありません</h4>";
 }

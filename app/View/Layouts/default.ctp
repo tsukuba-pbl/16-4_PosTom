@@ -112,8 +112,8 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
 			case 'Floormaps':
 				echo $this->Html->script('page_floormap');
 				break;
-			case 'Downloads':
-				echo $this->Html->script('page_download');
+			case 'Votes':
+				echo $this->Html->script('page_vote');
 				break;
 			case 'Settings':
 				echo $this->Html->script('page_setting');
@@ -150,7 +150,7 @@ echo $this->Html->image('i_logo.png', array(
 <li id="gNavPos"><a href="<?php echo $this->Html->url(array('controller' => 'posters', 'action' => 'index')); ?>"><i class="fa fa-file-image-o fa-2x"></i><span>Poster</span></a></li>
 <li id="gNavPre"><a href="<?php echo $this->Html->url(array('controller' => 'presentations', 'action' => 'index')); ?>"><i class="fa fa-television fa-2x"></i><span>Presentation</span></a></li>
 <li id="gNavFlo"><a href="<?php echo $this->Html->url(array('controller' => 'floormaps', 'action' => 'index')); ?>"><i class="fa fa-map-o fa-2x"></i><span>Floor Map</span></a></li>
-<li id="gNavDow"><a href="<?php echo $this->Html->url(array('controller' => 'downloads', 'action' => 'index')); ?>"><i class="fa fa-cloud-download fa-2x"></i><span>Download</span></a></li>
+<li id="gNavDow"><a href="<?php echo $this->Html->url(array('controller' => 'votes', 'action' => 'index')); ?>"><?php echo $this->Html->image('voteicon.png', array('class' => 'voteicon')); ?><span>Vote</span></a></li>
 <li id="gNavSet"><a href="<?php echo $this->Html->url(array('controller' => 'settings', 'action' => 'eventedit', isset($_SESSION['event_id'])?$_SESSION['event_id']:'')); ?>"><i class="fa fa-cog fa-2x"></i><span>Setting</span></a></li>
 </ul>
 </div>
