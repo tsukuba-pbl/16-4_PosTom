@@ -1,7 +1,7 @@
 <?php
 App::uses('AppController', 'Controller');
 
-class EventsControllerTest extends ControllerTestCase {
+class VotesControllerTest extends ControllerTestCase {
 	public $fixtures = array('app.user', 'app.editor', 'app.event', 'app.poster');
 
     protected $object;
@@ -16,7 +16,7 @@ class EventsControllerTest extends ControllerTestCase {
         // 出力のバッファを有効
         ob_start();
 		$data = array(
-			'Download' => array(
+			'Vote' => array(
                 'voteinfo' => 0,
                 'android1.csv',
                 'android2.csv',
@@ -24,7 +24,7 @@ class EventsControllerTest extends ControllerTestCase {
 		);
         // ファイルのDL（リクエストの送信）
 		$result = $this->testAction(
-			'/downloads/fileDownload',
+			'/votes/fileDownload',
 			array(
 				'return' => 'result',
                 'method' => 'post',
@@ -50,7 +50,7 @@ class EventsControllerTest extends ControllerTestCase {
         // 出力のバッファを有効
         ob_start();
 		$data = array(
-			'Download' => array(
+			'Vote' => array(
                 'voteinfo' => 1,
                 'android1.csv',
                 'android2.csv',
@@ -58,7 +58,7 @@ class EventsControllerTest extends ControllerTestCase {
 		);
         // ファイルのDL（リクエストの送信）
 		$result = $this->testAction(
-			'/downloads/fileDownload',
+			'/votes/fileDownload',
 			array(
 				'return' => 'result',
                 'method' => 'post',

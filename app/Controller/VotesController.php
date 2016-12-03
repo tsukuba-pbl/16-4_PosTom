@@ -6,7 +6,7 @@ App::uses('File', 'Utility');
 /**
  * 投票結果をDLするページに関するController
  */
-class DownloadsController extends AppController {
+class VotesController extends AppController {
 	public $helpers = array('Html', 'Form', 'Text');
 	public $uses = array('Event', 'Poster', 'Editor');
 
@@ -51,7 +51,7 @@ class DownloadsController extends AppController {
         $fileData = array();
 		$dir = new Folder(WWW_ROOT.'csv/');
 		// 選択されたファイルの中身をそれぞれ取得
-		foreach($this->request->data["Download"] as $file){
+		foreach($this->request->data["Vote"] as $file){
 			// 選択されたファイルの検索
 			$target = $dir->find($file, true);
 			// ファイルがあるときは、ファイルの中身を$fileDataに入れていく
@@ -61,7 +61,7 @@ class DownloadsController extends AppController {
 			}
 		}
 		// 取得したファイルの内容から最新のユーザの情報を反映している
-		$usersData = $this->processFiledata($fileData, (int)$this->request->data["Download"]["voteinfo"]);
+		$usersData = $this->processFiledata($fileData, (int)$this->request->data["Vote"]["voteinfo"]);
 		// ファイルの作成
 		// $targetFile = new File(WWW_ROOT.'csv/target.csv', true);
 		// $targetFile->write($this->makeFileContent($usersData));
