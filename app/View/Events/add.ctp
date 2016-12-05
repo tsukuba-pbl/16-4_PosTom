@@ -17,7 +17,7 @@
 
         //投票するかのRadioボタンの<legend>タグを他のinputと同様である<label>に変更
         $('input.vote').parent().children('legend').replaceWith('<label>Enable Vote</label>');
-        $('input.vaildVote').parent().children('legend').replaceWith('<label>Choose Which Vote For The Final Decision</label>');
+        $('input.vaildVote').parent().children('legend').replaceWith('<label>Permit To Re-voting</label>');
     });
 
     //投票アプリを使用する場合のみ、最新 or 最古のどちらを有効投票とするのかを選択できるようにした。
@@ -142,6 +142,6 @@ echo $this->Form->input('event_begin_time', array('class'=>'form-control', 'valu
 echo $this->Form->input('event_end_date', array('class'=>'form-control'));
 echo $this->Form->input('event_end_time', array('class'=>'form-control', 'value' => '00:00:00', 'interval' => 10));
 echo $this->Form->radio('event_vote_app', array('0' => 'Yes', '1' => 'No'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vote'));
-echo $this->Form->radio('event_vote_valid', array('0' => 'First', '1' => 'Latest'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
+echo $this->Form->radio('event_vote_valid', array('0' => 'Yes', '1' => 'No'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
 echo $this->Form->submit('Create', array('class'=>'btn btn-custom'));
 ?>
