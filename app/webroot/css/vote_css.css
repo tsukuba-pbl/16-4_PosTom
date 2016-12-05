@@ -8,5 +8,12 @@
 .regist-vote {
     display: table-cell;
     width:20%;
+}
 
+.candidate_list {
+ max-height: 200px;
+ border: 1px solid #666666;
+ padding: 10px;
+ margin: 0px auto;
+ overflow: auto;
 }

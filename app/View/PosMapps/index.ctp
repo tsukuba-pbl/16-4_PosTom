@@ -71,7 +71,6 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_application.js"></script>
 	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
@@ -389,13 +388,14 @@
 				<div id="YourID">
 				</div>
 
-				<!-- 検索 -->
-				<input id="listsearchinput" type="text" placeholder="検索"/>
+
 				<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
 				<div data-role="controlgroup" data-type="horizontal">
 						<button class="ui-btn" onclick="create_list(json_file)">全件表示</button>
 						<button class="ui-btn" onclick="create_bookmark_list(json_file)">ブックマークリスト</button>
 				</div>
+				<!-- 検索 -->
+				<input id="listsearchinput" type="text" placeholder="検索"/>
 				<ul id="onVote" data-role="listview" data-inset="true" id="listdata" >
 						<!-- JSONファイルの候補者をリスト表示 -->
 
@@ -403,11 +403,11 @@
 										<div id="my_checkbox"></div>
 								</fieldset>
 				</ul>
+				<fieldset class="ui-grid-a">
+						<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">投票する</button>
+				</fieldset>
 		</div>
 
-		<fieldset class="ui-grid-a">
-				<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">投票する</button>
-		</fieldset>
 		<canvas id="qr-canvas" width="640" height="480" hidden></canvas>
 
 		<!-- タブバー -->

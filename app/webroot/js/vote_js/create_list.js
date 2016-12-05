@@ -10,7 +10,7 @@ function create_list(json_file) {
             bookmark_list = bookmark_list.split(",");
         }
         var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
-        checkboxContents += "<div data-role='controlgroup' style='overflow-y:scroll;height:45vh'>";
+        checkboxContents += "<div data-role='controlgroup' class='candidate_list'";
 
         $.each(data.author, function(i, item1) {
             ID = item1.presenid,
@@ -30,11 +30,14 @@ function create_list(json_file) {
                   if (bookmark_list != null) {
                     $.each (bookmark_list, function(k, item3){
                         if(item2.presenid === bookmark_list[k]) {
-                            checkboxContents +="★";
+                            TITLE =　"★" + TITLE;
                         }
                     });
                   }
-                  checkboxContents +='ID: ' + ID + '</br>' + ' Name: ' + NAME + '</br>' + ' Title: ' + TITLE + '</label>';
+                  //checkboxContents +='ID: ' + ID + '</br>' + ' Name: ' + NAME + '</br>' + ' Title: ' + TITLE + '</label>';
+                  checkboxContents += '<div style="font-weight:normal">&emsp;' + ID + '</div>';
+                  checkboxContents += '<strong>' + TITLE + '</strong></br>';
+                  checkboxContents += '<div class="authors-on-list">' + NAME + '</div><hr></label>';
               }
             });
         });
