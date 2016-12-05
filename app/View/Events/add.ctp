@@ -142,6 +142,6 @@ echo $this->Form->input('event_begin_time', array('class'=>'form-control', 'valu
 echo $this->Form->input('event_end_date', array('class'=>'form-control'));
 echo $this->Form->input('event_end_time', array('class'=>'form-control', 'value' => '00:00:00', 'interval' => 10));
 echo $this->Form->radio('event_vote_app', array('0' => 'Yes', '1' => 'No'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vote'));
-echo $this->Form->radio('event_vote_valid', array('0' => 'Yes', '1' => 'No'), array('value'=>0, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
+echo $this->Form->radio('event_vote_valid', array('0' => 'Yes', '1' => 'No'), array('value'=>1, 'separator'=>'&nbsp;&nbsp;&nbsp;', 'class'=>'vaildVote'));
 echo $this->Form->submit('Create', array('class'=>'btn btn-custom'));
 ?>
