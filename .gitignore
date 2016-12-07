@@ -9,7 +9,7 @@
 /dist
 /tags
 *.mo
-/app/webroot/csv/*_*_*_*.csv
+/app/webroot/csv/*_*_*.csv
 /app/webroot/json/*.json
 
 # IDE and editor specific files #
