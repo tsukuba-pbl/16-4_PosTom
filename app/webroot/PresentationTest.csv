@@ -1,4 +1,72 @@
-room,session_order,presentation_order,date,title,abstract,keyword,authors_name,authors_belongs
-A,1,1,1,title2,abstract2,keyword2,"name3,name4,name5","belongs3,belongs4,belongs5"
-B,2,2,1,title3,abstract3,keyword3,"name6,name7,name8,name9","belongs6,belongs7,belongs8,belongs9"
-C,3,3,2,title4,abstract4,keyword4,name10,belongs10
+{
+    "author":[
+        {
+            "presenid":"AIT-01",
+            "name":"MTI",
+            "title":"みんなと一緒",
+            "first":1
+        },
+        {
+            "presenid":"AIT-02",
+            "name":"STReG",
+            "title":"突発イベントメンバー募集システム",
+            "first":1
+        },
+        {
+            "presenid":"AIT-03",
+            "name":"SWAT",
+            "title":"研究室等向け図書貸出システム:Bircle",
+            "first":1
+        },
+        {
+            "presenid":"AIT-04",
+            "name":"おれんじ",
+            "title":"無線型振動センサーによる簡易防犯システム",
+            "first":1
+        },
+        {
+            "presenid":"AIT-05",
+            "name":"TS_カルテット",
+            "title":"ポスター展示会向けスマホアプリPosMAppのオフライン投票機能の開発",
+            "first":1
+        },
+        {
+            "presenid":"AIT-06",
+            "name":"ラッダイト運動",
+            "title":"VRを用いた家具配置シミュレーションシステム",
+            "first":1
+        }
+    ],
+    "presen":[
+        {
+            "presenid":"AIT-01",
+            "name":"MTI",
+            "title":"みんなと一緒"
+        },
+        {
+            "presenid":"AIT-02",
+            "name":"STReG",
+            "title":"突発イベントメンバー募集システム"
+        },
+        {
+            "presenid":"AIT-03",
+            "name":"SWAT",
+            "title":"研究室等向け図書貸出システム:Bircle"
+        },
+        {
+            "presenid":"AIT-04",
+            "name":"おれんじ",
+            "title":"無線型振動センサーによる簡易防犯システム"
+        },
+        {
+            "presenid":"AIT-05",
+            "name":"TS_カルテット",
+            "title":"ポスター展示会向けスマホアプリPosMAppのオフライン投票機能の開発"
+        },
+        {
+            "presenid":"AIT-06",
+            "name":"ラッダイト運動",
+            "title":"VRを用いた家具配置シミュレーションシステム"
+        }
+    ]
+}

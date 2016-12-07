@@ -427,8 +427,8 @@
 	<div id="confirm_candidates">
 	</div>
 	<fieldset class="ui-grid-a">
-		<button data-icon="flat-checkround" data-theme="g" onclick="confirm()">投票する</button>
-		<button data-icon="flat-cross" data-theme="d" onclick="vote_application()">選択しなおす</button>
+		<button data-icon="flat-checkround" data-theme="e" onclick="confirm()">投票する</button>
+		<button data-icon="flat-cross" data-theme="a" onclick="vote_application()">選択しなおす</button>
 	</fieldset>
 </div>
 
@@ -444,7 +444,7 @@
 						<div id="qrcode" align="center">
 						</div>
 						<!-- 候補者を選択しなおす -->
-						<div class="ui-block-b"><button data-icon="back" data-theme="d" onclick="go_back()">選択しなおす</button></div>
+						<div class="ui-block-b"><button data-icon="back" data-theme="a" onclick="go_back()">選択しなおす</button></div>
 				</div>
 		</div>
 
