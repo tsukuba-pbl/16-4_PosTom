@@ -1,7 +1,7 @@
 <h2>Download Vote Data</h2>
 <?php
     echo $this->Form->create('Vote', array('action' => 'fileDownload'));
-    echo $this->Form->hidden('voteinfo', array('value' => 0));
+    echo $this->Form->hidden('voteinfo', array('value' => $revoteinfo));
     if(count($files) > 0){
 ?>
 <table class="table">
