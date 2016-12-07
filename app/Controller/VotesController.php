@@ -138,7 +138,8 @@ class VotesController extends AppController {
  	 * ファイル名からUNIXタイム取得
  	 */
 	private function getUnixTime($filename){
-		return (int)explode("_", $filename)[2];
+		$tmp = (int)explode("_", $filename);
+		return $tmp[2];
 	}
 
 	/**
