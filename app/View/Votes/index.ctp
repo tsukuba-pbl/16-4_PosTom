@@ -37,7 +37,7 @@
     </tbody>
 </table>
 <?php
-    echo $this->Form->submit('Vote', array('class'=>'btn btn-custom'));
+    echo $this->Form->submit('Download Vote Result', array('class'=>'btn btn-custom'));
 } else {
     echo "<h4>ダウンロードするファイルがありません</h4>";
 }
