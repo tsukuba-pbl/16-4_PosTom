@@ -10,6 +10,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link rel="shortcut icon" href="<?php echo $this->Html->webroot;?>favicon.ico" />
 
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/jquery.mobile.flatui.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/lib/jquery-ui-1.11.2.custom.min.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/lib/jquery.mobile-1.4.5.min.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/button-icon.css" />
@@ -18,10 +19,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/list.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/taparea.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/sessiontable.css" />
-<!--
-	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/jquery.mobile.flatui.css" />
--->
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/modify_navbar.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/vote_css.css" />
 
 	<script>
 		var webroot="<?php echo $this->Html->webroot;?>";
@@ -41,9 +40,7 @@
 
 	<!-- DB用発表データ -->
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/data.js"></script>
-
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/logdata-function.js"></script>
-
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/toppage-function.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/postermap-function.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/postermap-function-download.js"></script>
@@ -54,7 +51,6 @@
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/sessiontable-function.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/postermap-function-hammer.js"></script>
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/timetable-function.js"></script>
-
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/index.js"></script>
 
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
@@ -74,7 +70,6 @@
 	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/read_candidateid_QR.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
-
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_application.js"></script>
 	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
@@ -380,9 +375,12 @@
 		</div>
 		<!-- カメラで投票者ID入力 -->
 		<div data-role="content" class="ui-content">
-			<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile" style="display:none">
+			<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile" style="display:none" >
 			<label for="upfile">
-				<div class="up_qr ui-btn ui-btn-f ui-btn ui-icon-action ui-btn-icon-left ui-shadow ui-corner-all">投票者 ： 未登録</div>
+				<div style="display:table; widht:100%; margin:5px auto;">
+					<div class="up_qr">投票者 ： 未登録</div>
+					<div class="regist-vote ui-btn ui-btn-j ui-shadow ui-corner-all">登録</div>
+				</div>
 			<label>
 				<input type="hidden" name="voterid" id="voterid" value="">
 				<input type="hidden" name="checkvote" id="checkvote" value="0">
@@ -408,7 +406,7 @@
 		</div>
 
 		<fieldset class="ui-grid-a">
-				<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">Save</button>
+				<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">投票する</button>
 		</fieldset>
 		<canvas id="qr-canvas" width="640" height="480" hidden></canvas>
 

@@ -66,18 +66,13 @@ chmod -R 755 tmp
 cd tmp && mkdir cache && mkdir logs && mkdir sessions && mkdir tests && cd cache && mkdir models && mkdir persistent && mkdir views && touch models/empty && touch persistent/empty && touch views/empty && cd ../ && touch logs/empty && touch sessions/empty && touch tests/empty
 ```
 
-### Step.6 coreファイルの複製
+### Step.6 databaseファイルの複製
 ```
 cd ../Config/
-cp core.php.default core.php
-```
-
-### Step.7 databaseファイルの複製
-```
 cp database.php.default database.php
 ```
 
-### Step.8 databaseファイルの編集
+### Step.7 databaseファイルの編集
 ```
 class DATABASE_CONFIG {
 	public $default = array(
