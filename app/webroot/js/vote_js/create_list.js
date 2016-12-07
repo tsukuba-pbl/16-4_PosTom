@@ -35,9 +35,9 @@ function create_list(json_file) {
                     });
                   }
                   //checkboxContents +='ID: ' + ID + '</br>' + ' Name: ' + NAME + '</br>' + ' Title: ' + TITLE + '</label>';
-                  checkboxContents += '<div style="font-weight:normal">&emsp;' + ID + '</div>';
-                  checkboxContents += '<strong>' + TITLE + '</strong></br>';
-                  checkboxContents += '<div class="authors-on-list">' + NAME + '</div><hr></label>';
+                  checkboxContents += '<div style="font-weight:normal">' + ID + '</div>';
+                  checkboxContents += '<strong>' + TITLE + '</strong><hr>';
+                  checkboxContents += '<div class="authors-on-list" style="text-align:right">' + NAME + '</div></label>';
               }
             });
         });

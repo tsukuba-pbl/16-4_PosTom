@@ -17,3 +17,8 @@
  margin: 0px auto;
  overflow: auto;
 }
+
+.ui-btn:active {
+	top: 3px; !important
+	box-shadow: none; !important
+}

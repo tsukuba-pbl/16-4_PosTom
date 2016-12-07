@@ -32,9 +32,9 @@ function create_bookmark_list(json_file) {
                               }
                               checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' value="'+ID+'"/></li>'
                               checkboxContents += '<label for="jsform_checkbox' + i +'">';
-                              checkboxContents += '<div style="font-weight:normal">&emsp;' + ID + '</div>';
-                              checkboxContents += '★<strong>' + TITLE + '</strong></br>';
-                              checkboxContents += '<div class="authors-on-list">' + NAME + '</div><hr></label>';
+                              checkboxContents += '<div style="font-weight:normal">' + ID + '</div>';
+                              checkboxContents += '★<strong>' + TITLE + '</strong><hr>';
+                              checkboxContents += '<div class="authors-on-list" style="text-align:right">' + NAME + '</div></label>';
                           }
                       });
                   }
