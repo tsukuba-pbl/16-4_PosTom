@@ -119,23 +119,20 @@ function setMapSize() {
 
 function create_navbar() {
   var list = "";
+
+  list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
+  list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';
+  list += '<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>';
+  list += '<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>';
+  list += '<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>';
+
   if (event_vote_app === '0') { //voteON
-    list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
-    list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';
-    list += '<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>';
-    list += '<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>';
-    list += '<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>';
     list += '<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>'
     $('[class="nav-tabicon"]').append('<div data-role="navbar" height="100%" class="nav-tabicon footbar" data-grid="d"><ul>'+list+'</ul></div>');
     $('[data-role="navbar"]').navbar();
   }
 
   else if (event_vote_app === '1') {  //voteOFF
-    list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
-    list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';
-    list += '<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>';
-    list += '<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>';
-    list += '<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>';
     $('[class="nav-tabicon"]').append('<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d"><ul>'+list+'</ul></div>');
     $('[data-role="navbar"]').navbar();
   }
