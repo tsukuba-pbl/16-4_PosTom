@@ -114,14 +114,16 @@ class VotesController extends AppController {
   	 * ファイル名からイベントID取得
   	 */
  	private function getEventID($filename){
- 		return explode("_", $filename)[0];
+		$tmp = explode("_", $filename);
+ 		return $tmp[0];
  	}
 
  	/*
  	 * ファイル名からMACアドレス取得
  	 */
 	private function getMacAddr($filename){
-		return explode("_", $filename)[1];
+		$tmp = explode("_", $filename);
+		return $tmp[1];
 	}
 
  	/*
@@ -136,7 +138,8 @@ class VotesController extends AppController {
  	 * ファイル名からUNIXタイム取得
  	 */
 	private function getUnixTime($filename){
-		return (int)explode("_", $filename)[2];
+		$tmp = (int)explode("_", $filename);
+		return $tmp[2];
 	}
 
 	/**
