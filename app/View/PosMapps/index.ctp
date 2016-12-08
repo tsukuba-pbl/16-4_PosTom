@@ -71,6 +71,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/revoting_messege.js"></script>
 	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
@@ -421,11 +422,10 @@
 	<div data-role="header">
 	  <h1>投票確認</h1>
 	</div>
-	<div id="confirm">
-	</div>
+	<div id="confirm"></div>
 	<div data-role="header" data-theme="b"><h4>選択した候補者</h4></div>
-	<div id="confirm_candidates">
-	</div>
+	<div id="confirm_candidates"></div>
+	<div id="permit_revoting"></div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-checkround" data-theme="e" onclick="confirm()">投票する</button>
 		<button data-icon="flat-cross" data-theme="a" onclick="vote_application()">選択しなおす</button>

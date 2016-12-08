@@ -22,7 +22,7 @@ var poster 			= [],
 	MAP_AREA_HEIGHT = null,
 	INIT_SCALE 		= null,
 	SCALE_BY 		= null,
-  CandidateID = {};
+    CandidateID     = {};
 
 
 // json ファイルの置き場所（URL, 仮）
@@ -40,6 +40,8 @@ event_str = event_str.split("#")[0];
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 var event_vote_app = null;
+var event_vote_valid = null;
+
 
 function ViewModel(){
 	this.forum = forum;
@@ -65,13 +67,14 @@ function initData() {
 		poster_days		= posmapp_bg.length;
 		timetable 		= JSON.parse(localStorage.getItem("timetable"));
 		venuemap		= JSON.parse(localStorage.getItem("venuemap"));
-	  basic_info      = JSON.parse(localStorage.getItem("basic_info"));
+	    basic_info      = JSON.parse(localStorage.getItem("basic_info"));
 
 		makeSessionMap();
-    makeVoteApplication();
-    create_navbar();
-
+        makeVoteApplication();
+        create_navbar();
 	}
+
+    event_vote_valid = basic_info['event_vote_valid'];
 
 	// BlockFinderにかけた画像の幅
 	STATIC_WIDTH =  720;
@@ -90,8 +93,6 @@ function makeSessionMap(){
 }
 
 function makeVoteApplication() {
-  event_vote_app = basic_info['event_vote_app'];
-  localStorage.setItem("vote", event_vote_app);
   if (event_vote_app === '0') {
     document.getElementById("vote_application").style.display="block";
   }
@@ -119,6 +120,8 @@ function setMapSize() {
 
 function create_navbar() {
   var list = "";
+
+  event_vote_app = basic_info['event_vote_app'];
 
   list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
   list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';
