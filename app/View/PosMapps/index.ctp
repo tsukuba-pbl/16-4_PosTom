@@ -71,7 +71,6 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/revoting_messege.js"></script>
 	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
