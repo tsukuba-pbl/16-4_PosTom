@@ -27,15 +27,18 @@ class VotesController extends AppController {
 		// ファイル名からファイル名、イベントID、Macアドレス、日時、UNIXタイムを取得し、配列に入れ直す
 		$data = $this->analyzeFileName($files);
 
-		// unixタイムで降順ソート
+		// unixtimeで降順ソート
 		$sort = array();
 		foreach ($data as $key => $value) {
-			$sort[$key] = $value[unixtime];
+			$sort[$key] = $value['unixtime'];
 		}
 		array_multisort($sort, SORT_DESC, $data);
 
+		// 再投票の有無を取得 0: 再投票可, 1: 再投票不可
+		$revote_info = $this->Event->find('first', array('conditions' => array('unique_str' => $_SESSION['event_str'])));
+
 		$this->set('files', $data);
-		//TODO 最新の投票を有効にするかそうではないかの情報をViewに渡す
+		$this->set('revoteinfo', $revote_info['Event']['event_vote_valid']);
 	}
 
 	/**
@@ -138,8 +141,8 @@ class VotesController extends AppController {
  	 * ファイル名からUNIXタイム取得
  	 */
 	private function getUnixTime($filename){
-		$tmp = (int)explode("_", $filename);
-		return $tmp[2];
+		$tmp = explode("_", $filename);
+		return (int)$tmp[2];
 	}
 
 	/**
