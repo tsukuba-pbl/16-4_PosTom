@@ -18,7 +18,8 @@
  overflow: auto;
 }
 
-.ui-btn:active {
-	top: 3px; !important
-	box-shadow: none; !important
+.ui-mobile .ui-page-active {
+   display: block;
+   overflow: visible;
+   /* overflow-x: hidden; */
 }

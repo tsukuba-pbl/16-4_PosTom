@@ -380,28 +380,25 @@
 					<div class="up_qr">投票者 ： 未登録</div>
 					<div class="regist-vote ui-btn ui-btn-j ui-shadow ui-corner-all">登録</div>
 				</div>
-			<label>
+			</label>
 				<input type="hidden" name="voterid" id="voterid" value="">
 				<input type="hidden" name="checkvote" id="checkvote" value="0">
-
 				<!--ID表示 -->
 				<div id="YourID">
 				</div>
 
-
 				<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
 				<div data-role="controlgroup" data-type="horizontal">
-						<button class="ui-btn" onclick="create_list(json_file)">全件表示</button>
-						<button class="ui-btn" onclick="create_bookmark_list(json_file)">ブックマークリスト</button>
+						<button onclick="create_list(json_file)">全件表示</button>
+						<button onclick="create_bookmark_list(json_file)">ブックマークリスト</button>
 				</div>
 				<!-- 検索 -->
 				<input id="listsearchinput" type="text" placeholder="検索"/>
 				<ul id="onVote" data-role="listview" data-inset="true" id="listdata" >
 						<!-- JSONファイルの候補者をリスト表示 -->
-
-								<fieldset data-role="content" id="my_controlgroup">
-										<div id="my_checkbox"></div>
-								</fieldset>
+						<fieldset data-role="content" id="my_controlgroup">
+								<div id="my_checkbox"></div>
+						</fieldset>
 				</ul>
 				<fieldset class="ui-grid-a">
 						<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">投票する</button>
