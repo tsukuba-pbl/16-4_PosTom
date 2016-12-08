@@ -113,8 +113,8 @@
 </li>
 </ul>
 
-<h3>Add QRCodeReader</h3>
-<p>please scan QR code to QRCodeReader for vote</p>
+<h3>Add Ballot Machine</h3>
+<p>Use The Ballot Machine To Scan The QR Code Before Voting</p>
 <?php
 	$urlToEncode = '{"event_id": "'.$_SESSION['event_str']. '", "event_name": "' .$_SESSION['event_name']. '"}';
 	generateQRfromGoogle($urlToEncode);
