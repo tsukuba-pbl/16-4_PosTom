@@ -384,28 +384,26 @@
 					<div class="regist-vote ui-btn ui-btn-j ui-shadow ui-corner-all">登録</div>
 				</div>
 			</label>
-				<input type="hidden" name="voterid" id="voterid" value="">
-				<input type="hidden" name="checkvote" id="checkvote" value="0">
-				<!--ID表示 -->
-				<div id="YourID">
-				</div>
-
-				<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
-				<div data-role="controlgroup" data-type="horizontal">
-						<button onclick="create_list(json_file)">全件表示</button>
-						<button onclick="create_bookmark_list(json_file)">ブックマークリスト</button>
-				</div>
-				<!-- 検索 -->
-				<input id="listsearchinput" type="text" placeholder="検索"/>
-				<ul id="onVote" data-role="listview" data-inset="true" id="listdata" >
-						<!-- JSONファイルの候補者をリスト表示 -->
-						<fieldset data-role="content" id="my_controlgroup">
-								<div id="my_checkbox"></div>
-						</fieldset>
-				</ul>
-				<fieldset class="ui-grid-a">
-						<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">投票する</button>
+			<input type="hidden" name="voterid" id="voterid" value="">
+			<input type="hidden" name="checkvote" id="checkvote" value="0">
+			<!--ID表示 -->
+			<div id="YourID"></div>
+			<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
+			<div data-role="controlgroup" data-type="horizontal">
+				<button onclick="create_list(json_file)">全件表示</button>
+				<button onclick="create_bookmark_list(json_file)">ブックマークリスト</button>
+			</div>
+			<!-- 検索 -->
+			<input id="listsearchinput" type="text" placeholder="キーワード検索"/>
+			<ul id="listdata" data-role="listview" data-inset="true">
+				<!-- JSONファイルの候補者をリスト表示 -->
+				<fieldset data-role="content" id="my_controlgroup">
+					<div id="my_checkbox"></div>
 				</fieldset>
+			</ul>
+			<fieldset class="ui-grid-a">
+				<button data-icon="flat-checkround" data-theme="e" onclick="set_item()">投票する</button>
+			</fieldset>
 		</div>
 
 		<canvas id="qr-canvas" width="640" height="480" hidden></canvas>
@@ -463,10 +461,6 @@
             textSelector: "",
             inputSelector: "#listsearchinput"
         });
-        $('input[type="file"]').parent('div.ui-input-text').hide();
-
-
-
     });
 </script>
 
