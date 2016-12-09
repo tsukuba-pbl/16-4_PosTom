@@ -27,7 +27,7 @@ function set_item(){
     // count数を見て候補者の選択数をチェック
     if(count < 3){
         console.log("count < 3");
-        error = "候補者を3名未満選んでます。候補者は3名まで選んでください";
+        error = "候補者を3名未満選んでます。候補者は3名選んでください";
     }else if(count > 3){
         console.log("count > 3");
         error = "候補者を4名以上選んでます。候補者は3名選んでください";
