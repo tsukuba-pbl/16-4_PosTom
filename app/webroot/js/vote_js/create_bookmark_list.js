@@ -1,55 +1,47 @@
-function create_bookmark_list(json_file) {
-    var data = {};
+function create_bookmark_list() {
+    var checkboxContents = "";
+    var ID, NAME, TITLE;
+    var bookmark_list = localStorage.getItem("bookmarks");
+    var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
-    $.getJSON(json_file , function(data, status) {
-        var checkboxContents = "";
-        var ID, NAME, TITLE;
+    checkboxContents += "<div data-role='controlgroup' class='candidate_list'>";
 
-        checkboxContents += "<div data-role='controlgroup' class='candidate_list'>";
+    if (bookmark_list) {  //bookmarksがあったら
+        if (bookmark_list.length > 1) {
+            bookmark_list = bookmark_list.split(",");
+        }
+        $.each(author, function(i) {
+            ID = author[i].presenid,
+            NAME = author[i].name;
 
-        var bookmark_list = localStorage.getItem("bookmarks");
-        var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
-
-        if (bookmark_list) {  //bookmarksがあったら
-            if (bookmark_list.length > 1) {
-                bookmark_list = bookmark_list.split(",");
-            }
-            $.each(data.author, function(i, item1) {
-                ID = item1.presenid,
-                NAME = item1.name;
-
-                $.each (data.presen, function(j, item2) {
-                  if ( item1.first === "1" && item1.presenid === item2.presenid) {
-                      //console.log("item2.presenid="+item2.presenid);
-                      $.each (bookmark_list, function(k, item3){
-                          if(item2.presenid === bookmark_list[k]) {
-                              TITLE = item2.title;
-                              checkboxContents += '<li><input type="checkbox" ';
-                              for (key in CandidateId) {
-                                  if (CandidateId[key] === item2.presenid) {
-                                      checkboxContents += 'checked="checked"';
-                                  }
+            $.each (presen, function(j) {
+                if ( author[i].first === "1" && author[i].presenid === presen[j].presenid) {
+                    //console.log("presen[j].presenid="+presen[j].presenid);
+                    $.each (bookmark_list, function(k) {
+                        if(presen[j].presenid === bookmark_list[k]) {
+                            TITLE = presen[j].title;
+                            checkboxContents += '<li><input type="checkbox" ';
+                            for (key in CandidateId) {
+                              if (CandidateId[key] === presen[j].presenid) {
+                                  checkboxContents += 'checked="checked"';
                               }
-                              checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' value="'+ID+'"/></li>'
-                              checkboxContents += '<label for="jsform_checkbox' + i +'">';
-                              checkboxContents += '<div style="font-weight:normal">' + ID + '</div>';
-                              checkboxContents += '★<strong>' + TITLE + '</strong><hr>';
-                              checkboxContents += '<div class="authors-on-list" style="text-align:right">' + NAME + '</div></label>';
-                          }
-                      });
-                  }
-                });
+                            }
+                            checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' value="'+ID+'"/></li>'
+                            checkboxContents += '<label for="jsform_checkbox' + i +'">';
+                            checkboxContents += '<div style="font-weight:normal">' + ID + '</div>';
+                            checkboxContents += '★<strong>' + TITLE + '</strong><hr>';
+                            checkboxContents += '<div class="authors-on-list" style="text-align:right">' + NAME + '</div></label>';
+                        }
+                    });
+                }
             });
+        });
 
-            checkboxContents += "</div>";
-            $("#my_checkbox").empty().append(checkboxContents).trigger("create");
-        }
-        else {
-            console.log("empty_bookmarks");
-            $('#my_checkbox').empty().append("<a>ブックマークされていません</a>");
-        }
-    }).fail(function() {
-      console.log("failed_read_json");
-      $("#my_checkbox").empty().append("<a>読み込みError</a>");
-    });
-  }
+        checkboxContents += "</div>";
+        $("#my_checkbox").empty().append(checkboxContents).trigger("create");
+    }
+    else {
+        console.log("empty_bookmarks");
+        $('#my_checkbox').empty().append("<a>ブックマークされていません</a>");
+    }
+ }
