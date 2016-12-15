@@ -74,7 +74,6 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
-	<script type="text/javascript"> var json_file = posMAppDataURL; console.log(json_file);</script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/version.js"></script>
@@ -390,8 +389,8 @@
 			<div id="YourID"></div>
 			<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
 			<div data-role="controlgroup" data-type="horizontal">
-				<button onclick="create_list(json_file)">全件表示</button>
-				<button onclick="create_bookmark_list(json_file)">ブックマークリスト</button>
+				<button onclick="create_list()">全件表示</button>
+				<button onclick="create_bookmark_list()">ブックマークリスト</button>
 			</div>
 			<!-- 検索 -->
 			<input id="listsearchinput" type="text" placeholder="キーワード検索"/>
@@ -452,7 +451,7 @@
 
 <script>
     $(document).on('pageshow', '#votePage', function(e, d) {
-        create_list(json_file);
+        create_list();
     });
 
     $(document).ready(function() {
