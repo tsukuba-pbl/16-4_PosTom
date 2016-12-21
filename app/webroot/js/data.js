@@ -78,12 +78,22 @@ function initData() {
 		venuemap		= JSON.parse(localStorage.getItem("venuemap"));
 	    basic_info      = JSON.parse(localStorage.getItem("basic_info"));
 
+        event_vote_app = basic_info['event_vote_app'];
+
 		makeSessionMap();
         makeVoteApplication();
         create_navbar();
 	}
-
     event_vote_valid = basic_info['event_vote_valid'];
+
+    if (event_vote_valid === '0') {
+		$('#permit_revoting').empty().append('投票後，投票内容を変更し再投票可能です．');
+	}
+
+	else if (event_vote_valid === '1') {
+		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');
+		$('#permit_revoting').empty().append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．投票しますか？');
+	}
 
 	// BlockFinderにかけた画像の幅
 	STATIC_WIDTH =  720;
@@ -103,14 +113,12 @@ function makeSessionMap(){
 
 function makeVoteApplication() {
   if (event_vote_app === '0') {
-    document.getElementById("vote_application").style.display="block";
   }
 
   else if (event_vote_app === '1') {
-    document.getElementById("vote_application").style.display="none";
+    $('#vote_app_page').remove();
   }
 }
-
 // ポスターマップの大きさに関するデータを計算して格納
 function setMapSize() {
 	// マップエリアの幅
@@ -129,8 +137,6 @@ function setMapSize() {
 
 function create_navbar() {
   var list = "";
-
-  event_vote_app = basic_info['event_vote_app'];
 
   list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
   list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';

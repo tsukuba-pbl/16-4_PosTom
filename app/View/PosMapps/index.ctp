@@ -74,6 +74,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
+	<scirpt type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_yourid.js"></script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/version.js"></script>
@@ -134,7 +135,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="ui-grid-solo">
+		<div id="vote_app_page" class="ui-grid-solo">
 			<div class="ui-grid-a">
 				<div align="center">
 					<img id="goToVote" class="topVoteIcon" src="<?php echo $this->Html->webroot;?>img/topmenu/voteicon.png"/>
@@ -377,9 +378,10 @@
 				<h1>Vote Appication</h1>
 				<a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
 		</div>
-		<!--
-		<!-カメラで投票者ID入力 
+
 		<div data-role="content" class="ui-content">
+			<!-- カメラで投票者ID入力 -->
+			<!--
 			<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile" style="display:none" >
 			<label for="upfile">
 				<div style="display:table; widht:100%; margin:5px auto;">
@@ -389,13 +391,19 @@
 			</label>
 			<input type="hidden" name="voterid" id="voterid" value="">
 			<input type="hidden" name="checkvote" id="checkvote" value="0">
-		-->
+			-->
 			<!--ID表示 -->
-			<div id="YourID"></div>
-			<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
+			<div id="YourID" class="yourname"></div>
+			<script>
+			$(function() {
+				var your_name = get_voter_name.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+				$('#YourID').append("<strong>"+your_name+"</strong>さん");
+			});
+			</script>
+			<div data-role="header" data-theme="b" class="step-two"><p>候補者を下記から選択してください。</p></div>
 			<div data-role="controlgroup" data-type="horizontal">
-				<button onclick="create_list()">全件表示</button>
-				<button onclick="create_bookmark_list()">ブックマークリスト</button>
+				<button class="c-list" onclick="create_list()">全件表示</button>
+				<button class="b-list" onclick="create_bookmark_list()">ブックマークリスト</button>
 			</div>
 			<!-- 検索 -->
 			<input id="listsearchinput" type="text" placeholder="キーワード検索"/>
@@ -423,14 +431,19 @@
 	<div data-role="header">
 	  <h1>投票確認</h1>
 	</div>
-	<div id="confirm"></div>
+	<div id="confirm" class="yourname"></div>
 	<div data-role="header" data-theme="b"><h4>選択した候補者</h4></div>
 	<div id="confirm_candidates"></div>
 	<div id="permit_revoting"></div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-checkround" data-theme="e" onclick="confirm()">投票する</button>
-		<button data-icon="flat-cross" data-theme="a" onclick="vote_application()">選択しなおす</button>
+		<button data-icon="flat-cross" data-theme="a" onclick="go_back()">選択しなおす</button>
 	</fieldset>
+	<script>
+	$("#confirm").empty();
+	var your_name = get_voter_name.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+	$("#confirm").append("<strong>"+your_name+"</strong>さん");
+	</script>
 </div>
 
 <!-- QRCodeを表示するページ -->
