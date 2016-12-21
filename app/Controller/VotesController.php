@@ -170,7 +170,7 @@ class VotesController extends AppController {
 	private function makeFileContent($usersData){
 	    $content = "";
 	    foreach ($usersData as $key => $value) {
-	        $content .= $value["user"] . "," . $value["vote1"] . "," . $value["vote2"] . "," . $value["vote3"] . "\n";
+	        $content .= $value["user"] . "," . $value["type"] . "," . $value["vote1"] . "," . $value["vote2"] . "," . $value["vote3"] . "\n";
 	    }
 	    return $content;
 	}
@@ -199,16 +199,16 @@ class VotesController extends AppController {
 	private function processFiledata($fileData, $firstOrOld){
 		$usersData = array();
 		foreach ($fileData as $k => $value) {
-			list($user, $vote1, $vote2, $vote3, $date) = explode(",", $value);
+			list($user, $type, $vote1, $vote2, $vote3, $date) = explode(",", $value);
 			if($firstOrOld === 0){
 				//ユーザのデータがなければデータを挿入 OR ユーザの投票データがあって、今回のデータの方が最新の場合、データの更新
 				if(!isset($usersData[$user]) || (isset($usersData[$user]) && strtotime($date) > strtotime($usersData[$user]["date"]))){
-					$usersData[$user] =  array("user" => $user, "vote1" => $vote1, "vote2" => $vote2, "vote3" => $vote3, "date" => $date);
+					$usersData[$user] =  array("user" => $user, "type" => $type, "vote1" => $vote1, "vote2" => $vote2, "vote3" => $vote3, "date" => $date);
 				}
 			} else if ($firstOrOld === 1){
 				//ユーザのデータがなければデータを挿入 OR ユーザの投票データがあって、今回のデータの方が最新の場合、データの更新
 				if(!isset($usersData[$user]) || (isset($usersData[$user]) && strtotime($date) < strtotime($usersData[$user]["date"]))){
-					$usersData[$user] =  array("user" => $user, "vote1" => $vote1, "vote2" => $vote2, "vote3" => $vote3, "date" => $date);
+					$usersData[$user] =  array("user" => $user, "type" => $type, "vote1" => $vote1, "vote2" => $vote2, "vote3" => $vote3, "date" => $date);
 				}
 			}
 		}
