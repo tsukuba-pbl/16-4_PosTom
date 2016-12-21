@@ -1,5 +1,5 @@
-function vote_application() {
-  $.mobile.changePage("#votePage", {
-        changeHash: true
+$.fn.goToVotePage = function(ev) {
+	$(this).on(ev, function() {
+		changePage("#votePage");
     });
 }

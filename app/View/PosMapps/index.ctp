@@ -120,11 +120,6 @@
 		-->
 
 		<div id="event-webpage" align="center"></div>
-		<div class="ui-grid-solo">
-			<div class ="ui-block-a">
-				<button id="vote_application" class="ui-btn" onclick="vote_application()">Vote Application</button>
-			</div>
-		</div>
 		<div class="ui-grid-a">
 			<div class="ui-block-a">
 				<div align="center">
@@ -138,6 +133,14 @@
 					<div class="topMenuIconLabel">Floor Map</div>
 				</div>
 			</div>
+		</div>
+		<div class="ui-grid-solo">
+			<div class="ui-grid-a">
+				<div align="center">
+					<img id="goToVote" class="topVoteIcon" src="<?php echo $this->Html->webroot;?>img/topmenu/voteicon.png"/>
+					<div class="topMenuIconLabel">Vote Application</div>
+			</div>
+		</div>
 		</div>
 		<div class="ui-grid-a">
 			<div class="ui-block-a">

@@ -143,6 +143,7 @@ function init() {
 	// トップページ
 	$("#goToMap").goToMapPage("click");
 	$("#goToList").goToListPage("click");
+	$("#goToVote").goToVotePage("click");
 	if(timetable != null&&timetable!=""){
 		$("#goToInformation").goToInformationPage("click");
 	}

@@ -24,6 +24,15 @@
    /* overflow-x: hidden; */
 }
 
+.topVoteIcon {
+    width: 27%;
+	margin: 5%;
+
+	-webkit-box-shadow: 2px 2px 8px rgba(0,0,0,.5);
+  	-moz-box-shadow: 2px 4px 8px rgba(0,0,0,.5);
+  	box-shadow: 2px 2px 8px rgba(0,0,0,.5);
+}
+
 div{ scrollbar-base-color:#fcc800; }
 div::-webkit-scrollbar { width: 5px; height: auto; }
 div::-webkit-scrollbar-track { background: #455765; -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1); }
