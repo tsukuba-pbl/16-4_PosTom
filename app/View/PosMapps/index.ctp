@@ -377,7 +377,8 @@
 				<h1>Vote Appication</h1>
 				<a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
 		</div>
-		<!-- カメラで投票者ID入力 -->
+		<!--
+		<!-カメラで投票者ID入力 
 		<div data-role="content" class="ui-content">
 			<input type="file" accept="image/*" capture="camera" name="upfile" id="upfile" style="display:none" >
 			<label for="upfile">
@@ -388,6 +389,7 @@
 			</label>
 			<input type="hidden" name="voterid" id="voterid" value="">
 			<input type="hidden" name="checkvote" id="checkvote" value="0">
+		-->
 			<!--ID表示 -->
 			<div id="YourID"></div>
 			<div data-role="header" data-theme="b"><h4>候補者リスト</h4></div>
