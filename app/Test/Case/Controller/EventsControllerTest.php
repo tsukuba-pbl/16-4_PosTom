@@ -37,7 +37,8 @@ class EventsControllerTest extends ControllerTestCase {
 					'unique_str' => 'abcdefgh'
 				)
 			),
-			'posters' => array()
+			'posters' => array(),
+			'day' => 2
 		);
 		$result = $this->testAction(
 			'/events/view/abcdefgh',
