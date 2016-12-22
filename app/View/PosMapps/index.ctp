@@ -10,7 +10,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="Pragma" content="no-cache">
 	<meta http-equiv="Cache-Control" content="no-cache">
-	<meta http-equiv="Expires" content="Thu, 01 Dec 1994 16:00:00 GMT">
+	<meta http-equiv="Expires" content="0">
 	<link rel="shortcut icon" href="<?php echo $this->Html->webroot;?>favicon.ico" />
 
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/jquery.mobile.flatui.css" />
@@ -392,14 +392,6 @@
 			<input type="hidden" name="voterid" id="voterid" value="">
 			<input type="hidden" name="checkvote" id="checkvote" value="0">
 			-->
-			<!--ID表示 -->
-			<div id="YourID" class="yourname"></div>
-			<script>
-			$(function() {
-				var your_name = get_voter_name.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-				$('#YourID').append("<strong>"+your_name+"</strong>さん");
-			});
-			</script>
 			<div data-role="header" data-theme="b" class="step-two"><p>候補者を下記から選択してください。</p></div>
 			<div data-role="controlgroup" data-type="horizontal">
 				<button class="c-list" onclick="create_list()">全件表示</button>
@@ -431,7 +423,6 @@
 	<div data-role="header">
 	  <h1>投票確認</h1>
 	</div>
-	<div id="confirm" class="yourname"></div>
 	<div data-role="header" data-theme="b"><h4>選択した候補者</h4></div>
 	<div id="confirm_candidates"></div>
 	<div id="permit_revoting"></div>
@@ -439,11 +430,6 @@
 		<button data-icon="flat-checkround" data-theme="e" onclick="confirm()">投票する</button>
 		<button data-icon="flat-cross" data-theme="a" onclick="go_back()">選択しなおす</button>
 	</fieldset>
-	<script>
-	$("#confirm").empty();
-	var your_name = get_voter_name.replace(/</g,"&lt;").replace(/>/g,"&gt;");
-	$("#confirm").append("<strong>"+your_name+"</strong>さん");
-	</script>
 </div>
 
 <!-- QRCodeを表示するページ -->

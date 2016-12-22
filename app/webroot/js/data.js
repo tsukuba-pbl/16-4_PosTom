@@ -36,19 +36,17 @@ var poster 			= [],
 var url= window.location.href;
 var voter_param = window.location.search.substring(1);  //URLについてるパラメータ受取。?より先を取りたいのでsubstring(1)
 // http://localhost/hogehoge#nekoからhogehoge#nekoを取得
-var event_str = url.substring(url.lastIndexOf('/')+1, url.length);
+var event_str_all = url.substring(url.lastIndexOf('/')+1, url.length);
 // hogehoge#nekoからhogehogeを取得
-event_str = event_str.split('?')[0];
+event_str = event_str_all.split('?')[0];
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 var event_vote_app = null;
 var event_vote_valid = null;
 if (voter_param != null) {
     var get_voter_id   = voter_param.split('&')[0];  get_voter_id   = get_voter_id.split('=')[1];   //voter_id=hoge
-    var get_voter_name = voter_param.split('&')[1];  get_voter_name = get_voter_name.split('=')[1]; //voter_name=hogehoge
-    var get_voter_type = voter_param.split('&')[2];  get_voter_type = get_voter_type.split('=')[1]; //voter_type=1
 
-    voter_info = '{"voter_id" : "' + get_voter_id + '",' + '"voter_name" : "' + get_voter_name + '",' + '"voter_type" : "' + get_voter_type + '"}';
+    voter_info = '{"voter_id" : "' + get_voter_id + '"}';
     localStorage.setItem('voter_info',JSON.stringify(voter_info));
 }
 

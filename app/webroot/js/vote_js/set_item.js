@@ -44,8 +44,6 @@ function set_item(){
     var obj = JSON.parse(voter_info);
 
     data['voter_id'] = obj.voter_id.toString();
-    data['voter_name'] = obj.voter_name.toString();
-    data['voter_type'] = obj.voter_type.toString();
 
     /*
     ** dataにevent_strを保存する。これによってevent毎に投票結果を仕分けすることが可能。
