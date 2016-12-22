@@ -8,6 +8,7 @@
     <thead>
         <tr>
             <th>Uploaded Date</th>
+            <th>Day</th>
             <th>Ballot Machine ID</th>
             <th>Selection</th>
         </tr>
@@ -17,6 +18,7 @@
     foreach($files as $file){
         echo "<tr>";
             echo "<td>".$file["datetime"]."</td>";
+            echo "<td>".$file["event_day"]."</td>";
             echo "<td>".$file["mac_addr"]."</td>";
             echo "<td>";
             echo $this->Form->input(
