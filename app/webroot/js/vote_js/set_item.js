@@ -33,17 +33,16 @@ function set_item(){
         error = "候補者を4名以上選んでます。候補者は3名選んでください";
     }
 
+    //voter_infoはGETパラメータで受け取ったものが格納される
+    //data.jsでデータ格納処理
+    var obj = JSON.parse(voter_info);
+    data['voter_id'] = obj.voter_id.toString();
+
     //エラーがあったらalertして終了
     if(error !== ""){
         alert(error);
         return;
     }
-
-    //voter_infoはGETパラメータで受け取ったものが格納される
-    //data.jsでデータ格納処理
-    var obj = JSON.parse(voter_info);
-
-    data['voter_id'] = obj.voter_id.toString();
 
     /*
     ** dataにevent_strを保存する。これによってevent毎に投票結果を仕分けすることが可能。
