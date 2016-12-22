@@ -39,14 +39,30 @@ class EventsController extends AppController {
 		// ユニーク文字列からイベントIDを取得
 		$id = self::getIDByUniqueStr($unique_str);
 		$this->Event->id = $id;
-		$this->set('event', $this->Event->read());
+		$eventData = $this->Event->read();
+		$this->set('event', $eventData);
 		// セッションに選択中のイベントIDとユニーク文字列を記録する
 		$_SESSION['event_id'] = $id;
 		$_SESSION['event_str'] = self::getUniqueStrByID($id);
 		$_SESSION['event_name'] = self::getEventNameByID($id);
-
+		$this->set('day', $this->dayDiff($eventData["Event"]["event_begin_date"], $eventData["Event"]["event_end_date"]));
 		$result=$this->Poster->find('all');
 		$this->set('posters', $result);
+	}
+
+	/**
+	 * [dayDiff ２つの日付から開催日数を計算]
+	 * @param  [date] $start [description]
+	 * @param  [date] $end   [description]
+	 * @return [integer]        [description]
+	 */
+	private function dayDiff($start, $end){
+		$startTimestamp = strtotime($start);
+		$endTimestamp = strtotime($end);
+		$diff = abs($endTimestamp - $startTimestamp);
+		$dayDiff = $diff/(60*60*24);
+		// 普通に引くだけだと、１日足りないので１日追加
+		return $dayDiff+1;
 	}
 
 	public function add(){

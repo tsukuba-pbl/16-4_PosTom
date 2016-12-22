@@ -115,9 +115,33 @@
 
 <h3>Add Ballot Machine</h3>
 <p>Use The Ballot Machine To Scan The QR Code Before Voting</p>
+
+<ul class="nav nav-tabs">
 <?php
-	$urlToEncode = '{"event_id": "'.$_SESSION['event_str']. '", "event_name": "' .$_SESSION['event_name']. '"}';
-	generateQRfromGoogle($urlToEncode);
+	for($i = 1; $i <= $day; $i++){
+		if($i === 1)
+			echo "<li class='active'><a href='#day{$i}' data-toggle='tab'>Day {$i}</a></li>";
+		else
+			echo "<li><a href='#day{$i}' data-toggle='tab'>Day {$i}</a></li>";
+	}
+?>
+</ul><!-- nav-tabs -->
+<div class="tab-content">
+<?php
+	for($i = 1; $i <= $day; $i++){
+		if($i === 1){
+			echo "<div class='tab-pane active' id='day{$i}'>";
+		}else{
+			echo "<div class='tab-pane' id='day{$i}'>";
+		}
+		$urlToEncode = '{"event_id": "'.$_SESSION['event_str']. '", "event_name": "' .$_SESSION['event_name']. '", "event_day" : "'. $i . '"}';
+		generateQRfromGoogle($urlToEncode);
+		echo "<br clear='left'>";
+		echo "</div>";
+	}
+?>
+</div>
+<?php
 	function generateQRfromGoogle($chl,$widhtHeight ='150',$EC_level='L',$margin='0'){
 		$chl = urlencode($chl);
 		echo '<img src="http://chart.apis.google.com/chart?chs='.$widhtHeight.'x'.$widhtHeight.'&cht=qr&chld='.$EC_level.'|'.$margin.'&chl='.$chl.' " alt="QR code" style="width:120px;height:120px;border-width:1px;"/>';
