@@ -23,7 +23,7 @@ class VotesController extends AppController {
 		// イベントのUniqueIDの取得
 		$event_id = $_SESSION['event_str'];
 		// イベントに対応するファイルの検索
-		$files = $dir->find($event_id.'_[0-9a-zA-Z]*_[0-9]*\.csv', true);
+		$files = $dir->find($event_id.'_([1-9]|([1-9][0-9]))_[0-9a-zA-Z]*_[0-9]*\.csv', true);
 		// ファイル名からファイル名、イベントID、Macアドレス、日時、UNIXタイムを取得し、配列に入れ直す
 		$data = $this->analyzeFileName($files);
 
@@ -105,6 +105,7 @@ class VotesController extends AppController {
 			$result[] = array(
 				'filename' => $file,
 				'event_id' => $this->getEventID($file),
+				'event_day' => $this->getEventDay($file),
 				'mac_addr' => $this->getMacAddr($file),
 				'datetime' => $this->getDateTime($file),
 				'unixtime' => $this->getUnixTime($file)
@@ -121,12 +122,20 @@ class VotesController extends AppController {
  		return $tmp[0];
  	}
 
+	/*
+	 * ファイル名からイベントDay取得
+	 */
+	private function getEventDay($filename){
+		$tmp = explode("_", $filename);
+		return $tmp[1];
+	}
+
  	/*
  	 * ファイル名からMACアドレス取得
  	 */
 	private function getMacAddr($filename){
 		$tmp = explode("_", $filename);
-		return $tmp[1];
+		return $tmp[2];
 	}
 
  	/*
@@ -134,7 +143,7 @@ class VotesController extends AppController {
  	 */
 	private function getDateTime($filename){
 		$tmp = explode("_", $filename);
-		return date('Y/m/d H:i:s', (int)$tmp[2]);
+		return date('Y/m/d H:i:s', (int)$tmp[3]);
 	}
 
  	/*
@@ -142,7 +151,7 @@ class VotesController extends AppController {
  	 */
 	private function getUnixTime($filename){
 		$tmp = explode("_", $filename);
-		return (int)$tmp[2];
+		return (int)$tmp[3];
 	}
 
 	/**
