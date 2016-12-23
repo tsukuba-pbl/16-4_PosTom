@@ -2,14 +2,14 @@
 $.fn.goToMapPage = function(ev) {
 	$(this).on(ev, function() {
 		changePage("#posterMapPage");
-	});	
+	});
 };
 
 // リスト画面に遷移
 $.fn.goToListPage = function(ev) {
 	$(this).on(ev, function() {
 		changePage("#presenListPage");
-	});	
+	});
 };
 
 // 会議情報画面に遷移
@@ -17,14 +17,14 @@ $.fn.goToInformationPage = function(ev) {
 	$(this).on(ev, function() {
 		changePage("#informationPage");
 		$("#changeDate01").trigger("click");
-	});	
+	});
 };
 
 //会場図画面に遷移
 $.fn.goToVenuePage = function(ev) {
 	$(this).on(ev, function() {
 		changePage("#venuePage");
-	});	
+	});
 };
 
 // タブのボタン
@@ -36,6 +36,19 @@ $.fn.goToTopPage = function(ev) {
 	});
 };
 
+$.fn.goToVotePage = function(ev) {
+	var nextPage = "#votePage";
+	$(this).on(ev, function() {
+		if (voter_param_flag === 0) {
+			changePage(nextPage);
+		}
+		else if (voter_param_flag === 1) {
+			alert ("配布されたQRコードをもう一度読み込んで下さい。");
+		}
+    });
+}
+
+
 // pagenameのページに遷移
 function changePage(pagename) {
 	if (pagename === "#presenListPage") {
@@ -46,7 +59,7 @@ function changePage(pagename) {
 	}
 	resetZoom();
 	changeActiveTab(pagename);
-	window.location.href = pagename;
+	window.location.hash = pagename;
 	return pagename;
 }
 
@@ -57,6 +70,7 @@ function changeActiveTab(pagename) {
 	$(".venuePageButton").removeClass("ui-btn-active ui-state-persist");
 	$(".posterMapPageButton").removeClass("ui-btn-active ui-state-persist");
 	$(".informationPageButton").removeClass("ui-btn-active ui-state-persist");
+	$(".votePageButton").removeClass("ui-btn-active ui-state-persist");
 	$("." + pagename.substring(1) + "Button").addClass("ui-btn-active ui-state-persist");
 }
 

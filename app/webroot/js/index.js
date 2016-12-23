@@ -232,6 +232,15 @@ function init() {
 
 	}
 
+	if(voter_param) {
+		$(".votePageButton").goToVotePage("click");
+	}
+	else {
+		$(".votePageButton").text("(Re-load your QR)");
+		$(".votePageButton").css("color","#999999");
+		$(".votePageButton").addClass("ui-disabled");
+	}
+
 
 	// セッションリストから発表リストに飛ぶ
 	$(".jumpToPresen").jumpToPresen();

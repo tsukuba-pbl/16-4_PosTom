@@ -47,7 +47,7 @@ if (voter_param) {
     event_str = event_str_all.split('?')[0];
     var get_voter_id   = voter_param.split('&')[0];  get_voter_id   = get_voter_id.split('=')[1];   //voter_id=hoge
 
-    voter_info = {voter_id : get_voter_id};console.log(voter_info);
+    voter_info = {voter_id : get_voter_id};
 }
 
 //GETパラメータがついていなかったら
@@ -155,7 +155,7 @@ function create_navbar() {
   list += '<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>';
 
   if (event_vote_app === '0') { //voteON
-    list += '<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>'
+    list += '<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>'
     $('[class="nav-tabicon"]').append('<div data-role="navbar" height="100%" class="nav-tabicon footbar" data-grid="d"><ul>'+list+'</ul></div>');
     $('[data-role="navbar"]').navbar();
   }

@@ -1,4 +1,4 @@
-$.fn.goToVotePage = function(ev) {
+/*$.fn.goToVotePage = function(ev) {
 	$(this).on(ev, function() {
 		if (voter_param_flag === 0) {
 			changePage("#votePage");
@@ -8,3 +8,4 @@ $.fn.goToVotePage = function(ev) {
 		}
     });
 }
+*/
