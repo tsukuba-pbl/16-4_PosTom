@@ -18,11 +18,26 @@ function set_item(){
     }
 
     // QRcodeが入力されていない場合、エラー
-    /*if (checkId === "0") {
+    /*
+    if (checkId === "0") {
       console.log("data = null");
       alert("正しいIDをQRコードから入力してください。");
       return;
-  }*/
+    }
+    */
+
+    //voter_infoはGETパラメータで受け取ったものが格納される
+    //data.jsでデータ格納処理
+    var obj = JSON.parse(localStorage.getItem('voter_info'));
+    if (obj && obj.voter_id) {
+        data['voter_id'] = obj.voter_id.toString();
+    }
+    else {
+        console.log("get-param is error");
+        error = "投票用紙のQRコードを再度読み込んで下さい";
+        alert(error);
+        return;
+    }
 
     // count数を見て候補者の選択数をチェック
     if(count < 3){
@@ -32,11 +47,6 @@ function set_item(){
         console.log("count > 3");
         error = "候補者を4名以上選んでます。候補者は3名選んでください";
     }
-
-    //voter_infoはGETパラメータで受け取ったものが格納される
-    //data.jsでデータ格納処理
-    var obj = JSON.parse(voter_info);
-    data['voter_id'] = obj.voter_id.toString();
 
     //エラーがあったらalertして終了
     if(error !== ""){

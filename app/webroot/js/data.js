@@ -47,8 +47,7 @@ if (voter_param) {
     event_str = event_str_all.split('?')[0];
     var get_voter_id   = voter_param.split('&')[0];  get_voter_id   = get_voter_id.split('=')[1];   //voter_id=hoge
 
-    voter_info = '{"voter_id" : "' + get_voter_id + '"}';
-    localStorage.setItem('voter_info',JSON.stringify(voter_info));
+    voter_info = {voter_id : get_voter_id};console.log(voter_info);
 }
 
 //GETパラメータがついていなかったら
@@ -86,22 +85,24 @@ function initData() {
 		timetable 		= JSON.parse(localStorage.getItem("timetable"));
 		venuemap		= JSON.parse(localStorage.getItem("venuemap"));
 	    basic_info      = JSON.parse(localStorage.getItem("basic_info"));
+        localStorage.setItem("voter_info", JSON.stringify(voter_info));
+
 
         event_vote_app = basic_info['event_vote_app'];
+        event_vote_valid = basic_info['event_vote_valid'];
+
+        if (event_vote_valid === '0') {
+    		$('#permit_revoting').empty().append('投票後，投票内容を変更し再投票可能です．');
+    	}
+
+    	else if (event_vote_valid === '1') {
+    		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');
+    		$('#permit_revoting').empty().append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．投票しますか？');
+    	}
 
 		makeSessionMap();
         makeVoteApplication();
         create_navbar();
-	}
-    event_vote_valid = basic_info['event_vote_valid'];
-
-    if (event_vote_valid === '0') {
-		$('#permit_revoting').empty().append('投票後，投票内容を変更し再投票可能です．');
-	}
-
-	else if (event_vote_valid === '1') {
-		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');
-		$('#permit_revoting').empty().append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．投票しますか？');
 	}
 
 	// BlockFinderにかけた画像の幅

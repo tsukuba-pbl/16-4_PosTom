@@ -34,6 +34,7 @@ function init() {
 
 	// データ格納変数に据え置きの初期データを格納する
 	initData();
+
 	//ダウンロード失敗ダイアログのボタン
 	$("#ReDownload").reDownload();
 	$("#CancelDownload").cancelDownload();
