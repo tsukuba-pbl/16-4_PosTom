@@ -394,7 +394,7 @@
 			-->
 			<div data-role="header" data-theme="b" class="step-two"><p>候補者を下記から選択してください。</p></div>
 			<div data-role="controlgroup" data-type="horizontal">
-				<button class="c-list" onclick="create_list()">全件表示</button>
+				<button class="c-list ui-btn-active" onclick="create_list()">全件表示</button>
 				<button class="b-list" onclick="create_bookmark_list()">ブックマークリスト</button>
 			</div>
 			<!-- 検索 -->

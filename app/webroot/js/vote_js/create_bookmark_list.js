@@ -4,6 +4,9 @@ function create_bookmark_list() {
     var bookmark_list = localStorage.getItem("bookmarks");
     var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
+    $(".c-list").removeClass("ui-btn-active");
+    $(".b-list").addClass("ui-btn-active");
+
     checkboxContents += "<div data-role='controlgroup' class='candidate_list'>";
 
     if (bookmark_list) {  //bookmarksがあったら

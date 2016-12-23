@@ -9,6 +9,9 @@ function create_list() {
     var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
     checkboxContents += "<div data-role='controlgroup' class='candidate_list'>";
 
+    $(".c-list").addClass("ui-btn-active");
+    $(".b-list").removeClass("ui-btn-active");
+
     $.each(author, function(i) {
         ID = author[i].presenid,
         NAME = author[i].name;
