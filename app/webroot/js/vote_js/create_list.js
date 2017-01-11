@@ -43,4 +43,8 @@ function create_list() {
     });
     checkboxContents += "</div>";
     $("#my_checkbox").empty().append(checkboxContents).trigger("create");
+
+    //AND検索できるようにするやつ
+    var qs = $("input#searchlist").quicksearch("ul#listdata li");
+    qs.cache();
 }

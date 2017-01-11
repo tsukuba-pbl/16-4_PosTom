@@ -75,6 +75,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
 	<scirpt type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_yourid.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.quicksearch.js"></script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/version.js"></script>
@@ -398,7 +399,7 @@
 				<button class="b-list" onclick="create_bookmark_list()">ブックマークリスト</button>
 			</div>
 			<!-- 検索 -->
-			<input id="listsearchinput" type="text" placeholder="キーワード検索"/>
+			<input id="searchlist" type="text" placeholder="キーワード検索"/>
 			<ul id="listdata" data-role="listview" data-inset="true">
 				<!-- JSONファイルの候補者をリスト表示 -->
 				<fieldset data-role="content" id="my_controlgroup">
@@ -456,14 +457,6 @@
 <script>
     $(document).on('pageshow', '#votePage', function(e, d) {
         create_list();
-    });
-
-    $(document).ready(function() {
-        $("#listdata").searcher({
-            itemSelector: "li",
-            textSelector: "",
-            inputSelector: "#listsearchinput"
-        });
     });
 </script>
 
