@@ -11,10 +11,10 @@
 }
 
 .candidate_list {
- max-height: 200px;
+ max-height: 300px;
  border: 1px solid #666666;
  padding: 1px;
- margin: 0px auto;
+ margin: 5px auto;
  overflow: auto;
 }
 
@@ -38,6 +38,18 @@
 .step-two {
     text-align: center;
 }
+
+div#permit_revoting {
+        padding:10px 10px 10px 35px;
+        border-width:2px 0;
+        border-style:solid;
+        border-color:#ff009c;
+        color:#666;
+        background:#ffebef url(/postom/app/webroot/img/exclamation1.png) no-repeat 5px bottom;
+        font-size:11px;
+        line-height:1.5;
+        text-align: center;
+    }
 
 div{ scrollbar-base-color:#fcc800; }
 div::-webkit-scrollbar { width: 5px; height: auto; }

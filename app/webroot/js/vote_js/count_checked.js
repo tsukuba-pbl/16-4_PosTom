@@ -9,7 +9,7 @@ $(document).on('change', 'input[type="checkbox"]',function () {
 
   if ($(this).is(":checked")) {
       count = $(this).attr('name');
-      CandidateID[count] = $(this).val();
+      CandidateID[count] = $(this).data('candidate-id');
       $("#confirm_candidates").append('<div id="div' + count + '"><p>'+$(this).parent().text()+'</p></div>');
   }
   else {
