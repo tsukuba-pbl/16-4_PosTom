@@ -448,7 +448,6 @@
 </div>
 <script>
 $("#confirm_candidates").clone().removeAttr("id").appendTo($("#confirm_candidates_voted"));
-$("#confirm_qrcode").append($("#qrcode").clone(true));
 </script>
 
 <!-- QRCodeを表示するページ -->
