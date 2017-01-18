@@ -79,7 +79,8 @@ function set_item(){
         new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
 	})();
 
-
-    $("#confirm_candidates_voted").append(candidateId[key]);
+  while (selected_id_json.length() > 0){
+    $("#confirm_candidates_voted").append(selected_id_json.pop());
+  }
 
 }
