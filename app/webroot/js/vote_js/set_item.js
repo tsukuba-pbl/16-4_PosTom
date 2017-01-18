@@ -68,6 +68,5 @@ function set_item(){
     (function(){
         $('#qrcode').empty();
         new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
-        new QRCode(document.getElementById('confirm_qrcode'),JSON.stringify(VoteInfo));
 	})();
 }
