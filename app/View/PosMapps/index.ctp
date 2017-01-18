@@ -445,6 +445,9 @@
 		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻す</button>
 	</fieldset>
 </div>
+<script>
+$("#confirm_candidates").clone().removeAttr("id").appendTo($("#confirm_candidates_voted"));
+</script>
 
 <!-- QRCodeを表示するページ -->
 <div data-role="page" id="QRPage">
