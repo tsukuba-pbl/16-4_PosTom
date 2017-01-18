@@ -358,7 +358,7 @@
 	</div>
 </div>
 
-<!-- kaishi -->
+
 <!-- Vote Application -->
 <div data-role="page" id="votePage">
 		<div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
@@ -437,16 +437,18 @@
 	  <h1>投票情報の確認</h1>
 	</div>
 	<p>あなたが投票したデータは以下の通りです。</p></br>
-	<h4投票者</h4></br>
+	<h4>投票者</h4></br>
 	<div id="confirm_voted"></div>
 	<h4>選択した候補者</h4></br>
 	<div id="confirm_candidates_voted"></div>
+	<div id="confirm_qrcode"></div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻す</button>
 	</fieldset>
 </div>
 <script>
 $("#confirm_candidates").clone().removeAttr("id").appendTo($("#confirm_candidates_voted"));
+$("#confirm_qrcode").clone().removeAttr("id").appendTo($("#qrcode"));
 </script>
 
 <!-- QRCodeを表示するページ -->
