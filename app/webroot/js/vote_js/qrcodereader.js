@@ -85,6 +85,8 @@ function read(a)
 		$("#confirm").empty();
 		$("#confirm").append("<h4>ID:"+stringid+"</h4>");
 		$("#confirm").append("<h4>Name:"+stringname+"</h4>"+"</br>");
+		$("#confirm_voted").empty();
+		$("#confirm_voted").append("<h4>"+stringname+"</h4>");
 
 	    if (event_vote_valid === '0') {
 	        $('#permit_revoting').empty().append('投票後，投票内容を変更し再投票可能です．');
@@ -108,6 +110,18 @@ function read(a)
 		$('.up_qr').text("再登録");
 	}
 }
+
+//QR Page
+if (event_vote_valid === '0') {
+		already_voted = true;
+		$('#re_select').empty().append($('<input type="button"  value="投票完了" onclick="go_toppage()"/>'));
+}
+
+else if (event_vote_valid === '1') {
+		$('#complete_voting').empty().append($('<input type="button" value="選択し直す" onclick="go_back()"/>'));
+}
+
+
 
 function load(src)
 {

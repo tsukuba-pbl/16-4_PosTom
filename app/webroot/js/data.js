@@ -40,7 +40,8 @@ event_str = event_str.split("#")[0];
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 var event_vote_app = null;
-var event_vote_valid = null;
+var event_vote_valid = null
+var already_voted = false;
 
 
 function ViewModel(){

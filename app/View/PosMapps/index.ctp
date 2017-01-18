@@ -67,6 +67,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_list.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_back.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_toppage.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.searcher.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcodereader.js"></script>
@@ -122,7 +123,7 @@
 		<div id="event-webpage" align="center"></div>
 		<div class="ui-grid-solo">
 			<div class ="ui-block-a">
-				<button id="vote_application" class="ui-btn" onclick="vote_application()">Vote Application</button>
+				<button id="vote_application" class="ui-btn" onclick="vote _application()">Vote Application</button>
 			</div>
 		</div>
 		<div class="ui-grid-a">
@@ -357,6 +358,7 @@
 	</div>
 </div>
 
+<!-- kaishi -->
 <!-- Vote Application -->
 <div data-role="page" id="votePage">
 		<div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
@@ -428,6 +430,22 @@
 	</fieldset>
 </div>
 
+
+<!-- ALREADY VOTED -->
+<div data-role="page" id="AlreadyVotedPage">
+	<div data-role="header">
+	  <h1>投票情報の確認</h1>
+	</div>
+	<p>あなたが投票したデータは以下の通りです。</p></br>
+	<h4投票者</h4></br>
+	<div id="confirm_voted"></div>
+	<h4>選択した候補者</h4></br>
+	<div id="confirm_candidates_voted"></div>
+	<fieldset class="ui-grid-a">
+		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻す</button>
+	</fieldset>
+</div>
+
 <!-- QRCodeを表示するページ -->
 <div data-role="page" id="QRPage">
 
@@ -440,7 +458,9 @@
 						<div id="qrcode" align="center">
 						</div>
 						<!-- 候補者を選択しなおす -->
-						<div class="ui-block-b"><button data-icon="back" data-theme="a" onclick="go_back()">選択しなおす</button></div>
+							<!-- <div class="ui-block-b"><button data-icon="back" data-theme="a" onclick="go_back()">選択しなおす</button></div> -->
+						<div id="re_select"></div>
+						<div id="complete_voting"></div>
 				</div>
 		</div>
 
