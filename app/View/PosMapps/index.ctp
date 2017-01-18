@@ -450,11 +450,7 @@
 		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻す</button>
 	</fieldset>
 </div>
-<script>
-for(var i=0; i<localStorage.length;i++){
-	$("#confirm_candidates_voted").append(localStorage.getItem('Candidate_ID') + '<br>');
-}
-</script>
+
 
 <!-- QRCodeを表示するページ -->
 <div data-role="page" id="QRPage">
