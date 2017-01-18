@@ -1,12 +1,12 @@
 function vote_application() {
-  if (already_voted == false) {
-  $.mobile.changePage("#votePage", {
+  if (already_voted == 1) {
+  $.mobile.changePage("#AlreadyVotedPage", {
         changeHash: true
     });
   }
 
   else {
-    $.mobile.changePage("#AlreadyVotedPage", {
+    $.mobile.changePage("#votePage", {
           changeHash: true
       });
   }
