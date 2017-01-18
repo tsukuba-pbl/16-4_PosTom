@@ -39,10 +39,7 @@ var voter_param = window.location.search.substring(1);  //URLについてるパ�
 var event_str_all = url.substring(url.lastIndexOf('/')+1, url.length);
 var event_vote_app = null;
 var event_vote_valid = null;
-<<<<<<< HEAD
 var already_voted = null;
-=======
->>>>>>> 90f7f789ab76f07c7ddd4a20d1261b708270b5af
 var voter_param_flag = 1;
 //GETパラメータがついていれば
 if (voter_param) {
@@ -60,12 +57,6 @@ else {
     event_str = event_str_all.split('#')[0];
 }
 
-<<<<<<< HEAD
-
-var posMAppDataURL = "../../json/"+event_str+".json";
-var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
-=======
->>>>>>> 90f7f789ab76f07c7ddd4a20d1261b708270b5af
 
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
