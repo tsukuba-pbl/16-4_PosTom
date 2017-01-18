@@ -22,7 +22,8 @@ var poster 			= [],
 	MAP_AREA_HEIGHT = null,
 	INIT_SCALE 		= null,
 	SCALE_BY 		= null,
-    CandidateID     = {};
+    CandidateID     = {},
+    voter_info      = null;
 
 
 // json ファイルの置き場所（URL, 仮）
@@ -33,15 +34,15 @@ var poster 			= [],
 
 
 var url= window.location.href;
+var voter_param = window.location.search.substring(1);  //URLについてるパラメータ受取。?より先を取りたいのでsubstring(1)
 // http://localhost/hogehoge#nekoからhogehoge#nekoを取得
-var event_str = url.substring(url.lastIndexOf('/')+1, url.length);
-// hogehoge#nekoからhogehogeを取得
-event_str = event_str.split("#")[0];
-var posMAppDataURL = "../../json/"+event_str+".json";
-var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
+var event_str_all = url.substring(url.lastIndexOf('/')+1, url.length);
 var event_vote_app = null;
 var event_vote_valid = null;
+<<<<<<< HEAD
 var already_voted = null;
+=======
+>>>>>>> 90f7f789ab76f07c7ddd4a20d1261b708270b5af
 var voter_param_flag = 1;
 //GETパラメータがついていれば
 if (voter_param) {
@@ -59,10 +60,15 @@ else {
     event_str = event_str_all.split('#')[0];
 }
 
+<<<<<<< HEAD
 
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
+=======
+>>>>>>> 90f7f789ab76f07c7ddd4a20d1261b708270b5af
 
+var posMAppDataURL = "../../json/"+event_str+".json";
+var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 
 function ViewModel(){
 	this.forum = forum;
@@ -89,13 +95,25 @@ function initData() {
 		timetable 		= JSON.parse(localStorage.getItem("timetable"));
 		venuemap		= JSON.parse(localStorage.getItem("venuemap"));
 	    basic_info      = JSON.parse(localStorage.getItem("basic_info"));
+        localStorage.setItem("voter_info", JSON.stringify(voter_info));
+
+
+        event_vote_app = basic_info['event_vote_app'];
+        event_vote_valid = basic_info['event_vote_valid'];
+
+        if (event_vote_valid === '0') {
+    		$('#permit_revoting').empty().append('投票後，投票内容を変更し再投票可能です．');
+    	}
+
+    	else if (event_vote_valid === '1') {
+    		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');
+    		$('#permit_revoting').empty().append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．投票しますか？');
+    	}
 
 		makeSessionMap();
         makeVoteApplication();
         create_navbar();
 	}
-
-    event_vote_valid = basic_info['event_vote_valid'];
 
 	// BlockFinderにかけた画像の幅
 	STATIC_WIDTH =  720;
@@ -115,14 +133,12 @@ function makeSessionMap(){
 
 function makeVoteApplication() {
   if (event_vote_app === '0') {
-    document.getElementById("vote_application").style.display="block";
   }
 
   else if (event_vote_app === '1') {
-    document.getElementById("vote_application").style.display="none";
+    $('#vote_app_page').remove();
   }
 }
-
 // ポスターマップの大きさに関するデータを計算して格納
 function setMapSize() {
 	// マップエリアの幅
@@ -142,8 +158,6 @@ function setMapSize() {
 function create_navbar() {
   var list = "";
 
-  event_vote_app = basic_info['event_vote_app'];
-
   list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
   list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';
   list += '<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>';
@@ -151,7 +165,7 @@ function create_navbar() {
   list += '<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>';
 
   if (event_vote_app === '0') { //voteON
-    list += '<li><a class="votePageButton" id="vote" href="#votePage">Vote</a></li>'
+    list += '<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>'
     $('[class="nav-tabicon"]').append('<div data-role="navbar" height="100%" class="nav-tabicon footbar" data-grid="d"><ul>'+list+'</ul></div>');
     $('[data-role="navbar"]').navbar();
   }

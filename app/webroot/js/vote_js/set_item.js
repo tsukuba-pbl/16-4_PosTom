@@ -5,7 +5,7 @@ function set_item(){
     var selected_id_json = {};
     var error = "";
     var data = {};
-    var checkId = $('#checkvote').val();
+    //var checkId = $('#checkvote').val();
     var count = 0;
 
     //現在選択している候補者リストを取得
@@ -18,10 +18,25 @@ function set_item(){
     }
 
     // QRcodeが入力されていない場合、エラー
+    /*
     if (checkId === "0") {
       console.log("data = null");
       alert("正しいIDをQRコードから入力してください。");
       return;
+    }
+    */
+
+    //voter_infoはGETパラメータで受け取ったものが格納される
+    //data.jsでデータ格納処理
+    var obj = JSON.parse(localStorage.getItem('voter_info'));
+    if (obj && obj.voter_id) {
+        data['voter_id'] = obj.voter_id.toString();
+    }
+    else {
+        console.log("get-param is error");
+        error = "投票用紙のQRコードを再度読み込んで下さい";
+        alert(error);
+        return;
     }
 
     // count数を見て候補者の選択数をチェック
@@ -38,12 +53,6 @@ function set_item(){
         alert(error);
         return;
     }
-
-    var voterinfo = $("#voterid").val();
-    var obj = JSON.parse(voterinfo);
-
-    data['voter_id'] = obj.voter_id.toString();
-    data['voter_name'] = obj.voter_name.toString();
 
     /*
     ** dataにevent_strを保存する。これによってevent毎に投票結果を仕分けすることが可能。

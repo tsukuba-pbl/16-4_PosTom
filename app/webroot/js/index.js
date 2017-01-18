@@ -34,6 +34,7 @@ function init() {
 
 	// データ格納変数に据え置きの初期データを格納する
 	initData();
+
 	//ダウンロード失敗ダイアログのボタン
 	$("#ReDownload").reDownload();
 	$("#CancelDownload").cancelDownload();
@@ -143,6 +144,7 @@ function init() {
 	// トップページ
 	$("#goToMap").goToMapPage("click");
 	$("#goToList").goToListPage("click");
+	$("#goToVote").goToVotePage("click");
 	if(timetable != null&&timetable!=""){
 		$("#goToInformation").goToInformationPage("click");
 	}
@@ -228,6 +230,15 @@ function init() {
 		$(".informationPageButton").css("color","#999999");
 		$(".informationPageButton").addClass("ui-disabled");
 
+	}
+
+	if(voter_param) {
+		$(".votePageButton").goToVotePage("click");
+	}
+	else {
+		$(".votePageButton").text("(Re-load your QR)");
+		$(".votePageButton").css("color","#999999");
+		$(".votePageButton").addClass("ui-disabled");
 	}
 
 
