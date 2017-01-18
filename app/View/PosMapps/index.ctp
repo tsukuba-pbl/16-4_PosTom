@@ -123,7 +123,7 @@
 		<div id="event-webpage" align="center"></div>
 		<div class="ui-grid-solo">
 			<div class ="ui-block-a">
-				<button id="vote_application" class="ui-btn" onclick="vote _application()">Vote Application</button>
+				<button id="vote_application" class="ui-btn" onclick="vote_application()">Vote Application</button>
 			</div>
 		</div>
 		<div class="ui-grid-a">
