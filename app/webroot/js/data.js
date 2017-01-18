@@ -42,6 +42,26 @@ var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 var event_vote_app = null;
 var event_vote_valid = null;
 var already_voted = null;
+var voter_param_flag = 1;
+//GETパラメータがついていれば
+if (voter_param) {
+    voter_param_flag = 0;
+    // hogehoge?id=nukoからid=nukoを取得
+    event_str = event_str_all.split('?')[0];
+    var get_voter_id   = voter_param.split('&')[0];  get_voter_id   = get_voter_id.split('=')[1];   //voter_id=hoge
+
+    voter_info = {voter_id : get_voter_id};
+}
+
+//GETパラメータがついていなかったら
+else {
+    // hogehoge#nekoからnekoを取得
+    event_str = event_str_all.split('#')[0];
+}
+
+
+var posMAppDataURL = "../../json/"+event_str+".json";
+var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 
 
 function ViewModel(){
