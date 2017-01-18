@@ -89,10 +89,13 @@ function read(a)
 		$("#confirm_voted").append("<h4>"+stringname+"</h4>");
 
 	    if (event_vote_valid === '0') {
+					already_voted = true;
+					$('#re_select').empty().append($('<input type="button"  value="投票完了" onclick="go_toppage()"/>'));
 	        $('#permit_revoting').empty().append('投票後，投票内容を変更し再投票可能です．');
 	    }
 
 	    else if (event_vote_valid === '1') {
+					$('#complete_voting').empty().append($('<input type="button" value="選択し直す" onclick="go_back()"/>'));
 	        $('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');
 	        $('#permit_revoting').empty().append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．投票しますか？');
 	    }
@@ -111,15 +114,6 @@ function read(a)
 	}
 }
 
-//QR Page
-if (event_vote_valid === '0') {
-		already_voted = true;
-		$('#re_select').empty().append($('<input type="button"  value="投票完了" onclick="go_toppage()"/>'));
-}
-
-else if (event_vote_valid === '1') {
-		$('#complete_voting').empty().append($('<input type="button" value="選択し直す" onclick="go_back()"/>'));
-}
 
 
 
