@@ -462,9 +462,8 @@ $("#confirm_candidates").clone().removeAttr("id").appendTo($("#confirm_candidate
 						</div>
 						<!-- 候補者を選択しなおす -->
 							<!-- <div class="ui-block-b"><button data-icon="back" data-theme="a" onclick="go_back()">選択しなおす</button></div> -->
-
-						<div id="complete_voting"></div>
 				</div>
+				<div id="complete_voting"></div>
 		</div>
 
 		<div data-role="footer">
@@ -472,14 +471,7 @@ $("#confirm_candidates").clone().removeAttr("id").appendTo($("#confirm_candidate
 		</div>
 </div>
 
-<script>
-if (event_vote_valid === '0') {
-		$("#complete_voting").empty().append($('<input type="button" value="選択し直す" onclick="go_back()"/>'));
-}
-else if(event_vote_valid === '1'){
-		$("#complete_voting").empty().append($('<input type="button"  value="投票完了" onclick="go_toppage()"/>'));
-};
-</script>
+
 
 <script>
     $(document).on('pageshow', '#votePage', function(e, d) {
