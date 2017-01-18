@@ -473,10 +473,10 @@ $("#confirm_candidates").clone().removeAttr("id").appendTo($("#confirm_candidate
 </div>
 
 <script>
-if (event_vote_valid === 0) {
+if (event_vote_valid === '0') {
 		$("#complete_voting").empty().append($('<input type="button" value="選択し直す" onclick="go_back()"/>'));
 }
-else {
+else if(event_vote_valid === '1'){
 		$("#complete_voting").empty().append($('<input type="button"  value="投票完了" onclick="go_toppage()"/>'));
 };
 </script>
