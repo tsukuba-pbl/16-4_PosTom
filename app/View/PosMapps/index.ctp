@@ -451,7 +451,13 @@
 	</fieldset>
 </div>
 <script>
-$("#confirm_candidates").clone().removeAttr("id").appendTo($("#confirm_candidates_voted"));
+localStorage.getItem("Candidate_ID");
+for(var cc=0; cc<localStorage.length; cc++){
+	var cc_name = localStorage.key(cc);
+	var cc_value = localStorage.getItem(cc_name);
+	$("#confirm_candidates_voted").append(cc_name);
+	$("#confirm_candidates_voted").append(cc_value + '<br>');
+}
 </script>
 
 <!-- QRCodeを表示するページ -->

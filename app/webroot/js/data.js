@@ -58,6 +58,7 @@ else {
 }
 
 
+
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 
@@ -94,6 +95,7 @@ function initData() {
 
         if (event_vote_valid === '0') {
     		$('#permit_revoting').empty().append('投票後，投票内容を変更し再投票可能です．');
+
     	}
 
     	else if (event_vote_valid === '1') {
