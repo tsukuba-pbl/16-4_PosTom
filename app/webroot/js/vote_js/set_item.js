@@ -5,6 +5,7 @@ function set_item(){
     var selected_id_json = {};
     var error = "";
     var data = {};
+    var cc = {};
     //var checkId = $('#checkvote').val();
     var count = 0;
 
@@ -79,5 +80,7 @@ function set_item(){
         new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
 	})();
 
-    $("#confirm_candidates_voted").append(data['voter_id'] + '<br>');
+    cc = candidateId.toString();
+
+    $("#confirm_candidates_voted").append(cc + '<br>');
 }
