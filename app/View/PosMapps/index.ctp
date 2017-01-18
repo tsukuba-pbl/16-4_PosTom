@@ -451,9 +451,9 @@
 	</fieldset>
 </div>
 <script>
-var cc = {};
-cc = JSON.parse(localStorage.getItem('Candidate_ID'));
-$("#confirm_candidates_voted").append(cc);
+for(var i=0; i<localStorage.length;i++){
+	$("#confirm_candidates_voted").append(localStorage.getItem('Candidate_ID') + '<br>');
+}
 </script>
 
 <!-- QRCodeを表示するページ -->
