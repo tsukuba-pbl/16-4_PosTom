@@ -437,7 +437,7 @@
 	  <h1>投票情報の確認</h1>
 	</div>
 	<p>あなたが投票したデータは以下の通りです。</p></br>
-	<h4>投票者</h4></br>
+	<h4>投票者: </h4>
 	<div id="confirm_voted"></div>
 	<h4>選択した候補者</h4></br>
 	<div id="confirm_candidates_voted"></div>
@@ -448,7 +448,10 @@
 </div>
 <script>
 $("#confirm_candidates").clone().removeAttr("id").appendTo($("#confirm_candidates_voted"));
-$("#confirm_qrcode").clone().removeAttr("id").appendTo($("#qrcode"));
+(function(){
+		$('#confirm_qrcode').empty();
+				new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
+})();
 </script>
 
 <!-- QRCodeを表示するページ -->
@@ -462,8 +465,6 @@ $("#confirm_qrcode").clone().removeAttr("id").appendTo($("#qrcode"));
 				<div class="example" align="center">
 						<div id="qrcode" align="center">
 						</div>
-						<!-- 候補者を選択しなおす -->
-							<!-- <div class="ui-block-b"><button data-icon="back" data-theme="a" onclick="go_back()">選択しなおす</button></div> -->
 				</div>
 				<div id="complete_voting"></div>
 		</div>
