@@ -80,6 +80,6 @@ function set_item(){
 	})();
 
 
-    $("#confirm_candidates_voted").append(candidateId[0] + '<br/>' + candidateId[1] + '<br/>' + candidateId[2]);
+    $("#confirm_candidates_voted").append(candidateId[key]);
 
 }
