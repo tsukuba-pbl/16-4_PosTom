@@ -69,9 +69,4 @@ function set_item(){
         $('#qrcode').empty();
             new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
 	})();
-
-
-    (function(){
-          new QRCode(document.getElementById('confirm_qrcode'),JSON.stringify(VoteInfo));
-})();
 }
