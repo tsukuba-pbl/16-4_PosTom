@@ -27,6 +27,7 @@ matrix:
 
 before_script:
   - npm install
+  - npm set strict-ssl false
   - chmod +x ./lib/Cake/Console/cake
   - sh -c "composer global require 'phpunit/phpunit=3.7.33'"
   - sudo locale-gen de_DE
