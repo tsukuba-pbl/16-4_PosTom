@@ -47,4 +47,8 @@ function create_bookmark_list() {
         console.log("empty_bookmarks");
         $('#my_checkbox').empty().append("<a>ブックマークされていません</a>");
     }
+
+    //AND検索できるようにするやつ
+    var qs = $("input#searchlist").quicksearch("ul#listdata li");
+    qs.cache();
  }
