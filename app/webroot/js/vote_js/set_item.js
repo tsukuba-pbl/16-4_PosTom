@@ -82,9 +82,12 @@ function set_item(){
         new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
 	})();
 
-    console.log(candidateId);
-    console.log(selected_id_json);
+
     cc = JSON.stringify(candidateId);
-    console.log(cc);
-    $("#confirm_candidates_voted").append(cc);
+    var cc2 = cc.split(",");
+    while (cc2.length > 0) {
+        $("#confirm_candidates_voted").append(cc2.pop() + '<br/>');
+    }
+
+
 }
