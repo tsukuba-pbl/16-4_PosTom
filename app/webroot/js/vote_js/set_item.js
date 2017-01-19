@@ -7,6 +7,7 @@ function set_item(){
     var data = {};
     //var checkId = $('#checkvote').val();
     var count = 0;
+    var cc;
 
     //現在選択している候補者リストを取得
     candidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
@@ -83,5 +84,7 @@ function set_item(){
 
     console.log(candidateId);
     console.log(selected_id_json);
-    $("#confirm_candidates_voted").append(localStorage.getItem('Candidate_ID'));
+    cc = JSON.stringify(candidateId);
+    console.log(cc);
+    $("#confirm_candidates_voted").append(cc);
 }
