@@ -24,6 +24,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/sessiontable.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/modify_navbar.css" />
 	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/vote_css.css" />
+	<link rel="stylesheet" type="text/css" href="<?php echo $this->Html->webroot;?>css/confirm_vote_table.css" />
 
 	<script>
 		var webroot="<?php echo $this->Html->webroot;?>";
@@ -424,8 +425,8 @@
 	  <h1>投票確認</h1>
 	</div>
 	<div data-role="header" data-theme="b"><h4>選択した候補者</h4></div>
+	<div id="permit_revoting"　style="margin:5px auto"></div>
 	<div id="confirm_candidates"></div>
-	<div id="permit_revoting"></div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-checkround" data-theme="e" onclick="confirm()">投票する</button>
 		<button data-icon="flat-cross" data-theme="a" onclick="go_back()">選択しなおす</button>
