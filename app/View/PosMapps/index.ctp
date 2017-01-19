@@ -250,6 +250,27 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
+		<!-- 投票オフのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon off-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+			</ul>
+		</div>
+		<!-- 投票オンのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon footbar on-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -274,6 +295,27 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
+		<!-- 投票オフのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon off-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+			</ul>
+		</div>
+		<!-- 投票オンのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon footbar on-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -310,6 +352,27 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
+		<!-- 投票オフのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon off-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+			</ul>
+		</div>
+		<!-- 投票オンのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon footbar on-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -326,6 +389,27 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
+		<!-- 投票オフのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon off-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+			</ul>
+		</div>
+		<!-- 投票オンのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon footbar on-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -359,6 +443,27 @@
 	<!-- タブバー -->
 	<!-- <div class="tabbar"></div> -->
 	<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
+		<!-- 投票オフのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon off-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+			</ul>
+		</div>
+		<!-- 投票オンのときのnavigation bar -->
+		<div data-role="navbar" height="100%" class="nav-tabicon footbar on-navbar" style="display:none;" data-grid="d">
+			<ul>
+				<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+				<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+				<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+				<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+				<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>
+			</ul>
+		</div>
 	</div>
 </div>
 
@@ -416,6 +521,27 @@
 		<!-- タブバー -->
 		<!-- <div class="tabbar"></div> -->
 		<div data-role="footer" data-position="fixed" data-tap-toggle="false" class="nav-tabicon" style="position:fixed; bottom:0px">
+			<!-- 投票オフのときのnavigation bar -->
+			<div data-role="navbar" height="100%" class="nav-tabicon off-navbar" style="display:none;" data-grid="d">
+				<ul>
+					<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+					<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+					<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+					<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+					<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+				</ul>
+			</div>
+			<!-- 投票オンのときのnavigation bar -->
+			<div data-role="navbar" height="100%" class="nav-tabicon footbar on-navbar" style="display:none;" data-grid="d">
+				<ul>
+					<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>
+					<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>
+					<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>
+					<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>
+					<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>
+					<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>
+				</ul>
+			</div>
 		</div>
 </div>
 
