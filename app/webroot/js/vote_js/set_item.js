@@ -11,6 +11,7 @@ function set_item(){
     //現在選択している候補者リストを取得
     candidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
+
     //現在チェックしている候補者数のカウント
     for (key in candidateId) {
       selected_id_json["name_"+(count+1)] = candidateId[key];
@@ -79,8 +80,5 @@ function set_item(){
         new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
 	})();
 
-  while (selected_id_json.length() > 0){
-    $("#confirm_candidates_voted").append(selected_id_json.pop());
-  }
-
+    $("#confirm_candidates_voted").append(Candidate_ID);
 }
