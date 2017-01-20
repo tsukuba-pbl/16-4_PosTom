@@ -101,6 +101,8 @@ function set_item(){
     (function(){
         $('#qrcode').empty();
         new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
+        $('#confirm_qrcode').empty();
+        new QRCode(document.getElementById('confirm_qrcode'),JSON.stringify(VoteInfo));
 	})();
 
   $("#confirm_candidates_voted").empty().append(list);
