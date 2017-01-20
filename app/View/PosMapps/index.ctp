@@ -570,7 +570,7 @@
 	</div>
 	<p>あなたが投票したデータは以下の通りです。</p>
 	<div id="confirm_candidates_voted" class="candidates_table" style="margin:5px auto"></div>
-	<div id="confirm_qrcode"></div>
+	<div id="confirm_qrcode" align="center"></div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻す</button>
 	</fieldset>

@@ -27,7 +27,7 @@ function set_item(){
 
       var tmp, tmp_id;
       tmp = parseInt(key.split('contender')[1])-1;
-      tmp_id = "#jsform_checkbox"+ tmp;console.log(tmp_id);
+      tmp_id = "#jsform_checkbox"+ tmp;
       ID = $(tmp_id).data('candidate-id');
       NAME = $(tmp_id).data('candidate-name');
       TITLE = $(tmp_id).data('candidate-title');
