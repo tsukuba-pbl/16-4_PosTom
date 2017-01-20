@@ -554,8 +554,8 @@
 	  <h1>投票確認</h1>
 	</div>
 	<div data-role="header" data-theme="b"><h4>選択した候補者</h4></div>
-	<div id="permit_revoting"　style="margin:5px auto"></div>
-	<div id="confirm_candidates"></div>
+	<div id="permit_revoting" style="margin:5px auto"></div>
+	<div id="confirm_candidates" class="candidates_table"></div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-checkround" data-theme="e" onclick="confirm()">投票する</button>
 		<button data-icon="flat-cross" data-theme="a" onclick="go_back()">選択しなおす</button>
@@ -568,11 +568,8 @@
 	<div data-role="header">
 	  <h1>投票情報の確認</h1>
 	</div>
-	<p>あなたが投票したデータは以下の通りです。</p></br>
-	<h4>投票者: </h4>
-	<div id="confirm_voted"></div>
-	<h4>選択した候補者</h4></br>
-	<div id="confirm_candidates_voted"></div>
+	<p>あなたが投票したデータは以下の通りです。</p>
+	<div id="confirm_candidates_voted" class="candidates_table" style="margin:5px auto"></div>
 	<div id="confirm_qrcode"></div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻す</button>
