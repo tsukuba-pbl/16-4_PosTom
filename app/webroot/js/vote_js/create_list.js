@@ -25,7 +25,7 @@ function create_list() {
                       checkboxContents += 'checked="checked"';
                     }
                 }
-                checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' value="'+ID+'"/>'
+                checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' data-candidate-id="'+ID+'" data-candidate-title="'+TITLE+'" data-candidate-name="'+NAME+'"/>'
                 checkboxContents += '<label for="jsform_checkbox' + i +'">';
                 if (bookmark_list != null) {
                     $.each (bookmark_list, function(k){
@@ -43,4 +43,8 @@ function create_list() {
     });
     checkboxContents += "</div>";
     $("#my_checkbox").empty().append(checkboxContents).trigger("create");
+
+    //AND検索できるようにするやつ
+    var qs = $("input#searchlist").quicksearch("ul#listdata li");
+    qs.cache();
 }

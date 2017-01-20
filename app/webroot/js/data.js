@@ -100,8 +100,8 @@ function initData() {
     	}
 
     	else if (event_vote_valid === '1') {
-    		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');
-    		$('#permit_revoting').empty().append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．投票しますか？');
+    		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');  	
+    		$('#permit_revoting').append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．<br>投票しますか？');
         $("#complete_voting").append($('<input type="button"  value="投票完了" onclick="go_toppage()"/>'));
     	}
 
@@ -151,22 +151,14 @@ function setMapSize() {
 }
 
 function create_navbar() {
-  var list = "";
-
-  list += '<li><a class="topPageButton" id="totoppage" data-icon="toppage">Top</a></li>';
-  list += '<li><a class="informationPageButton" id="information" data-icon="informationgray">TimeTable</a></li>';
-  list += '<li><a class="venuePageButton"  id="venue"  data-icon="venue" >Floor Map</a></li>';
-  list += '<li><a class="presenListPageButton" id="list" data-icon="list">Presentation List</a></li>';
-  list += '<li><a class="posterMapPageButton" id="map" data-icon="map">Poster Map</a></li>';
 
   if (event_vote_app === '0') { //voteON
-    list += '<li><a class="votePageButton" id="TovotePage" data-icon="vote">Vote</a></li>'
-    $('[class="nav-tabicon"]').append('<div data-role="navbar" height="100%" class="nav-tabicon footbar" data-grid="d"><ul>'+list+'</ul></div>');
-    $('[data-role="navbar"]').navbar();
+    $(".on-navbar").show();
+    $(".off-navbar").hide();
   }
 
   else if (event_vote_app === '1') {  //voteOFF
-    $('[class="nav-tabicon"]').append('<div data-role="navbar" height="100%" class="nav-tabicon" data-grid="d"><ul>'+list+'</ul></div>');
-    $('[data-role="navbar"]').navbar();
+    $(".on-navbar").hide();
+    $(".off-navbar").show();
   }
 }

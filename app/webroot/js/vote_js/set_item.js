@@ -9,16 +9,37 @@ function set_item(){
     var count = 0;
 
 
+    var ID, NAME, TITLE;
+    var list = "";
+    list += "<table><tbody><tr><th>ID</th><th>TITLE</th><th>NAME</th></tr>";
+
+
     //現在選択している候補者リストを取得
     candidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
 
 
     //現在チェックしている候補者数のカウント
+
     for (key in candidateId) {
       selected_id_json["name_"+(count+1)] = candidateId[key];
       count++;
+
+      var tmp, tmp_id;
+      tmp = parseInt(key.split('contender')[1])-1;
+      tmp_id = "#jsform_checkbox"+ tmp;console.log(tmp_id);
+      ID = $(tmp_id).data('candidate-id');
+      NAME = $(tmp_id).data('candidate-name');
+      TITLE = $(tmp_id).data('candidate-title');
+
+      list += "<tr>";
+      list += "<td>"+ID+"</td><td>"+TITLE+"</td><td>"+NAME+"</td>";
+      list += "</tr>";
     }
+
+    list += "</tbody></table>";
+
+    $('#confirm_candidates').empty().append(list);
 
     // QRcodeが入力されていない場合、エラー
     /*
@@ -82,12 +103,7 @@ function set_item(){
         new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
 	})();
 
-
-    var cc = JSON.stringify(candidateId);
-    var ccArr = cc.split(",");
-    while (ccArr.length > 0) {
-        $("#confirm_candidates_voted").append(ccArr.pop() + '<br/>');
-    }
+  $("#confirm_candidates_voted").empty().append(list);
 
 
 }
