@@ -68,6 +68,8 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_list.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_back.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_toppage.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.searcher.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcodereader.js"></script>
 	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/read_candidateid_QR.js"></script>
@@ -467,6 +469,7 @@
 	</div>
 </div>
 
+
 <!-- Vote Application -->
 <div data-role="page" id="votePage">
 		<div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
@@ -551,13 +554,28 @@
 	  <h1>投票確認</h1>
 	</div>
 	<div data-role="header" data-theme="b"><h4>選択した候補者</h4></div>
-	<div id="permit_revoting"　style="margin:5px auto"></div>
-	<div id="confirm_candidates"></div>
+	<div id="permit_revoting" style="margin:5px auto"></div>
+	<div id="confirm_candidates" class="candidates_table"></div>
 	<fieldset class="ui-grid-a">
 		<button data-icon="flat-checkround" data-theme="e" onclick="confirm()">投票する</button>
 		<button data-icon="flat-cross" data-theme="a" onclick="go_back()">選択しなおす</button>
 	</fieldset>
 </div>
+
+
+<!-- ALREADY VOTED -->
+<div data-role="page" id="AlreadyVotedPage">
+	<div data-role="header">
+	  <h1>投票情報の確認</h1>
+	</div>
+	<p>あなたが投票したデータは以下の通りです。</p>
+	<div id="confirm_candidates_voted" class="candidates_table" style="margin:5px auto"></div>
+	<div id="confirm_qrcode" align="center"></div>
+	<fieldset class="ui-grid-a">
+		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻す</button>
+	</fieldset>
+</div>
+
 
 <!-- QRCodeを表示するページ -->
 <div data-role="page" id="QRPage">
@@ -570,15 +588,16 @@
 				<div class="example" align="center">
 						<div id="qrcode" align="center">
 						</div>
-						<!-- 候補者を選択しなおす -->
-						<div class="ui-block-b"><button data-icon="back" data-theme="a" onclick="go_back()">選択しなおす</button></div>
 				</div>
+				<div id="complete_voting"></div>
 		</div>
 
 		<div data-role="footer">
 				<h1>Ts_Quartetto</h1>
 		</div>
 </div>
+
+
 
 <script>
     $(document).on('pageshow', '#votePage', function(e, d) {

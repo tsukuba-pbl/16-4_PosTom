@@ -39,6 +39,7 @@ var voter_param = window.location.search.substring(1);  //URLについてるパ�
 var event_str_all = url.substring(url.lastIndexOf('/')+1, url.length);
 var event_vote_app = null;
 var event_vote_valid = null;
+var already_voted = null;
 var voter_param_flag = 1;
 //GETパラメータがついていれば
 if (voter_param) {
@@ -55,6 +56,7 @@ else {
     // hogehoge#nekoからnekoを取得
     event_str = event_str_all.split('#')[0];
 }
+
 
 
 var posMAppDataURL = "../../json/"+event_str+".json";
@@ -93,11 +95,14 @@ function initData() {
 
         if (event_vote_valid === '0') {
     		$('#permit_revoting').empty().append('投票後，投票内容を変更し再投票可能です．');
+        $("#complete_voting").append($('<input type="button" value="選択し直す" onclick="go_back()"/>'));
+
     	}
 
     	else if (event_vote_valid === '1') {
-    		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');
-    		$('#permit_revoting').empty().append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．<br>投票しますか？');
+    		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');  	
+    		$('#permit_revoting').append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．<br>投票しますか？');
+        $("#complete_voting").append($('<input type="button"  value="投票完了" onclick="go_toppage()"/>'));
     	}
 
 		makeSessionMap();

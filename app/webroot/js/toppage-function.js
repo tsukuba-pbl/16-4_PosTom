@@ -45,6 +45,12 @@ $.fn.goToVotePage = function(ev) {
 		else if (voter_param_flag === 1) {
 			alert ("配布されたQRコードをもう一度読み込んで下さい。");
 		}
+		if (already_voted === 1) {
+	    	changePage("#AlreadyVotedPage");
+	  	}
+		else {
+	    	changePage(nextPage);
+	    }
     });
 }
 
