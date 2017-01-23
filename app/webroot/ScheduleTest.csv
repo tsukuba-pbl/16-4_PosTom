@@ -1,5 +1,5 @@
 room,order,category ,date,start_time,end_time,chairperson_name,chairperson_affiliation,commentators_name,commentators_affiliation
-A,1,category1,1,13:00,13:30,name1,univ1,"sample1,sample2","univA,univB"
+A,1,category1あいうえ,1,13:00,13:30,name1,univ1,"sample1,sample2","univA,univB"
 A,2,category2,1,13:45,14:15,name2,univ2,sample,univSample
 A,3,category3,2,15:00,16:30,name3,univ3,sample,univSample
 B,1,category4,1,12:10,14:30,name4,univ4,sample,univSample
