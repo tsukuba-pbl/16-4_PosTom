@@ -27,7 +27,8 @@ function create_bookmark_list() {
     }
     else {
         console.log("empty_bookmarks");
-        $('#my_checkbox').empty().append("<a>ブックマークされていません</a>");
+        $('#my_checkbox').hide();
+        $('#my_bookmark').empty().append("<a>ブックマークされていません</a>");
     }
 
     //AND検索できるようにするやつ

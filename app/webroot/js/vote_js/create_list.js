@@ -11,6 +11,8 @@ function create_list() {
 
     $(".c-list").addClass("ui-btn-active");
     $(".b-list").removeClass("ui-btn-active");
+    $('#my_checkbox').show();
+    $('#my_bookmark').empty();
 
     $.each(author, function(i) {
         ID = author[i].presenid,

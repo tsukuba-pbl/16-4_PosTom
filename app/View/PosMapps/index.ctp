@@ -512,6 +512,7 @@
 				<!-- JSONファイルの候補者をリスト表示 -->
 				<fieldset data-role="content" id="my_controlgroup">
 					<div id="my_checkbox"></div>
+					<div id="my_bookmark"></div>
 				</fieldset>
 			</ul>
 			<fieldset class="ui-grid-a">
