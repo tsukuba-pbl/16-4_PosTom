@@ -13,6 +13,8 @@ function create_list() {
 
     $(".c-list").addClass("ui-btn-active");
     $(".b-list").removeClass("ui-btn-active");
+    $('#my_checkbox').show();
+    $('#my_bookmark').empty();
 
     /*
         poster[{"presenid","posterid","star","date"}]
@@ -31,6 +33,7 @@ function create_list() {
                 NAME[i] = author[j].name;
             }
         });
+        checkboxContents += '<div class="candidate-item" data-candidate-id="'+ID[i]+'">';
         checkboxContents += '<li><input type="checkbox" ';
         for (key in CandidateId) {
             if (CandidateId[key] === ID[i]) {
@@ -50,7 +53,7 @@ function create_list() {
         }
         checkboxContents += TITLE[i];
         checkboxContents += '</strong><hr>';
-        checkboxContents += '<div class="authors-on-list" style="text-align:right">' + NAME[i] + '</div></label></li>';
+        checkboxContents += '<div class="authors-on-list" style="text-align:right">' + NAME[i] + '</div></label></li></div>';
     });
     checkboxContents += "</div>";
     $("#my_checkbox").empty().append(checkboxContents).trigger("create");
