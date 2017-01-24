@@ -11,6 +11,8 @@
 *.mo
 /app/webroot/csv/*_*_*_*.csv
 /app/webroot/json/*.json
+/app/webroot/PresentationTest.csv
+/app/webroot/ScheduleTest.csv
 
 # IDE and editor specific files #
 #################################
