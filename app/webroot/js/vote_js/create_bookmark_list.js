@@ -15,7 +15,7 @@ function create_bookmark_list() {
             var current_list = $(this);
             var ID = $(this).data("candidate-id");
             for(var j = 0; j < bookmark_list.length; j++){
-                if (bookmark_list[i] === ID) {
+                if (bookmark_list[j] === ID) {
                     current_list.show();
                     break;
                 }
