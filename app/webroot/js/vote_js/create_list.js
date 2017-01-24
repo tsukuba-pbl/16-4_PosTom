@@ -1,6 +1,8 @@
 function create_list() {
     var checkboxContents = "";
-    var ID, NAME, TITLE;
+    var ID = new Array();
+    var NAME = new Array();
+    var TITLE = new Array();
     var correct_json_flag = 0;
     var bookmark_list = localStorage.getItem("bookmarks");
     if (bookmark_list != null && bookmark_list.length > 1) {
@@ -12,37 +14,51 @@ function create_list() {
     $(".c-list").addClass("ui-btn-active");
     $(".b-list").removeClass("ui-btn-active");
 
-    $.each(author, function(i) {
-        ID = author[i].presenid,
-        NAME = author[i].name;
-
+    /*
+        poster[{"presenid","posterid","star","date"}]
+        presen[{"presenid","name","affiliation","first"}]
+        author[{"presenid","title","abstract","bookmark"}]
+    */
+    $.each(poster, function(i) {
         $.each (presen, function(j) {
-            if ( author[i].first === "1" && author[i].presenid === presen[j].presenid) {
-                TITLE = presen[j].title;
-                checkboxContents += '<li><input type="checkbox" ';
-                for (key in CandidateId) {
-                    if (CandidateId[key] === presen[j].presenid) {
-                      checkboxContents += 'checked="checked"';
-                    }
-                }
-                checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' data-candidate-id="'+ID+'" data-candidate-title="'+TITLE+'" data-candidate-name="'+NAME+'"/>'
-                checkboxContents += '<label for="jsform_checkbox' + i +'">';
-                if (bookmark_list != null) {
-                    $.each (bookmark_list, function(k){
-                        if(presen[j].presenid === bookmark_list[k]) {
-                            TITLE =　"★" + TITLE;
-                        }
-                    });
-                }
-                //checkboxContents +='ID: ' + ID + '</br>' + ' Name: ' + NAME + '</br>' + ' Title: ' + TITLE + '</label></li>';
-                checkboxContents += '<div style="font-weight:normal">' + ID + '</div>';
-                checkboxContents += '<strong>' + TITLE + '</strong><hr>';
-                checkboxContents += '<div class="authors-on-list" style="text-align:right">' + NAME + '</div></label></li>';
+            if (poster[i].presenid === presen[j].presenid) {
+                ID[i] = presen[j].presenid;
+                TITLE[i] = presen[j].title;
             }
         });
+        $.each (author, function(j) {
+            if (poster[i].presenid === author[j].presenid && author[j].first === "1") {
+                NAME[i] = author[j].name;
+            }
+        });
+        checkboxContents += '<li><input type="checkbox" ';
+        for (key in CandidateId) {
+            if (CandidateId[key] === ID[i]) {
+              checkboxContents += 'checked="checked"';
+            }
+        }
+        checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' data-candidate-id="'+ID[i]+'" data-candidate-title="'+TITLE[i]+'" data-candidate-name="'+NAME[i]+'"/>'
+        checkboxContents += '<label for="jsform_checkbox' + i +'">';
+        checkboxContents += '<div style="font-weight:normal">' + ID[i] + '</div>';
+        checkboxContents += '<strong>';
+        if (bookmark_list != null) {
+            for (var j=0; j<bookmark_list.length; j++) {
+                if (ID[i] === bookmark_list[j]) {
+                    checkboxContents += '★ ';
+                }
+            }
+        }
+        checkboxContents += TITLE[i];
+        checkboxContents += '</strong><hr>';
+        checkboxContents += '<div class="authors-on-list" style="text-align:right">' + NAME[i] + '</div></label></li>';
     });
     checkboxContents += "</div>";
     $("#my_checkbox").empty().append(checkboxContents).trigger("create");
+
+    //ポスターセッションが無いときはIDは空
+    if (ID.length === 0) {
+        $('#my_checkbox').empty().append('<a>ポスターセッションはありません</a>');
+    }
 
     //AND検索できるようにするやつ
     var qs = $("input#searchlist").quicksearch("ul#listdata li");
