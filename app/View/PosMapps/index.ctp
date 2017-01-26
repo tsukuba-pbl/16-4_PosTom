@@ -78,6 +78,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
 	<scirpt type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_yourid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.quicksearch.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/addTab.js"></script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/version.js"></script>
@@ -487,7 +488,6 @@
 				<h1>Vote Appication</h1>
 				<a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
 		</div>
-
 		<div data-role="content" class="ui-content">
 			<!-- カメラで投票者ID入力 -->
 			<!--
@@ -506,6 +506,8 @@
 				<button class="c-list ui-btn-active" onclick="create_list()">全件表示</button>
 				<button class="b-list" onclick="create_bookmark_list()">ブックマークリスト</button>
 			</div>
+			<!-- 日付ごとにボタンを表示．タブがいいけど謎バグでできなかった -->
+			<div id="day-button" data-role="controlgroup" data-type="horizontal"></div>
 			<!-- 検索 -->
 			<input id="searchlist" type="text" placeholder="キーワード検索"/>
 			<ul id="listdata" data-role="listview" data-inset="true">

@@ -265,4 +265,12 @@ function init() {
 	// タブバーの選択表示を変更
 	changeActiveTab(window.location.hash);
 	// window.location.hash = "";
+
+	//votePageに日付ごとのボタン追加
+	for (var i=0; i<3; i++) {
+		$button = $('<div class="ui-button" onclick="alert()">day'+(i+1)+'</div>');
+		$('#day-button').controlgroup('container')["append"]($button);
+		$button.button();
+		$('#day-button').controlgroup("refresh");
+	}
 }
