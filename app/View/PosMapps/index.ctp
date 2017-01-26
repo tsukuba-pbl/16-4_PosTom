@@ -78,7 +78,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
 	<scirpt type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_yourid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.quicksearch.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/addTab.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_dayList.js"></script>
 
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/version.js"></script>
@@ -503,8 +503,8 @@
 			-->
 			<div data-role="header" data-theme="b" class="step-two"><p>候補者を下記から選択してください。</p></div>
 			<div data-role="controlgroup" data-type="horizontal">
-				<button class="c-list ui-btn-active" onclick="create_list()">全件表示</button>
-				<button class="b-list" onclick="create_bookmark_list()">ブックマークリスト</button>
+				<button class="c-list print-vote-btn ui-btn-active" onclick="create_list()">全件表示</button>
+				<button class="b-list print-vote-btn" onclick="create_bookmark_list()">ブックマークリスト</button>
 			</div>
 			<!-- 日付ごとにボタンを表示．タブがいいけど謎バグでできなかった -->
 			<div id="day-button" data-role="controlgroup" data-type="horizontal"></div>
@@ -514,7 +514,7 @@
 				<!-- JSONファイルの候補者をリスト表示 -->
 				<fieldset data-role="content" id="my_controlgroup">
 					<div id="my_checkbox"></div>
-					<div id="my_bookmark"></div>
+					<div id="my_bookmark"><a>ブックマークされていません</a></div>
 				</fieldset>
 			</ul>
 			<fieldset class="ui-grid-a">

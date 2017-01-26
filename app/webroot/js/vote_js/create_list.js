@@ -3,6 +3,7 @@ function create_list() {
     var ID = new Array();
     var NAME = new Array();
     var TITLE = new Array();
+    var DATE = new Array();
     var correct_json_flag = 0;
     var bookmark_list = localStorage.getItem("bookmarks");
     if (bookmark_list != null && bookmark_list.length > 1) {
@@ -11,10 +12,10 @@ function create_list() {
     var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
     checkboxContents += "<div data-role='controlgroup' class='candidate_list'>";
 
+    $(".print-vote-btn").removeClass("ui-btn-active");
     $(".c-list").addClass("ui-btn-active");
-    $(".b-list").removeClass("ui-btn-active");
     $('#my_checkbox').show();
-    $('#my_bookmark').empty();
+    $('#my_bookmark').hide();
 
     /*
         poster[{"presenid","posterid","star","date"}]
@@ -26,6 +27,7 @@ function create_list() {
             if (poster[i].presenid === presen[j].presenid) {
                 ID[i] = presen[j].presenid;
                 TITLE[i] = presen[j].title;
+                DATE[i] = poster[i].date;
             }
         });
         $.each (author, function(j) {
@@ -33,7 +35,7 @@ function create_list() {
                 NAME[i] = author[j].name;
             }
         });
-        checkboxContents += '<div class="candidate-item" data-candidate-id="'+ID[i]+'">';
+        checkboxContents += '<div class="candidate-item" data-candidate-id="'+ID[i]+'" data-candidate-date="'+DATE[i]+'">';
         checkboxContents += '<li><input type="checkbox" ';
         for (key in CandidateId) {
             if (CandidateId[key] === ID[i]) {
@@ -42,7 +44,7 @@ function create_list() {
         }
         checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' data-candidate-id="'+ID[i]+'" data-candidate-title="'+TITLE[i]+'" data-candidate-name="'+NAME[i]+'"/>'
         checkboxContents += '<label for="jsform_checkbox' + i +'">';
-        checkboxContents += '<div style="font-weight:normal">' + ID[i] + '</div>';
+        checkboxContents += '<div style="font-weight:normal">' + ID[i] + ' (day'+DATE[i]+')</div>';
         checkboxContents += '<strong>';
         if (bookmark_list != null) {
             for (var j=0; j<bookmark_list.length; j++) {

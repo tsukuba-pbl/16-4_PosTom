@@ -3,7 +3,7 @@ function create_bookmark_list() {
     var bookmark_list = localStorage.getItem("bookmarks");
     var CandidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
-    $(".c-list").removeClass("ui-btn-active");
+    $(".print-vote-btn").removeClass("ui-btn-active");
     $(".b-list").addClass("ui-btn-active");
 
     if (bookmark_list) {  //bookmarksがあったら
@@ -28,10 +28,6 @@ function create_bookmark_list() {
     else {
         console.log("empty_bookmarks");
         $('#my_checkbox').hide();
-        $('#my_bookmark').empty().append("<a>ブックマークされていません</a>");
+        $('#my_bookmark').show();
     }
-
-    //AND検索できるようにするやつ
-    var qs = $("input#searchlist").quicksearch("ul#listdata li");
-    qs.cache();
  }
