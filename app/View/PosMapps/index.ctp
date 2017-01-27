@@ -507,7 +507,7 @@
 				<button class="b-list print-vote-btn" onclick="create_bookmark_list()">ブックマークリスト</button>
 			</div>
 			<!-- 日付ごとにボタンを表示．タブがいいけど謎バグでできなかった -->
-			<div id="day-button" data-role="controlgroup" data-type="horizontal"></div>
+			<div data-role="controlgroup" data-type="horizontal" id="day-button"></div>
 			<!-- 検索 -->
 			<input id="searchlist" type="text" placeholder="キーワード検索"/>
 			<ul id="listdata" data-role="listview" data-inset="true">
@@ -603,9 +603,22 @@
 
 
 <script>
-    $(document).on('pageshow', '#votePage', function(e, d) {
-        create_list();
+    $('#votePage').on('pageshow', '#votePage', function(e, d) {
+		create_list();
     });
+</script>
+
+<script>
+	$("#votePage").on("pageinit", function() {
+		var time = JSON.parse(localStorage.getItem("timetable"));
+		for (var i=0; i<time.length; i++) {
+			$button = $('<div id="day'+(i+1)+'-button" class="ui-button" onclick="print_dayList('+(i+1)+')">day'+(i+1)+'</div>');
+			$('#day-button').controlgroup("container")["append"]($button);
+			$button.button();
+			$('#day-button').controlgroup("refresh");
+			$('#day'+(i+1)+'-button').parent().addClass('print-vote-btn day-'+(i+1));
+		}
+	});
 </script>
 
 <!-- 利用ログデータ回収許諾ダイアログ  -->

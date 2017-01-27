@@ -265,13 +265,13 @@ function init() {
 	// タブバーの選択表示を変更
 	changeActiveTab(window.location.hash);
 	// window.location.hash = "";
-
+/*
 	//votePageに日付ごとのボタン追加
 	for (var i=0; i<timetable.length; i++) {
 		$button = $('<div id="day'+(i+1)+'-button" class="ui-button" onclick="print_dayList('+(i+1)+')">day'+(i+1)+'</div>');
-		$('#day-button').controlgroup('container')["append"]($button);
+		$('#day-button').controlgroup("container")["append"]($button);
 		$button.button();
 		$('#day-button').controlgroup("refresh");
 		$('#day'+(i+1)+'-button').parent().addClass('print-vote-btn day-'+(i+1));
-	}
+	}*/
 }
