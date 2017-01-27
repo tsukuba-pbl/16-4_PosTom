@@ -28,6 +28,7 @@ function create_bookmark_list() {
     else {
         console.log("empty_bookmarks");
         $('#my_checkbox').hide();
+        $('#my_daylist').hide();
         $('#my_bookmark').show();
     }
  }

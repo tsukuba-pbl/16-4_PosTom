@@ -16,6 +16,7 @@ function create_list() {
     $(".c-list").addClass("ui-btn-active");
     $('#my_checkbox').show();
     $('#my_bookmark').hide();
+    $('#my_daylist').hide();
 
     /*
         poster[{"presenid","posterid","star","date"}]

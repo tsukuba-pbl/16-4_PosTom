@@ -515,6 +515,7 @@
 				<fieldset data-role="content" id="my_controlgroup">
 					<div id="my_checkbox"></div>
 					<div id="my_bookmark"><a>ブックマークされていません</a></div>
+					<div id="my_daylist"></div>
 				</fieldset>
 			</ul>
 			<fieldset class="ui-grid-a">
@@ -603,7 +604,7 @@
 
 
 <script>
-    $('#votePage').on('pageshow', '#votePage', function(e, d) {
+    $('#votePage').on('pageshow', function(e, d) {
 		create_list();
     });
 </script>
