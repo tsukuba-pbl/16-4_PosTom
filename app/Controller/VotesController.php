@@ -135,7 +135,7 @@ class VotesController extends AppController {
  	 */
 	private function getMacAddr($filename){
 		$tmp = explode("_", $filename);
-		return $tmp[2];
+		return wordwrap($tmp[2], 2, ":", true);
 	}
 
  	/*
