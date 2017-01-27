@@ -163,7 +163,3 @@ function create_navbar() {
     $(".off-navbar").show();
   }
 }
-
-function create_day_list() {console.log($('#day-button').length);
-    
-}
