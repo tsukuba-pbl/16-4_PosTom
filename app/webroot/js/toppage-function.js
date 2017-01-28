@@ -38,11 +38,12 @@ $.fn.goToTopPage = function(ev) {
 
 $.fn.goToVotePage = function(ev) {
 	var nextPage = "#votePage";
+	voteDay2 = d.getDate();
 	$(this).on(ev, function() {
 		if (voter_param_flag === 0) {
 			changePage(nextPage);
 		}
-		else if (voter_param_flag === 1) {
+		else if (voter_param_flag === 1 && voteDay2 ==! voteDay) {
 			alert ("配布されたQRコードをもう一度読み込んで下さい。");
 			return;
 		}
