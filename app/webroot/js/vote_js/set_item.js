@@ -8,7 +8,6 @@ function set_item(){
     var vote_data = [];
     //var checkId = $('#checkvote').val();
     var count = 0;
-    var tmp_count = 0;
     // Objectソート
     // 第1引数：検索したいkey  第2引数：true -> 昇順  false -> 降順
     var sort_by = function(field, reverse, primer){
@@ -27,9 +26,6 @@ function set_item(){
     }
 
     var ID, NAME, TITLE;
-    var list = "";
-    list += "<table><tbody><tr><th>ID</th><th>TITLE</th><th>NAME</th></tr>";
-
 
     //現在選択している候補者リストを取得
     candidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
@@ -50,27 +46,23 @@ function set_item(){
       count++;
     }
 
+    //データソート
     vote_data.sort(sort_by('id', false, function(a){return a.toUpperCase()}));
 
-    for (key in candidateId) {
+    var list = "";
+    list += "<table><tbody><tr><th>ID</th><th>TITLE</th><th>NAME</th></tr>";
+
+    for (var i=0; i<count; i++) {
         list += "<tr>";
-        list += "<td>"+vote_data[tmp_count].id+"</td><td>"+vote_data[tmp_count].title+"</td><td>"+vote_data[tmp_count].name+"</td>";
+        list += "<td>"+vote_data[i].id+"</td>";
+        list += "<td>"+vote_data[i].title+"</td>";
+        list += "<td>"+vote_data[i].name+"</td>";
         list += "</tr>";
-        tmp_count++;
     }
 
     list += "</tbody></table>";
 
     $('#confirm_candidates').empty().append(list);
-
-    // QRcodeが入力されていない場合、エラー
-    /*
-    if (checkId === "0") {
-      console.log("data = null");
-      alert("正しいIDをQRコードから入力してください。");
-      return;
-    }
-    */
 
     //voter_infoはGETパラメータで受け取ったものが格納される
     //data.jsでデータ格納処理
