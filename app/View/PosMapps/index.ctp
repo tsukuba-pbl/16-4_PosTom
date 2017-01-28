@@ -592,7 +592,7 @@
 		str +=d2.getMonth()+1+'月'; //获取当前月份（0——11）
 		str +=d2.getDate()+'日';
 		voteDay2 = d2.getDate();
-		str +=d2.getHours()+'时';
+		str +=d2.getHours()+'時';
 		str +=d2.getMinutes()+'分';
 		str +=d2.getSeconds()+'秒';
 		return str; }
