@@ -41,6 +41,9 @@ var event_vote_app = null;
 var event_vote_valid = null;
 var already_voted = null;
 var voter_param_flag = 1;
+var d = new Date();
+var voteDay = d.getDate();
+var voteDay2;
 //GETパラメータがついていれば
 if (voter_param) {
     voter_param_flag = 0;
@@ -100,7 +103,7 @@ function initData() {
     	}
 
     	else if (event_vote_valid === '1') {
-    		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');  	
+    		$('#permit_revoting').empty().append('「投票する」を押すとQRコードが表示されます．<br>');
     		$('#permit_revoting').append('集計機にQRコードを読み込ませた後は<strong>再投票不可</strong>です．<br>投票しますか？');
         $("#complete_voting").append($('<input type="button"  value="投票完了" onclick="go_toppage()"/>'));
     	}

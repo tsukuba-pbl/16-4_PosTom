@@ -9,37 +9,16 @@ function set_item(){
     var count = 0;
 
 
-    var ID, NAME, TITLE;
-    var list = "";
-    list += "<table><tbody><tr><th>ID</th><th>TITLE</th><th>NAME</th></tr>";
-
-
     //現在選択している候補者リストを取得
     candidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
 
 
     //現在チェックしている候補者数のカウント
-
     for (key in candidateId) {
       selected_id_json["name_"+(count+1)] = candidateId[key];
       count++;
-
-      var tmp, tmp_id;
-      tmp = parseInt(key.split('contender')[1])-1;
-      tmp_id = "#jsform_checkbox"+ tmp;
-      ID = $(tmp_id).data('candidate-id');
-      NAME = $(tmp_id).data('candidate-name');
-      TITLE = $(tmp_id).data('candidate-title');
-
-      list += "<tr>";
-      list += "<td>"+ID+"</td><td>"+TITLE+"</td><td>"+NAME+"</td>";
-      list += "</tr>";
     }
-
-    list += "</tbody></table>";
-
-    $('#confirm_candidates').empty().append(list);
 
     // QRcodeが入力されていない場合、エラー
     /*
@@ -64,12 +43,12 @@ function set_item(){
     }
 
     // count数を見て候補者の選択数をチェック
-    if(count < 3){
-        console.log("count < 3");
-        error = "候補者を3名未満選んでます。候補者は3名選んでください";
-    }else if(count > 3){
-        console.log("count > 3");
-        error = "候補者を4名以上選んでます。候補者は3名選んでください";
+    if(count < 1){
+        console.log("count < 1");
+        error = "候補者を1名未満選んでます。候補者を選んでください。";
+    }else if(count > 4){
+        console.log("count > 4");
+        error = "候補者を4名以上選んでます。候補者は4名まで選んでください。";
     }
 
     //エラーがあったらalertして終了
@@ -101,11 +80,14 @@ function set_item(){
     (function(){
         $('#qrcode').empty();
         new QRCode(document.getElementById('qrcode'),JSON.stringify(VoteInfo));
-        $('#confirm_qrcode').empty();
-        new QRCode(document.getElementById('confirm_qrcode'),JSON.stringify(VoteInfo));
 	})();
 
-  $("#confirm_candidates_voted").empty().append(list);
+
+    var cc = JSON.stringify(candidateId);
+    var ccArr = cc.split(",");
+    while (ccArr.length > 0) {
+        $("#confirm_candidates_voted").append(ccArr.pop() + '<br/>');
+    }
 
 
 }
