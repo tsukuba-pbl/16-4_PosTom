@@ -43,11 +43,11 @@ $.fn.goToVotePage = function(ev) {
 		if (voter_param_flag === 0) {
 			changePage(nextPage);
 		}
-		else if (voter_param_flag === 1 && voteDay2 ==! voteDay) {
+		else if (voter_param_flag === 1) {
 			alert ("配布されたQRコードをもう一度読み込んで下さい。");
 			return;
 		}
-		if (already_voted === 1) {
+		if (already_voted === 1 && voteDay2 ==! voteDay) {
 	    	changePage("#AlreadyVotedPage");
 	  	}
 		else {
