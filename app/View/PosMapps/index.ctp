@@ -584,6 +584,20 @@
 		<div data-role="header">
 			<h1>QR Code</h1>
 		</div>
+		<div id="nowTime"></div>
+		<script type="text/javascript">
+		function current(){
+		var d2=new Date(),str='';
+		str +=d2.getFullYear()+'年'; //获取当前年份
+		str +=d2.getMonth()+1+'月'; //获取当前月份（0——11）
+		str +=d2.getDate()+'日';
+		voteDay2 = d2.getDate();
+		str +=d2.getHours()+'时';
+		str +=d2.getMinutes()+'分';
+		str +=d2.getSeconds()+'秒';
+		return str; }
+		setInterval(function(){$("#nowTime").html(current)},1000);
+		</script>
 
 		<div data-role="content" class="ui-content">
 				<div class="example" align="center">

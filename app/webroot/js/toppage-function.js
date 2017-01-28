@@ -38,9 +38,7 @@ $.fn.goToTopPage = function(ev) {
 
 $.fn.goToVotePage = function(ev) {
 	var nextPage = "#votePage";
-
 	$(this).on(ev, function() {
-		voteDay2 = d.getDate();
 		console.log(voteDay);
 		console.log(voteDay2);
 		if (voter_param_flag === 0) {
