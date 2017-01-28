@@ -5,5 +5,4 @@ function go_toppage(){
 
       already_voted = 1;
     voter_param_flag = 2;
-    console.log(voteDay);
 }
