@@ -6,6 +6,7 @@
     $('day-'+today).addClass('ui-btn-active');
 
     $('#my_daylist').hide();
+    $('#my_bookmark').hide();
 
     $(".candidate-item").each(function(i) {
         var current_list = $(this);
@@ -16,14 +17,14 @@
         }
         else {
             current_list.hide();
-            count++;console.log(count+','+i);
             //もしその日のポスターセッションが存在しないならば
-            if ((i+1) === count) {
+            if (i === count) {
                 $('#my_daylist').empty().append("<a>day"+today+"のポスターセッションはありません</a>");
                 $('#my_checkbox').hide();
                 $('#my_bookmark').hide();
                 $('#my_daylist').show();
             }
+            count++;console.log(count+','+i);
         }
     });
 }

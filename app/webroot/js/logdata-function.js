@@ -92,7 +92,7 @@ function saveLog(action, attribute) {
 		console.log("time delta(sec): " + (delta/1000));
 		if (delta > threshold) {
 			console.log("send log");
-			sendLog();
+			//sendLog();
 		}
 	}
 }

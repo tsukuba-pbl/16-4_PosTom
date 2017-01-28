@@ -108,7 +108,6 @@ function initData() {
 		makeSessionMap();
         makeVoteApplication();
         create_navbar();
-        create_day_list();
 	}
 
 	// BlockFinderにかけた画像の幅
