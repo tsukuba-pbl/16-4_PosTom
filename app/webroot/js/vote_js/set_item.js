@@ -64,10 +64,10 @@ function set_item(){
     }
 
     // count数を見て候補者の選択数をチェック
-    if(count < 3){
+    if(count < 1){
         console.log("count < 1");
         error = "候補者を1名未満選んでます。候補者を選んでください。";
-    }else if(count > 3){
+    }else if(count > 4){
         console.log("count > 4");
         error = "候補者を4名以上選んでます。候補者は4名まで選んでください。";
     }
