@@ -19,7 +19,6 @@
         else {
             current_list.hide();
         }
-        console.log(count+','+i);
     });
 
     //もしその日のポスターセッションが存在しないならば

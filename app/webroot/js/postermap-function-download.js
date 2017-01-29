@@ -22,7 +22,7 @@ function downloadPoster(pageName){
 function checkDataVersion(){
 		$.ajax({
 		   		url: posMAppDataVersionURL,
-				type: "POST",
+				type: "GET",
 				dataType: "json",
 				async: false,
 				data: "",
@@ -48,7 +48,7 @@ function ajaxdownload(pageName){
 		
 		$.ajax({
 		   		url: posMAppDataURL,
-				type: "POST",
+				type: "GET",
 				dataType: "json",
 				async: false,
 				data: "",
