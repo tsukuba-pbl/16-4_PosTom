@@ -1,6 +1,6 @@
 function create_list() {
     var checkboxContents = "";
-    var ID, NAME, TITLE;
+    var ID, NAME, TITLE, DATE;
     var vote_data = [];
     var correct_json_flag = 0;
     var count_list = 0;
@@ -26,22 +26,24 @@ function create_list() {
         }
     }
 
+    $(".print-vote-btn").removeClass("ui-btn-active");
     $(".c-list").addClass("ui-btn-active");
-    $(".b-list").removeClass("ui-btn-active");
     $('#my_checkbox').show();
-    $('#my_bookmark').empty();
+    $('#my_bookmark').hide();
+    $('#my_daylist').hide();
 
     /*
         poster[{"presenid","posterid","star","date"}]
         presen[{"presenid","name","affiliation","first"}]
         author[{"presenid","title","abstract","bookmark"}]
     */
-
+    //jsonから候補者リストの配列を作成
     $.each(poster, function(i) {
         $.each (presen, function(j) {
             if (poster[i].presenid === presen[j].presenid) {
                 ID = presen[j].presenid;
                 TITLE = presen[j].title;
+                DATE = poster[i].date;
                 return true;
             }
         });
@@ -51,8 +53,8 @@ function create_list() {
                 return true;
             }
         });
-        vote_data[i] = { 'id' : ID, 'title' : TITLE, 'name' : NAME };
-        console.log(vote_data[i].id+','+vote_data[i].title+','+vote_data[i].name);
+        vote_data[i] = { 'id' : ID, 'title' : TITLE, 'name' : NAME, 'date' : DATE };
+        console.log(vote_data[i].id+','+vote_data[i].title+','+vote_data[i].name+','+vote_data[i].date);
         count_list = i;
     });
 
@@ -66,7 +68,7 @@ function create_list() {
 
     checkboxContents += "<div data-role='controlgroup' class='candidate_list'>";
     for (var i=0; i<count_list+1; i++) {
-        checkboxContents += '<div class="candidate-item" data-candidate-id="'+vote_data[i].id+'">';
+        checkboxContents += '<div class="candidate-item" data-candidate-id="'+vote_data[i].id+'" data-candidate-date="'+vote_data[i].date+'">';
         checkboxContents += '<li><input type="checkbox" ';
         for (key in CandidateId) {
             if (CandidateId[key] === vote_data[i].id) {
@@ -75,7 +77,7 @@ function create_list() {
         }
         checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' data-candidate-id="'+vote_data[i].id+'" data-candidate-title="'+vote_data[i].title+'" data-candidate-name="'+vote_data[i].name+'"/>'
         checkboxContents += '<label for="jsform_checkbox' + i +'">';
-        checkboxContents += '<div style="font-weight:normal">' + vote_data[i].id + '</div>';
+        checkboxContents += '<div style="font-weight:normal">' + vote_data[i].id + ' (day'+vote_data[i].date+')</div>';
         checkboxContents += '<strong>';
         if (bookmark_list != null) {
             for (var j=0; j<bookmark_list.length; j++) {

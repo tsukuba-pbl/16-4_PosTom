@@ -6,6 +6,8 @@
 $(document).on('change', 'input[type="checkbox"]',function () {
   var count;
 
+  //検索ボタンを押した状態でチェックボックスを押すと非フォーカスにならないのを修正
+  $('#searchlist').blur();
 
   if ($(this).is(":checked")) {
       count = $(this).attr('name');
