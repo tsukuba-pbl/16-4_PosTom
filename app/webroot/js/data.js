@@ -41,8 +41,7 @@ var event_vote_app = null;
 var event_vote_valid = null;
 var already_voted = null;
 var voter_param_flag = 1;
-var d = new Date();
-var voteDay = d.getDate();
+var voteDay;
 var voteDay2;
 //GETパラメータがついていれば
 if (voter_param) {

@@ -587,14 +587,14 @@
 		<div id="nowTime"></div>
 		<script type="text/javascript">
 		function current(){
-		var d2=new Date(),str='';
-		str +=d2.getFullYear()+'年'; //获取当前年份
-		str +=d2.getMonth()+1+'月'; //获取当前月份（0——11）
-		str +=d2.getDate()+'日';
-		voteDay2 = d2.getDate();
-		str +=d2.getHours()+'時';
-		str +=d2.getMinutes()+'分';
-		str +=d2.getSeconds()+'秒';
+		var d=new Date(),str='';
+		str +=d.getFullYear()+'年'; //获取当前年份
+		str +=d.getMonth()+1+'月'; //获取当前月份（0——11）
+		str +=d.getDate()+'日';
+		voteDay2 = d.getDate();
+		str +=d.getHours()+'時';
+		str +=d.getMinutes()+'分';
+		str +=d.getSeconds()+'秒';
 		return str; }
 		setInterval(function(){$("#nowTime").html(current)},1000);
 		</script>
