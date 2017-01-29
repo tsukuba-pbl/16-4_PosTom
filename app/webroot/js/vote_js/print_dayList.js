@@ -14,17 +14,19 @@
         if (DATE === today) {
             current_list.show();
             $('#my_checkbox').show();
+            count++;
         }
         else {
             current_list.hide();
-            //もしその日のポスターセッションが存在しないならば
-            if (i === count) {
-                $('#my_daylist').empty().append("<a>day"+today+"のポスターセッションはありません</a>");
-                $('#my_checkbox').hide();
-                $('#my_bookmark').hide();
-                $('#my_daylist').show();
-            }
-            count++;console.log(count+','+i);
         }
+        console.log(count+','+i);
     });
+
+    //もしその日のポスターセッションが存在しないならば
+    if (count === 0) {
+        $('#my_daylist').empty().append("<a>day"+today+"のポスターセッションはありません</a>");
+        $('#my_checkbox').hide();
+        $('#my_bookmark').hide();
+        $('#my_daylist').show();
+    }
 }
