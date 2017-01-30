@@ -5,25 +5,34 @@ function set_item(){
     var selected_id_json = {};
     var error = "";
     var data = {};
+    var vote_data = [];
     //var checkId = $('#checkvote').val();
     var count = 0;
-
+    // Objectソート
+    // 第1引数：検索したいkey  第2引数：true -> 昇順  false -> 降順
+    var sort_by = function(field, reverse, primer){
+        reverse = (reverse) ? -1 : 1;
+        return function(a,b){
+            a = a[field];
+            b = b[field];
+            if (typeof(primer) != 'undefined'){
+                a = primer(a);
+                b = primer(b);
+            }
+            if (a<b) return reverse * -1;
+            if (a>b) return reverse * 1;
+            return 0;
+        }
+    }
 
     var ID, NAME, TITLE;
-    var list = "";
-    list += "<table><tbody><tr><th>ID</th><th>TITLE</th><th>NAME</th></tr>";
-
 
     //現在選択している候補者リストを取得
     candidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
 
-
-
     //現在チェックしている候補者数のカウント
-
     for (key in candidateId) {
       selected_id_json["name_"+(count+1)] = candidateId[key];
-      count++;
 
       var tmp, tmp_id;
       tmp = parseInt(key.split('contender')[1])-1;
@@ -32,9 +41,23 @@ function set_item(){
       NAME = $(tmp_id).data('candidate-name');
       TITLE = $(tmp_id).data('candidate-title');
 
-      list += "<tr>";
-      list += "<td>"+ID+"</td><td>"+TITLE+"</td><td>"+NAME+"</td>";
-      list += "</tr>";
+      vote_data[count] = {'id' : ID, 'name' : NAME, 'title' : TITLE };
+
+      count++;
+    }
+
+    //データソート
+    vote_data.sort(sort_by('id', false, function(a){return a.toUpperCase()}));
+
+    var list = "";
+    list += "<table><tbody><tr><th>ID</th><th>TITLE</th><th>NAME</th></tr>";
+
+    for (var i=0; i<count; i++) {
+        list += "<tr>";
+        list += "<td>"+vote_data[i].id+"</td>";
+        list += "<td>"+vote_data[i].title+"</td>";
+        list += "<td>"+vote_data[i].name+"</td>";
+        list += "</tr>";
     }
 
     list += "</tbody></table>";

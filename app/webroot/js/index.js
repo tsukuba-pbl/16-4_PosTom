@@ -6,10 +6,10 @@ $(window).load(function() {
 	setTimeout(function(){
 		init();
 
-//		// 固有識別IDが設定されていなければ、初期設定する
-		$("#acceptCollectLog").acceptCollectLog();
-		$("#denyCollectLog").denyCollectLog();
-		$(".selectUserCategoryButton").selectUserCategory();
+		// 固有識別IDが設定されていなければ、初期設定する
+		//$("#acceptCollectLog").acceptCollectLog();
+		//$("#denyCollectLog").denyCollectLog();
+		//$(".selectUserCategoryButton").selectUserCategory();
 		//initUserData(); //一時的にログ機能を止める
 		//initの中に入れると、初めてダウンロードしてから、二回事件を与えて、一回クリックすると、ブックマーク機能がおかしくなる
 		$("#bookmarkbutton").touchBookmark();

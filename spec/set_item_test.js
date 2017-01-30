@@ -12,6 +12,7 @@ describe("set_item> ", function(){
 			var selected_json = {};
 			var voter_info = {voter_id : "test"};
 			$('#test').append('<input type="hidden" id="jsform_checkbox2" data-candidate-id="A1-1" data-candidate-title="AAA" data-candidate-name="AAA">');
+			$('#test').append('<input type="hidden" id="jsform_checkbox4" data-candidate-id="A1-2" data-candidate-title="AAA" data-candidate-name="AAA">');
 			localStorage.setItem('voter_info', JSON.stringify(voter_info));
 			localStorage.setItem('Candidate_ID',JSON.stringify(selected_json));
 			set_item();
