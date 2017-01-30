@@ -591,7 +591,7 @@
 		str +=d.getFullYear()+'年'; //获取当前年份
 		str +=d.getMonth()+1+'月'; //获取当前月份（0——11）
 		str +=d.getDate()+'日';
-		voteDay2 = d.getDate();
+		voteDay2 = d.getDate();console.log(voteDay2);
 		str +=d.getHours()+'時';
 		str +=d.getMinutes()+'分';
 		str +=d.getSeconds()+'秒';

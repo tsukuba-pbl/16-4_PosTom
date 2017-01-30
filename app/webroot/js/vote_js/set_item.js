@@ -41,15 +41,6 @@ function set_item(){
 
     $('#confirm_candidates').empty().append(list);
 
-    // QRcodeが入力されていない場合、エラー
-    /*
-    if (checkId === "0") {
-      console.log("data = null");
-      alert("正しいIDをQRコードから入力してください。");
-      return;
-    }
-    */
-
     //voter_infoはGETパラメータで受け取ったものが格納される
     //data.jsでデータ格納処理
     var obj = JSON.parse(localStorage.getItem('voter_info'));
@@ -67,8 +58,8 @@ function set_item(){
     if(count < 1){
         console.log("count < 1");
         error = "候補者を1名未満選んでます。候補者を選んでください。";
-    }else if(count > 4){
-        console.log("count > 4");
+    }else if(count > 3){
+        console.log("count > 3");
         error = "候補者を4名以上選んでます。候補者は4名まで選んでください。";
     }
 
