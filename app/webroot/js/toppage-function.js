@@ -39,6 +39,8 @@ $.fn.goToTopPage = function(ev) {
 $.fn.goToVotePage = function(ev) {
 	var nextPage = "#votePage";
 	$(this).on(ev, function() {
+		console.log(voteDay);
+		console.log(voteDay2);
 		if (voter_param_flag === 0) {
 			changePage(nextPage);
 		}
@@ -46,7 +48,7 @@ $.fn.goToVotePage = function(ev) {
 			alert ("配布されたQRコードをもう一度読み込んで下さい。");
 			return;
 		}
-		if (already_voted === 1) {
+		if (already_voted === 1 && voteDay2 === voteDay) {
 	    	changePage("#AlreadyVotedPage");
 	  	}
 		else {

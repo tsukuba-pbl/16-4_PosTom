@@ -7,19 +7,16 @@ describe("set_item> ", function(){
 			$('body').append("<div id='test'></div>");
 		});
 
-		//候補者が3人未満の場合のテストコード。
-		it("under_3", function(){
-			var selected_json = {
-				contender3:"333",
-				contender5:"555"
-			};
+		//候補者が0人の場合のテストコード。
+		it("candidates-1", function(){
+			var selected_json = {};
 			var voter_info = {voter_id : "test"};
 			$('#test').append('<input type="hidden" id="jsform_checkbox2" data-candidate-id="A1-1" data-candidate-title="AAA" data-candidate-name="AAA">');
 			$('#test').append('<input type="hidden" id="jsform_checkbox4" data-candidate-id="A1-2" data-candidate-title="AAA" data-candidate-name="AAA">');
 			localStorage.setItem('voter_info', JSON.stringify(voter_info));
 			localStorage.setItem('Candidate_ID',JSON.stringify(selected_json));
 			set_item();
-			expect(console.log).toHaveBeenCalledWith("count < 3");
+			expect(console.log).toHaveBeenCalledWith("count < 1");
 		});
 
 		//候補者が4人の場合のテストコード。

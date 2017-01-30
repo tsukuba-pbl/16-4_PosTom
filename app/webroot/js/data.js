@@ -41,6 +41,8 @@ var event_vote_app = null;
 var event_vote_valid = null;
 var already_voted = null;
 var voter_param_flag = 1;
+var voteDay;
+var voteDay2;
 //GETパラメータがついていれば
 if (voter_param) {
     voter_param_flag = 0;
