@@ -57,7 +57,7 @@ function set_item(){
     // count数を見て候補者の選択数をチェック
     if(count < 1){
         console.log("count < 1");
-        error = "候補者を1名未満選んでます。候補者を選んでください。";
+        error = "候補者が選択されていません。候補者を選んでください。";
     }else if(count > 3){
         console.log("count > 3");
         error = "候補者を4名以上選んでます。候補者は4名まで選んでください。";
@@ -68,6 +68,9 @@ function set_item(){
         alert(error);
         return;
     }
+
+    //現在の候補者数
+    console.log("count = "+count);
 
     /*
     ** dataにevent_strを保存する。これによってevent毎に投票結果を仕分けすることが可能。
