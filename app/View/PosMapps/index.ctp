@@ -142,7 +142,7 @@
 		<div id="vote_app_page" class="ui-grid-solo">
 			<div class="ui-grid-a">
 				<div align="center">
-					<img id="goToVote" class="topVoteIcon" src="<?php echo $this->Html->webroot;?>img/topmenu/voteicon.png"/>
+					<img id="goToVote" style="background-color:white" class="topVoteIcon" src="<?php echo $this->Html->webroot;?>img/topmenu/voteicon.png"/>
 					<div class="topMenuIconLabel">Vote Application</div>
 			</div>
 		</div>
