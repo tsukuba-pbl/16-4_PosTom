@@ -9,7 +9,6 @@ class PosMappsController extends AppController {
     public function index(){
 //        $this->set('posters', $this->Poster->find('all'));
         $this->autoLayout=false;
-        $this->makejson();
     }
     public function makejson()
     {
