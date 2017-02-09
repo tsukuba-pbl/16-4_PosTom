@@ -179,7 +179,7 @@ class SchedulesController extends AppController {
 		}
 		array_push($this->timeGroup, array('room'=>$r, 'start'=>$s, 'end'=>$e, 'date'=>$d));
 	}
-	// 文字列を分数で返す(ex. 12:30 -> 750)
+	// 文字列を0:00から何分経過したかで返す(ex. 12:30 -> 750)
 	public function _strToMin($time){
 		$timeStr = split(":", $time);
 		// 時間が間違い
