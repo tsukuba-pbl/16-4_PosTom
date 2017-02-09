@@ -191,7 +191,6 @@ class SchedulesController extends AppController {
 		// 時のチェック
 		if(!preg_match("/^([1-9]|1[0-9]|2[0-4])$/", $timeStr[0])){
 			var_dump($timeStr[0]);
-			echo "aaaaaaaaaaaaaaaaaaa";
 			$this->error .= "Incorrect time(Hour) value. <br>";
 			$this->check = false;
 		}
@@ -201,7 +200,7 @@ class SchedulesController extends AppController {
 			$this->error .= "Incorrect time(Minute) value. <br>";
 			$this->check = false;
 		}
-		
+
 		$t = (Int)$timeStr[0];
 		$m = (Int)$timeStr[1];
 		if(count($timeStr) != 2 || $t < 0 || 24 <  $t || $m < 0 || 60 <  $m){
