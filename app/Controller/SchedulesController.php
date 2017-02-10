@@ -182,13 +182,24 @@ class SchedulesController extends AppController {
 	// 文字列を0:00から何分経過したかで返す(ex. 12:30 -> 750)
 	public function _strToMin($time){
 		$timeStr = split(":", $time);
-		// 時間が間違い
-		if((string)$timeStr[0] !== (string)(Int)$timeStr[0] || (string)$timeStr[1] !== (string)(Int)$timeStr[1]){
-			if($timeStr[1] != "00" && $timeStr != "0"){
-				$this->error .= "Incorrect time value. <br>";
-				$this->check = false;
-			}
+		// 型が違う
+		if(count($timeStr) !== 2){
+			$this->error .= "Incorrect time value. <br>";
+			$this->check = false;
 		}
+
+		// 時のチェック
+		if(!preg_match("/^([1-9]|1[0-9]|2[0-4])$/", $timeStr[0])){
+			$this->error .= "Incorrect time(Hour) value. <br>";
+			$this->check = false;
+		}
+
+		// 分のチェック
+		if(!preg_match("/^[0-5][0-9]$/", $timeStr[1])){
+			$this->error .= "Incorrect time(Minute) value. <br>";
+			$this->check = false;
+		}
+
 		$t = (Int)$timeStr[0];
 		$m = (Int)$timeStr[1];
 		if(count($timeStr) != 2 || $t < 0 || 24 <  $t || $m < 0 || 60 <  $m){
