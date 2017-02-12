@@ -244,6 +244,9 @@ $.fn.listchangebookmark = function() {
 		localStorage.setItem("bookmarks", bookmarks);
 
 		$("#bookmarkList").showBookmarkList();
+
+		//posvoteのブックマークアイコンの操作
+		$('#bookmark-'+presenid).toggle();
 	});
 };
 

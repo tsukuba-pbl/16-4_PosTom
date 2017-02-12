@@ -66,7 +66,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/count_checked.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_bookmark_list.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_list.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script>
+<!--	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script> -->
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_back.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_toppage.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.searcher.js"></script>
@@ -618,7 +618,7 @@
 
 
 <script>
-    $('#votePage').on('pageshow', function(e, d) {
+    $(document).ready(function() {
 		create_list();
     });
 </script>

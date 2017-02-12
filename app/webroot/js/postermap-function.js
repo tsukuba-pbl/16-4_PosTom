@@ -66,7 +66,7 @@ $.fn.closeBasicInfo = function() {
 		unselectPoster();
 		showPosterIcons();
 		//resetAllIcons();
-	});	
+	});
 };
 
 // ラベルを変更する
@@ -88,7 +88,7 @@ $.fn.touchBookmark = function() {
 		var presenid = sessionStorage.getItem("presenid");
 		var bookmarkIcon = document.getElementById("bookmarkbutton");
 		touchBookmarkFun(presenid, bookmarkIcon);
-	});	
+	});
 };
 
 // ブックマークスターを大きくする
@@ -208,13 +208,13 @@ function changeLabel(column) {
 			if (str.length > labelmax) {
 				str = str.substring(0, labelmax) + "...";
 			}
-			
+
 			// テスト中ならばラベルの一覧に追加していく
 			setLabel(i, str);
 			// labels[i - 1] = str;
 		}
 		return labels;
-	} 
+	}
 }
 
 
@@ -352,8 +352,8 @@ function changeBasicInfoPanel(flag) {
 
 	var basicinfo = document.getElementById("basicinfo");
 
-	basicinfo.innerHTML = 
-		// "No. " 
+	basicinfo.innerHTML =
+		// "No. "
 		// + sessionStorage.getItem("posterid")+
 		 " ["
 		+ sessionStorage.getItem("presenid")
@@ -418,7 +418,7 @@ function emphasisSearchedPosters(posterids) {
 	});
 
 	showPosterIcons();
-	
+
 }
 
 
@@ -459,8 +459,8 @@ function selectPoster(posterid) {
 // 強調表示を解除する
 function unselectPoster() {
 	for (var i = 1; i <= ptotal; i++) {
-		if (pflag[i] === "t") { 
-			pflag[i] = "d"; 
+		if (pflag[i] === "t") {
+			pflag[i] = "d";
 		} else if (pflag[i] === "e") {
 			pflag[i] = "s";
 		}
@@ -526,7 +526,7 @@ function touchBookmarkFun(presenid, bookmarkIcon){
 	var bookmarkArr = getBookmarks();
 	// posteridに該当するポスターがブックマークリストに存在しているか確認用
 	var location = bookmarkArr.indexOf(presenid);
-
+console.log(presenid);
 	var starstatus;
 	if (location !== -1) {
 		// ある場合
@@ -593,7 +593,7 @@ function getBookmarks() {
 // TODO: jQueryを使うとbindされない原因をつきとめてjQueryに戻す
 function searchChanged(bar) {
 	if (bar.value.trim() !== "" && bar.value !== null) {
-		
+
 		// 検索し、強調表示する
 		console.log("search");
 		saveLog("search", {keyword:bar.value});
@@ -672,7 +672,7 @@ function searchAll(word) {
 
 	emphasisSearchedPosters(posterids);
 
-	document.getElementById("searchResult").innerHTML = 
+	document.getElementById("searchResult").innerHTML =
 		'<span id="searchResultText" class="ui-li-count" style="right:initial">'+posterids.length + "件</span>";
 
 	return pflag;
