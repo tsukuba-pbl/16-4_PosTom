@@ -66,7 +66,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/count_checked.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_bookmark_list.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_list.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script>
+<!--	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script> -->
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_back.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_toppage.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.searcher.js"></script>
@@ -79,24 +79,7 @@
 	<scirpt type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_yourid.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.quicksearch.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_dayList.js"></script>
-
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/grid.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/version.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/detector.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/formatinf.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/errorlevel.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/bitmat.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/datablock.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/qrcode.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/bmparser.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/datamask.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/rsdecoder.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/gf256poly.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/gf256.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/decoder.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/findpat.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/alignpat.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>jsqrcode-master/src/databr.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/show_all_list.js"></script>
 
 <!-- ローディング画面 -->
 <div id="loading">
@@ -503,7 +486,7 @@
 			-->
 			<div data-role="header" data-theme="b" class="step-two"><p>候補者を下記から選択してください。</p></div>
 			<div data-role="controlgroup" data-type="horizontal">
-				<button class="c-list print-vote-btn ui-btn-active" onclick="create_list()">全件表示</button>
+				<button class="c-list print-vote-btn ui-btn-active" onclick="show_all_list()">全件表示</button>
 				<button class="b-list print-vote-btn" onclick="create_bookmark_list()">ブックマークリスト</button>
 			</div>
 			<!-- 日付ごとにボタンを表示．タブがいいけど謎バグでできなかった -->
@@ -594,7 +577,7 @@
 		str +=d.getFullYear()+'年'; //获取当前年份
 		str +=d.getMonth()+1+'月'; //获取当前月份（0——11）
 		str +=d.getDate()+'日';
-		voteDay2 = d.getDate();console.log(voteDay2);
+		voteDay2 = d.getDate();
 		str +=d.getHours()+'時';
 		str +=d.getMinutes()+'分';
 		str +=d.getSeconds()+'秒';
@@ -618,7 +601,7 @@
 
 
 <script>
-    $('#votePage').on('pageshow', function(e, d) {
+    $(document).ready(function() {
 		create_list();
     });
 </script>

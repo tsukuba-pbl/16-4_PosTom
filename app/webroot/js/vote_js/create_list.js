@@ -1,5 +1,8 @@
 function create_list() {
     var checkboxContents = "";
+    var poster_data = JSON.parse(localStorage.getItem("poster"));
+    var presen_data = JSON.parse(localStorage.getItem("presen"));
+    var author_data = JSON.parse(localStorage.getItem("author"));
     var ID, NAME, TITLE, DATE;
     var vote_data = [];
     var correct_json_flag = 0;
@@ -38,18 +41,18 @@ function create_list() {
         author[{"presenid","title","abstract","bookmark"}]
     */
     //jsonから候補者リストの配列を作成
-    $.each(poster, function(i) {
-        $.each (presen, function(j) {
-            if (poster[i].presenid === presen[j].presenid) {
-                ID = presen[j].presenid;
-                TITLE = presen[j].title;
-                DATE = poster[i].date;
+    $.each(poster_data, function(i) {
+        $.each (presen_data, function(j) {
+            if (poster_data[i].presenid === presen_data[j].presenid) {
+                ID = presen_data[j].presenid;
+                TITLE = presen_data[j].title;
+                DATE = poster_data[i].date;
                 return true;
             }
         });
-        $.each (author, function(k) {
-            if (poster[i].presenid === author[k].presenid && author[k].first === "1") {
-                NAME = author[k].name;
+        $.each (author_data, function(k) {
+            if (poster_data[i].presenid === author_data[k].presenid && author_data[k].first === "1") {
+                NAME = author_data[k].name;
                 return true;
             }
         });
@@ -78,14 +81,8 @@ function create_list() {
         checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' data-candidate-id="'+vote_data[i].id+'" data-candidate-title="'+vote_data[i].title+'" data-candidate-name="'+vote_data[i].name+'"/>'
         checkboxContents += '<label for="jsform_checkbox' + i +'">';
         checkboxContents += '<div style="font-weight:normal">' + vote_data[i].id + ' (day'+vote_data[i].date+')</div>';
+        checkboxContents += '<span id=bookmark-'+vote_data[i].id+' style="display:none;">★ </span>';
         checkboxContents += '<strong>';
-        if (bookmark_list != null) {
-            for (var j=0; j<bookmark_list.length; j++) {
-                if (vote_data[i].id === bookmark_list[j]) {
-                    checkboxContents += '★ ';
-                }
-            }
-        }
         checkboxContents += vote_data[i].title;
         checkboxContents += '</strong><hr>';
         checkboxContents += '<div class="authors-on-list" style="text-align:right">' + vote_data[i].name + '</div></label></li></div>';
