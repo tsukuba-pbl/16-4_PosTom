@@ -51,7 +51,10 @@ $.fn.goToVotePage = function(ev) {
 		if (already_voted === 1 && voteDay2 === voteDay) {
 	    	changePage("#AlreadyVotedPage");
 	  	}
-		else {
+		else if (already_voted === 1 && voteDay2 !== voteDay){
+			console.log("clear");
+			already_voted = 0;
+			clear_candidate_data();
 	    	changePage(nextPage);
 	    }
     });

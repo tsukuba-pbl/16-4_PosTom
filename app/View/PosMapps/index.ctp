@@ -80,6 +80,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.quicksearch.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_dayList.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/show_all_list.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/clear_candidate_data.js"></script>
 
 <!-- ローディング画面 -->
 <div id="loading">
