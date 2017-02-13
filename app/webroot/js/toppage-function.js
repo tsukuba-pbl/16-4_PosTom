@@ -39,8 +39,8 @@ $.fn.goToTopPage = function(ev) {
 $.fn.goToVotePage = function(ev) {
 	var nextPage = "#votePage";
 	$(this).on(ev, function() {
-		console.log(voteDay);
-		console.log(voteDay2);
+		console.log('voteday='+voteDay);
+		console.log('voteday2='+voteDay2);
 		if (voter_param_flag === 0) {
 			changePage(nextPage);
 		}
@@ -51,7 +51,10 @@ $.fn.goToVotePage = function(ev) {
 		if (already_voted === 1 && voteDay2 === voteDay) {
 	    	changePage("#AlreadyVotedPage");
 	  	}
-		else {
+		else if (already_voted === 1 && voteDay2 !== voteDay){
+			console.log("clear");
+			already_voted = 0;
+			clear_candidate_data();
 	    	changePage(nextPage);
 	    }
     });

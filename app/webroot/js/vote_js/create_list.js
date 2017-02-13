@@ -3,6 +3,7 @@ function create_list() {
     var poster_data = JSON.parse(localStorage.getItem("poster"));
     var presen_data = JSON.parse(localStorage.getItem("presen"));
     var author_data = JSON.parse(localStorage.getItem("author"));
+    var bookmark_data = localStorage.getItem("bookmarks");
     var ID, NAME, TITLE, DATE;
     var vote_data = [];
     var correct_json_flag = 0;
@@ -57,7 +58,6 @@ function create_list() {
             }
         });
         vote_data[i] = { 'id' : ID, 'title' : TITLE, 'name' : NAME, 'date' : DATE };
-        console.log(vote_data[i].id+','+vote_data[i].title+','+vote_data[i].name+','+vote_data[i].date);
         count_list = i;
     });
 
@@ -90,6 +90,12 @@ function create_list() {
     checkboxContents += "</div>";
 
     $("#my_checkbox").empty().append(checkboxContents).trigger("create");
+
+    //bookmarkが存在するならば
+    for (var i=0; i < bookmark_data.length; i++) {
+        bookmark_data = bookmark_data.split(',');
+        $('#bookmark-'+bookmark_data[i]).show();
+    }
 
     //AND検索できるようにするやつ
     var qs = $("input#searchlist").quicksearch("ul#listdata li");

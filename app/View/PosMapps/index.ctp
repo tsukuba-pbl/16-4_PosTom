@@ -80,6 +80,7 @@
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.quicksearch.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_dayList.js"></script>
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/show_all_list.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/clear_candidate_data.js"></script>
 
 <!-- ローディング画面 -->
 <div id="loading">
@@ -559,7 +560,7 @@
 	<div id="confirm_candidates_voted" class="candidates_table" style="margin:5px auto"></div>
 	<div id="confirm_qrcode" align="center"></div>
 	<fieldset class="ui-grid-a">
-		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻す</button>
+		<button data-icon="flat-cross" data-theme="a" onclick="go_toppage()">ホームに戻る</button>
 	</fieldset>
 </div>
 

@@ -3,6 +3,6 @@ function go_toppage(){
         changeHash: true
     });
 
-      already_voted = 1;
+    already_voted = 1;
     voter_param_flag = 2;
 }
