@@ -16,6 +16,7 @@ function clear_candidate_data() {
     $('#my_checkbox').trigger("create");
 
     // チェックされた投票者をクリア
+    CandidateID = {};
     localStorage.removeItem('Candidate_ID')
 
 }
