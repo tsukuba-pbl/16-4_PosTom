@@ -8,10 +8,11 @@ function create_bookmark_list() {
     var dataset = {};
 
     // 全て非表示し，
-    $(".candidate-item").each(function(i) {
-        $(this).hide();
-        dataset[$(this).data("candidate-id")] = { "el": $(this), "id": $(this).data("candidate-id") };
-    });
+    var el = $('.candidate-item');
+    for(var i = 0; i < el.length; i++){
+        el.eq(i).hide();
+        dataset[el.eq(i).data("candidate-id")] = { "el": el.eq(i), "id": el.eq(i).data("candidate-id") };
+    }
 
     if (bookmark_list) { //bookmarksがあったら
         // 配列に変換
