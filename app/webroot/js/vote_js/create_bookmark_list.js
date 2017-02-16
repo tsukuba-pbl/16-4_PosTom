@@ -9,10 +9,12 @@ function create_bookmark_list() {
 
     // 全て非表示し，
     var parent = $('#my_checkbox');
-    var el = parent.find('.candidate-item');
+    //var el = parent.find('.candidate-item');
+    var el = document.getElementsByClassName("candidate-item");
+    console.log(el);
     for (var i = 0; i < el.length; i++) {
-        el.eq(i).hide();
-        dataset[el.eq(i).data("candidate-id")] = { "el": el.eq(i) };
+        el[i].style.display = "none";
+        dataset[el[i].dataset.candidateId] = { "el": el[i] };
     }
 
     if (bookmark_list) { //bookmarksがあったら
@@ -23,7 +25,7 @@ function create_bookmark_list() {
         for (var i = 0; i < bookmark_list.length; i++) {
             // datasetのKeyにbookmarkのIDがあれば，ブックマークなので，表示
             if (dataset[bookmark_list[i]] != undefined) {
-                dataset[bookmark_list[i]].el.show();
+                dataset[bookmark_list[i]].el.style.display = "block";
             }
         }
         // //bookmarkされてないlist-itemを非表示にする
