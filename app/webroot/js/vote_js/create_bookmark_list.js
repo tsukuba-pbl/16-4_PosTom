@@ -8,20 +8,20 @@ function create_bookmark_list() {
     var dataset = {};
 
     // 全て非表示し，
-    $(".candidate-item").each(function(i) {
-        $(this).hide();
-        dataset[$(this).data("candidate-id")] = { "el": $(this), "id": $(this).data("candidate-id") };
-    });
+    var el = document.getElementsByClassName("candidate-item");
+    for (var i = 0; i < el.length; i++) {
+        el[i].style.display = "none";
+        dataset[el[i].dataset.candidateId] = { "el": el[i] };
+    }
 
     if (bookmark_list) { //bookmarksがあったら
         // 配列に変換
         bookmark_list = bookmark_list.split(",");
-
         // bookmarkのものだけ表示
         for (var i = 0; i < bookmark_list.length; i++) {
             // datasetのKeyにbookmarkのIDがあれば，ブックマークなので，表示
             if (dataset[bookmark_list[i]] != undefined) {
-                dataset[bookmark_list[i]].el.show();
+                dataset[bookmark_list[i]].el.style.display = "block";
             }
         }
         // //bookmarkされてないlist-itemを非表示にする
