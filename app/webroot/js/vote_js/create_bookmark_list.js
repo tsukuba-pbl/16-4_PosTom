@@ -5,30 +5,43 @@ function create_bookmark_list() {
 
     $(".print-vote-btn").removeClass("ui-btn-active");
     $(".b-list").addClass("ui-btn-active");
+    var dataset = {};
 
-    if (bookmark_list) {  //bookmarksがあったら
-        if (bookmark_list.length > 1) {
-            bookmark_list = bookmark_list.split(",");
-        }
-        //bookmarkされてないlist-itemを非表示にする
-        $(".candidate-item").each(function(i) {
-            var current_list = $(this);
-            var ID = $(this).data("candidate-id");
-            for(var j = 0; j < bookmark_list.length; j++){
-                if (bookmark_list[j] === ID) {
-                    current_list.show();
-                    break;
-                }
-                else {
-                    current_list.hide();
-                }
+    // 全て非表示し，
+    $(".candidate-item").each(function(i) {
+        $(this).hide();
+        dataset[$(this).data("candidate-id")] = { "el": $(this), "id": $(this).data("candidate-id") };
+    });
+
+    if (bookmark_list) { //bookmarksがあったら
+        // 配列に変換
+        bookmark_list = bookmark_list.split(",");
+
+        // bookmarkのものだけ表示
+        for (var i = 0; i < bookmark_list.length; i++) {
+            // datasetのKeyにbookmarkのIDがあれば，ブックマークなので，表示
+            if (dataset[bookmark_list[i]] != undefined) {
+                dataset[bookmark_list[i]].el.show();
             }
-        });
-    }
-    else {
+        }
+        // //bookmarkされてないlist-itemを非表示にする
+        // $(".candidate-item").each(function(i) {
+        //     var current_list = $(this);
+        //     var ID = $(this).data("candidate-id");
+        //     for(var j = 0; j < bookmark_list.length; j++){
+        //         if (bookmark_list[j] === ID) {
+        //             current_list.show();
+        //             break;
+        //         }
+        //         else {
+        //             current_list.hide();
+        //         }
+        //     }
+        // });
+    } else {
         console.log("empty_bookmarks");
         $('#my_checkbox').hide();
         $('#my_daylist').hide();
         $('#my_bookmark').show();
     }
- }
+}
