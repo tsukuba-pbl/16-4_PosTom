@@ -25,7 +25,7 @@ function set_item(){
         }
     }
 
-    var ID, NAME, TITLE;
+    var ID, NAME, TITLE, DATE;
 
     //現在選択している候補者リストを取得
     candidateId = JSON.parse(localStorage.getItem('Candidate_ID'));
@@ -40,8 +40,9 @@ function set_item(){
       ID = $(tmp_id).data('candidate-id');
       NAME = $(tmp_id).data('candidate-name');
       TITLE = $(tmp_id).data('candidate-title');
+      DATE = $(tmp_id).data('candidate-date');
 
-      vote_data[count] = {'id' : ID, 'name' : NAME, 'title' : TITLE };
+      vote_data[count] = {'id' : ID, 'name' : NAME, 'title' : TITLE, 'date': DATE };
 
       count++;
     }
@@ -90,6 +91,18 @@ function set_item(){
     if(error !== ""){
         alert(error);
         return;
+    }
+
+    // それぞれ異なる日にちの候補者を選択していた場合、エラー
+    var tmp_date = vote_data[0].date;
+    if (count > 0) {
+        for(var i=1; i<count; i++) {
+            if (vote_data[i].date !== tmp_date) {
+                error = "異なる日にちの候補者を選択しています。同日の候補者のみ選択してください。"
+                alert(error);
+                return;
+            }
+        }
     }
 
     //現在の候補者数

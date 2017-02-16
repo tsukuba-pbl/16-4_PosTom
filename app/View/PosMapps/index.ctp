@@ -602,8 +602,9 @@
 
 
 <script>
-    $(window).load(function() {
+    $(document).ready(function() {
 		console.log("process2");
+		document.addEventListener('touchstart', function (e) {}, { passive: true });
 		//create_list();
     });
 </script>
