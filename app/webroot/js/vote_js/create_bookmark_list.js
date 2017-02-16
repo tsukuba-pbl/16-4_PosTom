@@ -8,10 +8,7 @@ function create_bookmark_list() {
     var dataset = {};
 
     // 全て非表示し，
-    var parent = $('#my_checkbox');
-    //var el = parent.find('.candidate-item');
     var el = document.getElementsByClassName("candidate-item");
-    console.log(el);
     for (var i = 0; i < el.length; i++) {
         el[i].style.display = "none";
         dataset[el[i].dataset.candidateId] = { "el": el[i] };
@@ -20,7 +17,6 @@ function create_bookmark_list() {
     if (bookmark_list) { //bookmarksがあったら
         // 配列に変換
         bookmark_list = bookmark_list.split(",");
-
         // bookmarkのものだけ表示
         for (var i = 0; i < bookmark_list.length; i++) {
             // datasetのKeyにbookmarkのIDがあれば，ブックマークなので，表示
