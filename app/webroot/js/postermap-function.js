@@ -6,16 +6,16 @@
 // e：検索中の強調表示（赤）
 var pflag;
 var posterIconNo = {}; //key: posterid, value: IconNo
-
 // アイコンのラベルを何文字目まで表示するか
 var labelmax = 7;
-
 // Local DB (WebSQL DB) を開く
 // 現在未使用
 // var db = openDatabase("PosMAppDB", "", "PosMAppDB", 1000);
 
 // ポスターの総件数
 var ptotal;
+
+var author = JSON.parse(localStorage.getItem("author"));
 
 // グローバル変数の初期化処理
 function initPosterMap() {

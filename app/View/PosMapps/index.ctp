@@ -602,8 +602,9 @@
 
 
 <script>
-    $(document).ready(function() {
-		create_list();
+    $(window).load(function() {
+		console.log("process2");
+		//create_list();
     });
 </script>
 

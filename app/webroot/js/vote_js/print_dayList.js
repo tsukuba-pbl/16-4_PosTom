@@ -3,7 +3,7 @@
     var flag = 0;
 
     $('.print-vote-btn').removeClass('ui-btn-active');
-    $('day-'+today).addClass('ui-btn-active');
+    $('.day-'+today).addClass('ui-btn-active');
 
     $('#my_daylist').hide();
     $('#my_bookmark').hide();
