@@ -88,6 +88,8 @@ $.fn.touchBookmark = function() {
 		var presenid = sessionStorage.getItem("presenid");
 		var bookmarkIcon = document.getElementById("bookmarkbutton");
 		touchBookmarkFun(presenid, bookmarkIcon);
+		//posvoteのブックマークアイコンの操作
+		$('#bookmark-'+presenid).toggle();
 	});
 };
 
