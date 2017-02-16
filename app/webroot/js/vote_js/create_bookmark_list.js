@@ -8,8 +8,9 @@ function create_bookmark_list() {
     var dataset = {};
 
     // 全て非表示し，
-    var el = $('.candidate-item');
-    for(var i = 0; i < el.length; i++){
+    var parent = $('#my_checkbox');
+    var el = parent.find('.candidate-item');
+    for (var i = 0; i < el.length; i++) {
         el.eq(i).hide();
         dataset[el.eq(i).data("candidate-id")] = { "el": el.eq(i), "id": el.eq(i).data("candidate-id") };
     }
