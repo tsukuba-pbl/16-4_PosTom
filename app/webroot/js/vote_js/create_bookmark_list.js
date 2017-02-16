@@ -22,7 +22,6 @@ function create_bookmark_list() {
             // datasetのKeyにbookmarkのIDがあれば，ブックマークなので，表示
             if (dataset[bookmark_list[i]] != undefined) {
                 dataset[bookmark_list[i]].el.show();
-                console.log("bookmark!!!");
             }
         }
         // //bookmarkされてないlist-itemを非表示にする
