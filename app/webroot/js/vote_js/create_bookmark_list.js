@@ -12,7 +12,7 @@ function create_bookmark_list() {
     var el = parent.find('.candidate-item');
     for (var i = 0; i < el.length; i++) {
         el.eq(i).hide();
-        dataset[el.eq(i).data("candidate-id")] = { "el": el.eq(i), "id": el.eq(i).data("candidate-id") };
+        dataset[el.eq(i).data("candidate-id")] = { "el": el.eq(i) };
     }
 
     if (bookmark_list) { //bookmarksがあったら
