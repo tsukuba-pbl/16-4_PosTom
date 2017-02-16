@@ -48,12 +48,7 @@ function create_list() {
                 ID = presen_data[j].presenid;
                 TITLE = presen_data[j].title;
                 DATE = poster_data[i].date;
-                return true;
-            }
-        });
-        $.each (author_data, function(k) {
-            if (poster_data[i].presenid === author_data[k].presenid && author_data[k].first === "1") {
-                NAME = author_data[k].name;
+                NAME = getAuthors(ID);
                 return true;
             }
         });

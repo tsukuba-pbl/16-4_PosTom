@@ -2,6 +2,7 @@
 // TODO: 非同期化
 $(window).load(function() {
 	// 非同期で初期化処理
+	console.log("process1");
 
 	setTimeout(function(){
 		init();
@@ -265,4 +266,6 @@ function init() {
 	// タブバーの選択表示を変更
 	changeActiveTab(window.location.hash);
 	// window.location.hash = "";
+	console.log("process2");
+	create_list();
 }
