@@ -68,12 +68,7 @@ function create_list() {
     for (var i=0; i<count_list+1; i++) {
         checkboxContents += '<div class="candidate-item" data-candidate-id="'+vote_data[i].id+'" data-candidate-date="'+vote_data[i].date+'">';
         checkboxContents += '<li><input type="checkbox" ';
-        for (key in CandidateId) {
-            if (CandidateId[key] === vote_data[i].id) {
-              checkboxContents += 'checked="checked"';
-            }
-        }
-        checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' data-candidate-id="'+vote_data[i].id+'" data-candidate-title="'+vote_data[i].title+'" data-candidate-name="'+vote_data[i].name+'"/>'
+        checkboxContents += 'data-theme="c" id="jsform_checkbox'  + i + '" name="contender'+(i+1)+'"'+' data-candidate-id="'+vote_data[i].id+'" data-candidate-title="'+vote_data[i].title+'" data-candidate-name="'+vote_data[i].name+'" data-candidate-date="'+vote_data[i].date+'"/>'
         checkboxContents += '<label for="jsform_checkbox' + i +'">';
         checkboxContents += '<div style="font-weight:normal">' + vote_data[i].id + ' (day'+vote_data[i].date+')</div>';
         checkboxContents += '<span id=bookmark-'+vote_data[i].id+' style="display:none;">★ </span>';
