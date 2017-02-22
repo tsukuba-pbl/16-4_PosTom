@@ -63,24 +63,9 @@
 
 <body>
 	<!-- Vote Application -->
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/count_checked.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_bookmark_list.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_list.js"></script>
-<!--	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script> -->
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_back.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_toppage.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.searcher.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcodereader.js"></script>
-	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/read_candidateid_QR.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
-	<scirpt type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_yourid.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.quicksearch.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_dayList.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/show_all_list.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/clear_candidate_data.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode/qrcode.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode/qrcodereader.js"></script>
+	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_app.js"></script>
 
 <!-- ローディング画面 -->
 <div id="loading">
