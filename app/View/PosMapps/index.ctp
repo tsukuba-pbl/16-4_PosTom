@@ -486,6 +486,7 @@
 			<input type="hidden" name="checkvote" id="checkvote" value="0">
 			-->
 			<div data-role="header" data-theme="b" class="step-two"><p>候補者を下記から選択してください。</p></div>
+			<div id="description-howtouse"><p>あらかじめ<strong>プレゼンリスト</strong>や<strong>ポスターマップ</strong>でブックマークしたものは「<strong>ブックマークリスト</strong>」で表示することができます</p></div>
 			<div data-role="controlgroup" data-type="horizontal">
 				<button class="c-list print-vote-btn ui-btn-active" onclick="show_all_list()">全件表示</button>
 				<button class="b-list print-vote-btn" onclick="create_bookmark_list()">ブックマークリスト</button>
