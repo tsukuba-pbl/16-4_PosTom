@@ -51,7 +51,6 @@
 <body>
 	<!-- Vote Application -->
 	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode/qrcode.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode/qrcodereader.js"></script>
 	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_app.js"></script>
 
 <!-- ローディング画面 -->
