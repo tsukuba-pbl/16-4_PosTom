@@ -43,44 +43,15 @@
 	<script type="text/javascript" charset="utf-8" src="http://db-event.jpn.org/webdbf2015/data_forum.js"></script>
 
 	<!-- DB用発表データ -->
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/data.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/logdata-function.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/toppage-function.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/postermap-function.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/postermap-function-download.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/postermap-function-ui.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/presenlist-function.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/bookmarklist-function.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/detail-function.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/sessiontable-function.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/postermap-function-hammer.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/timetable-function.js"></script>
-	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/index.js"></script>
-
+	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/posmapp_js/posmapp.min.js"></script>
 	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
 
 </head>
 
 <body>
 	<!-- Vote Application -->
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/count_checked.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_bookmark_list.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/create_list.js"></script>
-<!--	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/encoding.js"></script> -->
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_back.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/go_toppage.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.searcher.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcodereader.js"></script>
-	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/read_candidateid_QR.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/set_item.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/confirm.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_application.js"></script>
-	<scirpt type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_yourid.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/jquery.quicksearch.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/print_dayList.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/show_all_list.js"></script>
-	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/clear_candidate_data.js"></script>
+	<script type="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/qrcode/qrcode.js"></script>
+	<script tyep="text/javascript" src="<?php echo $this->Html->webroot;?>js/vote_js/vote_app.js"></script>
 
 <!-- ローディング画面 -->
 <div id="loading">
