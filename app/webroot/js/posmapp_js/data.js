@@ -64,10 +64,6 @@ else {
 var posMAppDataURL = "../../json/"+event_str+".json";
 var posMAppDataVersionURL = "../../json/"+event_str+"_version.json";
 
-function ViewModel(){
-	this.forum = forum;
-}
-
 function initData() {
 	if(localStorage.getItem("downloadSuccess")){
 		poster 			= JSON.parse(localStorage.getItem("poster"));
@@ -117,9 +113,6 @@ function initData() {
 	STATIC_HEIGHT = 960;
 
 	setMapSize();
-
-	ko.applyBindings(new ViewModel());
-
 }
 
 function makeSessionMap(){
