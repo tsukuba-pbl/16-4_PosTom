@@ -40,7 +40,9 @@
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/lib/knockout-3.4.0.js"></script>
 
 	<!-- WebDBF program -->
-	<script type="text/javascript" charset="utf-8" src="http://db-event.jpn.org/webdbf2015/data_forum.js"></script>
+	<!--
+		<script type="text/javascript" charset="utf-8" src="http://db-event.jpn.org/webdbf2015/data_forum.js"></script>
+	-->
 
 	<!-- DB用発表データ -->
 	<script type="text/javascript" charset="utf-8" src="<?php echo $this->Html->webroot;?>js/posmapp_js/posmapp.min.js"></script>
