@@ -39,7 +39,7 @@ class VotesControllerTest extends ControllerTestCase {
         // 予期したデータかのテスト
         $this->assertEquals(
             $this->result,
-            "hoge,2,5,6\nfoo,0,2,5\nbar,1,2,3\nferret,4,6,9\ntest,1,6,9\n"
+            "hoge,2,5,6\nfoo,0,2,5\nbar,1,2,3\nferret,4,6,9\nsuzuki,1,3\ntest,1,6,9\n"
         );
     }
 
@@ -73,7 +73,7 @@ class VotesControllerTest extends ControllerTestCase {
         // 予期したデータかのテスト
         $this->assertEquals(
             $this->result,
-            "hoge,0,1,2\nfoo,7,8,9\nbar,6,7,8\nferret,4,6,9\ntest,1,6,9\n"
+            "hoge,0,1,2\nfoo,7,8,9\nbar,6,7,8\nferret,4,6,9\nsuzuki,1\ntest,1,6,9\n"
         );
     }
 
